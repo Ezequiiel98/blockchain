@@ -13,13 +13,11 @@ function Blocks() {
       <Block />
       <Block />
       <Block />
-
       <Block />
       <Block />
       <Block />
       <Block />
       <Block />
-
     </div>
   );
 }
