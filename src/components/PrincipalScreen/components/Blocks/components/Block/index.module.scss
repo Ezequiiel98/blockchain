@@ -1,6 +1,41 @@
 .block{
-    background-color: red;
-    width: 64px;
-    height: 64px;
-    border-bottom: 10px solid rgb(182, 4, 4);
+    position: relative;
+    background-color: #FEC34D;
+    border-radius: 5px;
+    margin: 0 5px;
+    height: 70px;
+    width: 70px;
+    border-bottom: 6px solid  #D39B1E; 
+}
+
+.blockPoints{
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.point{
+    content: '';
+    width:  4.5px;
+    height: 4.5px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.point2{
+ left: 9.2px;
+ top: 10.5px;
+}
+
+.point3{
+    left: 13.5px;
+}
+
+.blockNumber{
+    position: absolute;
+    top: -25px;
+    left: 27px;
+    color: white;
+    font-size: 35px;
+    padding: 0;
 }

@@ -5,8 +5,21 @@ import Block from './components/Block';
 
 function Blocks() {
   return (
-    <div>
+    <div className={styles.containerBlocks}>
       <Block />
+      <Block />
+      <Block />
+      <Block />
+      <Block />
+      <Block />
+      <Block />
+
+      <Block />
+      <Block />
+      <Block />
+      <Block />
+      <Block />
+
     </div>
   );
 }
