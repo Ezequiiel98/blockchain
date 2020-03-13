@@ -1,0 +1,46 @@
+.header{
+ max-width: 1024px;
+ margin: 0 auto;
+}
+
+.imgBackground{
+  height: 148px;
+}
+
+.container{
+  display: flex;
+  justify-content: space-between;
+  margin-top: -20px;
+  color: #525256;
+}
+
+.containerScore{
+  background-color: #E8E8E8;
+  display: flex;
+  align-items: center;
+  width: 196px;
+  height: 53px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.textScore{
+  margin: 0 5px;
+}
+
+.iconContainer{
+  margin: 0 8px;
+  background-color: #44B449;
+  width: 16px;
+  height: 16px;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.score{
+  font-size: 29px;
+ font-weight: bold;
+}
