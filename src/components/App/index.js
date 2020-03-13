@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Blockimg from '../Blockimg/';
-
 import styles from './index.module.scss';
 
-import loginScreen from '../../screens/loginScreen/'
-  return <Blockimg />;
+import LoginScreen from '../../screens/LoginScreen';
+
+function App() {
+  return <LoginScreen />;
 }
 
 export default App;

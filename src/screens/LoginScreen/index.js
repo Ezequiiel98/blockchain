@@ -2,8 +2,8 @@ import React from 'react';
 
 import Blockimg from '../../components/Blockimg/index.js';
 
-function Block() {
+function LoginScreen() {
   return <Blockimg />;
 }
 
-export default Block;
+export default LoginScreen;
