@@ -31,15 +31,17 @@
 .iconContainer{
   margin: 0 8px;
   background-color: #44B449;
-  width: 16px;
+  width: 18px;
   height: 16px;
   color: white;
-  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50%;
 }
-
+.iconScore{
+  padding-bottom: 1px;
+}
 .score{
   font-size: 29px;
  font-weight: bold;
