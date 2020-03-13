@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Blockimg from '../Blockimg/';
+
 import styles from './index.module.scss';
 
-function App() {
-  return <h1> Proyecto blockchain </h1>;
+import loginScreen from '../../screens/loginScreen/'
+  return <Blockimg />;
 }
 
 export default App;
