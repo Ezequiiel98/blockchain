@@ -1,9 +1,9 @@
 import React from 'react';
 
-import styles from './index.module.scss';
+import PantallaValidacion from '../PantallaValidacion';
 
 function App() {
-  return <h1> Proyecto blockchain </h1>;
+  return <PantallaValidacion />;
 }
 
 export default App;
