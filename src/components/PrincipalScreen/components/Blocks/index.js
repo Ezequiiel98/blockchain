@@ -4,6 +4,16 @@ import styles from './index.module.scss';
 import Block from './components/Block';
 
 function Blocks() {
+  
+//   const scroll = (e ) =>{
+//         e.target.parentNode.scrollLeft += 50;
+//     console.log(    e.target.parentNode)
+//   }
+//   const scrollA = (e ) =>{
+//     e.target.parentNode.scrollLeft -= 50;
+// console.log(    e.target.parentNode)
+// }
+
   return (
     <div className={styles.containerBlocks}>
       <Block />
@@ -18,7 +28,18 @@ function Blocks() {
       <Block />
       <Block />
       <Block />
-      <p>></p>
+      <Block />
+      <Block />
+      <Block />
+      <Block />
+      <Block />
+      <Block />
+      <Block />
+      <Block />
+      <Block />
+      <Block />
+      <Block />
+      <Block />
     </div>
   );
 }

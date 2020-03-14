@@ -1,59 +1,86 @@
-.block{
-    position: relative;
-    background-color: #FEC34D;
-    border-radius: 5px;
-    margin-right: 5px;
-    height: 70px;
-    width: 70px;
-    border-bottom: 6px solid  #D39B1E; 
+.containerBlock {
+	background-color: #D39B1E;
+	margin: 0 10px;
+	min-height: 70px;
+	min-width: 70px;
+	border-radius: 5px;
+	overflow: hidden;
 }
 
-.blockPoints{
-    margin-top: 5px;
-    margin-left: 5px;
+.block {
+	position: relative;
+	background-color: #FEC34D;
+	border-radius: 5px;
+	min-height: 68.5px;
+	min-width: 68.5px;
+	margin: 0 auto;
+	margin-top: -10px;
 }
 
-.point{
-    content: '';
-    width:  5px;
-    height: 5px;
-    background-color: white;
-    border-radius: 50%;
-    position: absolute;
+
+
+// .block:hover {
+//     border-color: white;
+//     transform: translateY(5px);
+// }
+
+.blockPoints {
+	margin-top: 5px;
+	margin-left: 5px;
 }
 
-.point2{
- left: 9px;
- top: 11px;
+.point {
+	content: '';
+	width: 5px;
+	height: 5px;
+	background-color: white;
+	border-radius: 50%;
+	position: absolute;
 }
 
-.point3{
-    left: 13px;
+.point:nth-child(1n) {
+	top: 10px;
 }
 
-.point4{
-    top: 11px;
-    left: 17px;
+.point:nth-child(2n) {
+	top: 17px
 }
 
-.point5{
-    left: 21px;
+.point1 {
+	left: 7px;
 }
 
-.point6{
-    top: 11px;
-    left: 25px;
+.point2 {
+	left: 12px;
 }
 
-.point7{
-   left: 29px;
+.point3 {
+	left: 17px;
 }
 
-.blockNumber{
-    position: absolute;
-    top: -25px;
-    left: 27px;
-    color: white;
-    font-size: 35px;
-    padding: 0;
+.point4 {
+	left: 22px;
+
+}
+
+.point5 {
+	left: 27px;
+}
+
+.point6 {
+	left: 32px;
+
+}
+
+.point7 {
+	left: 37px;
+}
+
+.blockNumber {
+	position: absolute;
+	top: -25px;
+	left: 27px;
+	color: white;
+	font-size: 36px;
+	padding: 0;
 }
