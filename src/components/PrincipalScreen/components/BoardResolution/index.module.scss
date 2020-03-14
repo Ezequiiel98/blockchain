@@ -1,0 +1,64 @@
+.board{
+  background-color: #173040;
+  margin-top: 30px;
+  height: 311px;
+  width: 311px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.cell{
+  width: 72.5px;
+  height: 72.5px; 
+}
+
+.cell:nth-child(odd){
+  background-color: #FEC34D;
+}
+
+.cell:nth-child(2n){
+  background-color: #AED750;
+}
+.cell:nth-child(1){
+  background-color: #F2754C;
+}
+.cell:nth-child(9){
+  background-color: #F2754C;
+}
+.cell:nth-child(7){
+  background-color: #F2754C;
+}
+.cell:nth-child(10){
+  background-color: #22465C
+  ;
+}
+.cell:nth-child(15){
+  background-color: #22465C;
+}
+.cell:nth-child(4){
+  background-color: #33BFC6;
+}
+.cell:nth-child(6){
+  background-color: #33BFC6;
+}
+.cell:nth-child(16){
+  background-color: #33BFC6;
+}
+.cell:nth-child(-n+4){
+  border-top: 4px solid white;
+}
+
+.cell:nth-child(1n){
+  border-bottom: 4px solid  white;
+
+  border-left: 4px solid  white;
+
+
+}
+.cell:nth-child(4n){
+  border-right: 4px solid  white;
+
+}
