@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './index.module.scss';
 
-function BoardResolution() {
+function Board() {
   return (
     <div className={styles.board}>
       <div className={styles.cell} />
@@ -25,4 +25,4 @@ function BoardResolution() {
   );
 }
 
-export default BoardResolution;
+export default Board;

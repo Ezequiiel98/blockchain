@@ -4,8 +4,7 @@ import styles from './index.module.scss';
 import Header from './components/Header';
 import Blocks from './components/Blocks';
 import BoardGame from './components/BoardGame';
-import BoardResolution from './components/BoardResolution';
-
+import Resolution from './components/Resolution';
 
 function PrincipalScreen() {
   return (
@@ -14,7 +13,7 @@ function PrincipalScreen() {
       <Blocks />
       <div className={styles.boards}>
         <BoardGame />
-        <BoardResolution />
+        <Resolution />
       </div>
     </div>
   );
