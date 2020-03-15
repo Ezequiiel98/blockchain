@@ -5,8 +5,11 @@ import styles from './index.module.scss';
 
 function Resolution() {
   return (
-    <div className={styles.container}>
+    <div className={styles.containerResolution}>
       <Board />
+      <div className={styles.containerButton}>
+        <button className={styles.button}>MINAR</button>
+      </div>
     </div>
   );
 }

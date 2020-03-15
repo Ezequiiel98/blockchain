@@ -1,6 +1,22 @@
+.containerBoard{
+  padding:  30px 40px;
+  border: 1px solid #E1E1E2;
+  position: relative;
+}
+
+.legend{
+  position: absolute;
+  top: -35px;
+  left: 10px;
+  background-color: white;
+  padding: 0 5px;
+  color: #525256;
+  font-size: 24px;
+  font-weight: lighter;
+}
+
 .board{
   background-color: #173040;
-  margin-top: 30px;
   height: 311px;
   width: 311px;
   display: flex;
@@ -112,3 +128,5 @@
   border-right: 4px solid  white;
 
 }
+
+
