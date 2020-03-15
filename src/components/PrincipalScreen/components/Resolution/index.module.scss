@@ -10,6 +10,7 @@
   background-color: #533D71;
   border-radius: 5px;
   margin: 20px auto 0 auto;
+  transition: background-color .1s ease-in;
 }
 
 .button{
@@ -18,7 +19,18 @@
   font-size: 18px;
   font-weight: bold;
   color: white;
+  outline: none;
   border: none;
   border-radius: 5px;
   background-color: #7758A2;
+  transition: all .2s ease  ; 
+
+}
+
+.containerButton:active {
+  background-color: white;
+}
+
+.button:active{
+  transform: translateY(8px);
 }
