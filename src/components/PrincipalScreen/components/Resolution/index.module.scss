@@ -1,29 +1,29 @@
-.containerResolution{
+.containerResolution {
   margin-top: 20px;
   margin-left: 30px;
 }
 
 
-.containerButton{
+.containerButton {
   width: 264px;
   height: 66px;
   background-color: #533D71;
   border-radius: 5px;
   margin: 20px auto 0 auto;
-  transition: background-color .1s ease-in;
+  transition: background-color .1s ease;
 }
 
-.button{
+.button {
+  outline: none;
+  border: none;
   width: 100%;
   height: 58px;
   font-size: 18px;
   font-weight: bold;
   color: white;
-  outline: none;
-  border: none;
   border-radius: 5px;
   background-color: #7758A2;
-  transition: all .2s ease  ; 
+  transition: all .2s ease;
 
 }
 
@@ -31,6 +31,10 @@
   background-color: white;
 }
 
-.button:active{
+.containerButton:active .button{
   transform: translateY(8px);
+}
+
+.button:hover {
+  cursor: pointer;
 }
