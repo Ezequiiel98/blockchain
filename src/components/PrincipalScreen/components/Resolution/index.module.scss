@@ -10,7 +10,7 @@
   background-color: #533D71;
   border-radius: 5px;
   margin: 20px auto 0 auto;
-  transition: background-color .1s ease;
+  transition: background-color .1s ease, transform .2s ease;
 }
 
 .button {
@@ -23,15 +23,10 @@
   color: white;
   border-radius: 5px;
   background-color: #7758A2;
-  transition: all .2s ease;
-
 }
 
 .containerButton:active {
   background-color: white;
-}
-
-.containerButton:active .button{
   transform: translateY(8px);
 }
 
