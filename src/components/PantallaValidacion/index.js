@@ -6,6 +6,7 @@ import styles from './index.module.scss';
 
 function PantallaValidacion() {
     return (
+
       <div className={styles.principal}>
 
           <img className={styles.imagenSuperior} src={LineasGrises} />
@@ -17,6 +18,12 @@ function PantallaValidacion() {
               </div>    
           </div>
       </div>
+      <div className={styles.rectangulo}>
+
+          <p>Tu Puntaje</p>
+          
+      </div>
+
     );
   }
 

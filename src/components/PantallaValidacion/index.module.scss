@@ -16,7 +16,7 @@
     width: 1024px;
     display: block;
     margin: auto;
-};
+}
 
 .revision{
     transform: translateX(22px) translateY(140px);
@@ -28,7 +28,7 @@
     font-weight: bold;
     line-height: 29px;
     
-};
+}
 
 .nombre {
     display:flex;
@@ -42,5 +42,13 @@
     font-weight: bold;
     line-height: 29px;
     
-};
+}
+
+.rectangulo{
+    height: 53px;
+    width: 196px;
+    border-radius: 4px;
+    background-color: #E8E8E8;
+
+}
 
