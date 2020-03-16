@@ -6,9 +6,16 @@ import styles from './index.module.scss';
 
 function PantallaValidacion() {
     return (
-      <div className="Header">
+      <div className={styles.principal}>
+
           <img className={styles.imagenSuperior} src={LineasGrises} />
-          <h1 className={styles.nombre} >Mateo Ruiz Guiñazu</h1>
+          <div className={styles.secundario}>
+          <h1 className={styles.revision}> Review</h1>
+              <div className={styles.nombre}>
+                  <div> Propuesta </div>
+                  <div> Juan Carlos Perez</div>
+              </div>    
+          </div>
       </div>
     );
   }
