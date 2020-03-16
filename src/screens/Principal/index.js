@@ -1,9 +1,22 @@
 import React from 'react';
 
-import PrincipalScreen from '../../components/PrincipalScreen';
+import styles from './index.module.scss';
+import Header from './components/Header';
+import Blocks from './components/Blocks';
+import BoardGame from './components/BoardGame';
+import Resolution from './components/Resolution';
 
 function Principal() {
-  return <PrincipalScreen />;
+  return (
+    <div className={styles.mainContainer}>
+      <Header />
+      <Blocks />
+      <div className={styles.boards}>
+        <BoardGame />
+        <Resolution />
+      </div>
+    </div>
+  );
 }
 
 export default Principal;

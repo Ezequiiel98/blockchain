@@ -1,0 +1,47 @@
+.board {
+  background-color: rgba(#E8E8E8, 0.7);
+  height: 478px;
+  width: 478px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5.57px;
+}
+
+.cell {
+  width: 25%;
+  height: 25%;
+}
+
+.cell:nth-child(1) {
+  border-top-left-radius: 3.66px;
+}
+
+.cell:nth-child(4) {
+  border-top-right-radius: 3.66px;
+}
+
+.cell:nth-child(13) {
+  border-bottom-left-radius: 3.66px;
+}
+
+
+.cell:nth-child(16) {
+  border-bottom-right-radius: 3.66px;
+}
+
+.cell:nth-child(-n+4) {
+  border-top: 2px dashed rgba(#a1a1a1, 0.4);
+}
+  
+
+.cell:nth-child(1n) {
+  border-bottom: 2px dashed rgba(#a1a1a1, 0.4);
+  border-left: 2px dashed rgba(#a1a1a1, 0.4);
+}
+
+.cell:nth-child(4n) {
+  border-right: 2px dashed rgba(#a1a1a1, 0.4);
+}
+ 

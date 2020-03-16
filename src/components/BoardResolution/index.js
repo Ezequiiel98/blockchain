@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './index.module.scss';
 
-function Board() {
+function BoardResolution() {
   return (
     <div className={styles.containerBoard}>
       <h2 className={styles.legend}>Resolución</h2>
@@ -28,4 +28,4 @@ function Board() {
   );
 }
 
-export default Board;
+export default BoardResolution;
