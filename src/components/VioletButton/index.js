@@ -2,14 +2,14 @@ import React from 'react';
 
 import styles from './index.module.scss';
 
-function Button() {
+function VioletButton({ text }) {
   return (
     <div className={styles.containerButton}>
       <button type="button" className={styles.button}>
-        MINAR
+        { text }
       </button>
     </div>
   );
 }
 
-export default Button;
+export default VioletButton;
