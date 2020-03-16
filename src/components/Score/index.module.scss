@@ -1,0 +1,34 @@
+
+.containerScore{
+  background-color: #E8E8E8;
+  display: flex;
+  align-items: center;
+  width: 196px;
+  height: 53px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.textScore{
+  margin: 0 5px;
+  font-weight: lighter;
+}
+
+.iconContainer{
+  margin: 0 8px;
+  background-color: #44B449;
+  width: 18px;
+  height: 16px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.iconScore{
+  padding-bottom: 1px;
+}
+.score{
+  font-size: 29px;
+ font-weight: bold;
+}
