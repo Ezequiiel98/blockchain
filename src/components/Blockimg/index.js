@@ -3,7 +3,7 @@ import React from 'react';
 import img from './assets/img/blockimg.svg';
 import styles from './index.module.scss';
 
-function Blockimg() {
+function Block() {
   return (
     <div className={styles.blockimg}>
       <img src={img} />
@@ -11,4 +11,4 @@ function Blockimg() {
   );
 }
 
-export default Blockimg;
+export default Block;
