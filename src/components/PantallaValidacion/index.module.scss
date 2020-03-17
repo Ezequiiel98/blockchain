@@ -1,22 +1,27 @@
-/* .principal{
-  display: flex;
-  flex-flow: row wrap;
-  align-content:space-between;
-} */
+body{
+    background: white;
+}
 
-/* .secundario{
+.secundario{
     display: flex;
-    flex-flow: row wrap;
-    align-content:space-between;
-    width: 21%;
-}; */
-
+    justify-content: space-between;
+    margin-top: -20px;
+    color: #525256;
+}
+    
 .imagenSuperior {
     height: 148px;
     width: 1024px;
     display: block;
     margin: auto;
 }
+
+/* .secundario{
+    display: flex;
+    justify-content: space-between;
+    margin-top: -20px;
+    color: #525256;
+} */
 
 .revision{
     transform: translateX(22px) translateY(140px);
@@ -44,11 +49,39 @@
     
 }
 
-.rectangulo{
-    height: 53px;
-    width: 196px;
-    border-radius: 4px;
+.rectangulo {
     background-color: #E8E8E8;
+    display: flex;
+    align-items: center;
+    width: 196px;
+    height: 53px;
+    padding: 10px;
+    border-radius: 5px;
+}
 
+.puntaje {
+    margin: 0 5px;
+    font-weight: lighter;
+}
+
+.cuadrado {
+    margin: 0 8px;
+    background-color: #44B449;
+    width: 18px;
+    height: 16px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.suma {
+    padding-bottom: 1px;
+}
+
+.numero{
+    font-size: 29px;
+    font-weight: bold;
 }
 
