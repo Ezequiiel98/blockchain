@@ -1,9 +1,9 @@
 import React from 'react';
 
 import Blockimg from './components/Blockimg';
-import VioletButton from './components/VioletButton';
+import VioletButton from '../../../src/components/VioletButton';
 
-function Principal() {
+function LoginScreen() {
   return (
     <div>
       <Blockimg />
@@ -12,4 +12,4 @@ function Principal() {
   );
 }
 
-export default Principal;
+export default LoginScreen;
