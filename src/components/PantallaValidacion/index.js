@@ -11,9 +11,9 @@ function PantallaValidacion() {
 
           <img className={styles.imagenSuperior} src={LineasGrises} />
         <div className={styles.secundario}>
-          <h1 className={styles.revision}> Review</h1>  
-         
-      
+
+          <h2 className={styles.revision}> Review</h2> 
+           
             <div className={styles.rectangulo}>
               <span className={styles.puntaje}>Tu Puntaje</span>
                 <span className={styles.cuadrado}>

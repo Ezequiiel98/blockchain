@@ -2,6 +2,16 @@ body{
     background: white;
 }
 
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
 .secundario{
     display: flex;
     justify-content: space-between;
@@ -9,9 +19,7 @@ body{
     color: #525256;
 }
     
-.imagenSuperior {
-    height: 148px;
-    width: 1024px;
+.imagenSuperior {   
     display: block;
     margin: auto;
 }
