@@ -1,7 +1,8 @@
 import React from 'react';
 
+import VioletButton from '../../components/VioletButton';
+
 import Blockimg from './components/Blockimg';
-import VioletButton from '../../../src/components/VioletButton';
 
 function LoginScreen() {
   return (
