@@ -1,0 +1,30 @@
+.containerButton {
+    width: 264px;
+    height: 66px;
+    background-color: #533D71;
+    border-radius: 5px;
+    margin: 20px auto 0 auto;
+    transition: background-color .1s ease, transform .2s ease;
+  }
+  
+  .button {
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 58px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+    background-color: #7758A2;
+  }
+  
+  .containerButton:active {
+    background-color: white;
+    transform: translateY(8px);
+  }
+  
+  .button:hover {
+    cursor: pointer;
+  }
+  © 2020 GitHub, Inc.

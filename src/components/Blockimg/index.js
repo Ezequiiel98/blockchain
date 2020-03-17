@@ -1,12 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import img from "./assets/img/blockimg.svg";
-
-import styles from './styles.scss';
+import img from './assets/img/blockimg.svg';
+import styles from './index.module.scss';
 
 function Blockimg() {
   return (
-    <div className="blockimg">
+    <div className={styles.blockimg}>
       <img src={img} />
     </div>
   );

@@ -1,9 +1,15 @@
 import React from 'react';
 
-import Blockimg from '../../components/Blockimg/index.js';
+import Blockimg from './components/Blockimg';
+import VioletButton from './components/VioletButton';
 
-function LoginScreen() {
-  return <Blockimg />;
+function Principal() {
+  return (
+    <div>
+      <Blockimg />
+      <VioletButton />
+    </div>
+  );
 }
 
-export default LoginScreen;
+export default Principal;
