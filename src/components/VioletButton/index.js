@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './index.module.scss';
 
-function VioletB({ text }) {
+function VioletButton({ text }) {
   return (
     <div className={styles.containerButton}>
       <button type="button" className={styles.button}>
@@ -12,4 +12,4 @@ function VioletB({ text }) {
   );
 }
 
-export default VioletB;
+export default VioletButton;
