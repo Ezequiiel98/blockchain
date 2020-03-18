@@ -1,8 +1,15 @@
 .container{
 	position: relative;
+	overflow: hidden;
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+
 }
 .containerBlocks {
-	margin-top: 20px;
+	transition: all .5s ease;
+	height: 70px;
+
 	padding: 0 12px;
 	display: flex;
 	overflow: hidden;
@@ -39,21 +46,41 @@
 
 
 .blockGrande{
+	min-height: 111px;
+	padding: 0;
+	border: none;
+}
+
+.blockHijoGrande{
 	min-width: 111px;
 	min-height: 111px;
-	border: 5px solid white;
+  margin-right: 5px;	min-height: 100%;
+	position: relative;
 }
-.blockHijoGrande{
 
- min-width: 100%;
- min-height: 100%;
+.blockHijoGrande::after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 5px solid white;
+	top: 0;
 }
 .blockHijoGrande h4{
 	font-size: 45px;
 	margin-top: auto;
 	margin-bottom: 10px;
-	margin-right: 15px;
+	margin-right: 12px;
+}.blockHijoGrande span{
+	width: 10px;
+	height: 10px;
 }
 .blockInvisible{
 	display: none;
+}
+
+
+.blockActive {
+	background-color: transparent!important;
+	transform: translateY(6px);
 }

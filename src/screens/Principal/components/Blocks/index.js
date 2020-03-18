@@ -17,26 +17,50 @@ function Blocks() {
   const handleDragStart = e => {
     const elemento = e.target;
     const child = elemento.childNodes[0];
-    elemento.classList.add(styles.blockGrande);
+  
+   
+
+    
     child.classList.add(styles.blockHijoGrande);
+    
+    elemento.classList.add(styles.blockGrande);
 
     setTimeout(() => {
-      elemento.classList.remove(styles.blockGrande)
-      child.classList.remove(styles.blockHijoGrande)
-    }, 0);
+      elemento.classList.remove(styles.blockGrande);
+      child.classList.remove(styles.blockHijoGrande);
+      elemento.classList.add(styles.blockActive);
+
+    }, 0);  
+
   };
-  /*
-  const handleDrag = e => {
-    console.log(e.target)
-    e.target.classList.add(styles.blockGrande);
-    setTimeout(() => e.target.classList.add(styles.blockInvisible), 10);
-  } */
+  
+/*   const handleDrag = e => {
+    console.log('drag')
+    
+  }  */
 
   return (
     <div className={styles.container}>
       <button type="button" onClick={handleScrollNext} className={styles.next} />
       <button type="button" onClick={hanldeScrollBack} className={styles.back} />
       <div className={styles.containerBlocks}>
+        <Block onDragStart={handleDragStart} />
+        <Block onDragStart={handleDragStart} />
+        <Block onDragStart={handleDragStart} />
+        <Block onDragStart={handleDragStart} />
+        <Block onDragStart={handleDragStart} />
+        <Block onDragStart={handleDragStart} />
+        <Block onDragStart={handleDragStart} />
+        <Block onDragStart={handleDragStart} />
+        <Block onDragStart={handleDragStart} />
+        <Block onDragStart={handleDragStart} />   <Block onDragStart={handleDragStart} />
+        <Block onDragStart={handleDragStart} />
+        <Block onDragStart={handleDragStart} />
+        <Block onDragStart={handleDragStart} />
+        <Block onDragStart={handleDragStart} />
+        <Block onDragStart={handleDragStart} />
+        <Block onDragStart={handleDragStart} />
+        <Block onDragStart={handleDragStart} />
         <Block onDragStart={handleDragStart} />
       </div>
     </div>

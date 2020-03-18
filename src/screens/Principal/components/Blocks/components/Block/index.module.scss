@@ -100,21 +100,23 @@
  */
 
  .containerBlock {
-	overflow: hidden;
 	background-color: #D39B1E;
 	margin: 0 7.8px;
 	height: 68px;
 	width: 68px;
 	border-radius: 5px;
-  transition: background-color .2s ease, transform .2s ease;
+	transition: background-color .2s ease, transform .2s ease;
+	flex-shrink: 0;
 }
 
 .block {
 	background-color: #FEC34D;
 	display: flex;
 	flex-direction: column;
+	width: 68px;
 	border-radius: 5px; 
 	height: 62px;
+
 }
 
 .containerBlock:active {
@@ -200,4 +202,61 @@
 	-ms-user-select: none;
 	user-select: none;
 	font-weight: bold;
+}
+
+
+
+/* borrar */
+.blockPoints {
+	width: 47.5%;
+	height: 32%;
+	position: relative;
+	left: 5%;
+}
+
+.point {
+	content: '';
+	width: 5px;
+	height: 5px;
+	background-color: white;
+	border-radius: 50%;
+	position: absolute;
+}
+
+.point:nth-child(odd) {
+	top: 30%;
+}
+
+.point:nth-child(even) {
+	top: 67%;
+}
+
+.point1 {
+	left: 10%;
+}
+
+.point2 {
+	left: 24%;
+}
+
+.point3 {
+	left: 38%;
+}
+
+.point4 {
+	left: 52%;
+
+}
+
+.point5 {
+	left: 66%;
+}
+
+.point6 {
+	left: 80%;
+
+}
+
+.point7 {
+	left: 94%;
 }
