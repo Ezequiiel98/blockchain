@@ -1,4 +1,4 @@
-.containerBlock {
+/* .containerBlock {
 	overflow: hidden;
 	background-color: #D39B1E;
 	margin: 0 7.8px;
@@ -31,16 +31,16 @@
 }
 
 .blockPoints {
-	width: 32px;
-	height: 20px;
+	width: 47.5%;
+	height: 32%;
 	position: relative;
 	left: 5%;
 }
 
 .point {
 	content: '';
-	width: 6px;
-	height: 6px;
+	width: 16.5%;
+	height: 26.65%;
 	background-color: white;
 	border-radius: 50%;
 	position: absolute;
@@ -51,7 +51,7 @@
 }
 
 .point:nth-child(even) {
-	top: 70%;
+	top: 67%;
 }
 
 .point1 {
@@ -59,29 +59,29 @@
 }
 
 .point2 {
-	left: 25%;
+	left: 24%;
 }
 
 .point3 {
-	left: 40%;
+	left: 38%;
 }
 
 .point4 {
-	left: 55%;
+	left: 52%;
 
 }
 
 .point5 {
-	left: 70%;
+	left: 66%;
 }
 
 .point6 {
-	left: 85%;
+	left: 80%;
 
 }
 
 .point7 {
-	left: 100%;
+	left: 94%;
 }
 
 .blockNumber {
@@ -97,4 +97,107 @@
 	user-select: none;
 	font-weight: bold;
 }
+ */
 
+ .containerBlock {
+	overflow: hidden;
+	background-color: #D39B1E;
+	margin: 0 7.8px;
+	height: 68px;
+	width: 68px;
+	border-radius: 5px;
+  transition: background-color .2s ease, transform .2s ease;
+}
+
+.block {
+	background-color: #FEC34D;
+	display: flex;
+	flex-direction: column;
+	border-radius: 5px; 
+	height: 62px;
+}
+
+.containerBlock:active {
+	background-color: transparent;
+	transform: translateY(6px);
+}
+
+.block:active {
+	cursor: pointer;
+}
+
+.block:active {
+	cursor: move;
+}
+
+.blockPoints {
+	min-width: 32px;
+	min-height: 20px;
+	position: relative;
+	display: flex;
+}
+
+.blockPoints p{
+	margin: 0;
+	padding:0;}
+
+.point {
+	content: '';
+	min-width:  5px;
+	min-height: 5px;
+	background-color: white;
+	border-radius: 50%;
+	position: absolute;
+}
+
+.point:nth-child(odd) {
+	top: 5px;
+}
+
+.point:nth-child(even) {
+	top: 12px;
+}
+
+.point1 {
+	left: 5px;
+}
+
+.point2 {
+	left: 10px;
+}
+
+.point3 {
+	left:15px;
+}
+
+.point4 {
+	left: 20px;
+
+}
+
+.point5 {
+	left: 25px;
+}
+
+.point6 {
+	left: 30px;
+
+}
+
+.point7 {
+	left: 35px;
+}
+
+.blockNumber {
+	margin-top: 0;
+	margin-right: 5px;
+	align-self: flex-end;
+	color: white;
+	font-size: 32px;
+	padding: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	font-weight: bold;
+}

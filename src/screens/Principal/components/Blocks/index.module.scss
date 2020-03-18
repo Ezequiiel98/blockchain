@@ -5,7 +5,6 @@
 	margin-top: 20px;
 	padding: 0 12px;
 	display: flex;
-	justify-content: space-between;
 	overflow: hidden;
 }
 
@@ -36,4 +35,25 @@
 
 .next {
 	right: -8px;
+}
+
+
+.blockGrande{
+	min-width: 111px;
+	min-height: 111px;
+	border: 5px solid white;
+}
+.blockHijoGrande{
+
+ min-width: 100%;
+ min-height: 100%;
+}
+.blockHijoGrande h4{
+	font-size: 45px;
+	margin-top: auto;
+	margin-bottom: 10px;
+	margin-right: 15px;
+}
+.blockInvisible{
+	display: none;
 }
