@@ -1,14 +1,23 @@
 import React from 'react';
 
-import styles from './index.module.scss';
+import BoardResolution from '../BoardResolution';
+import Score from '../Score';
 
 import PantallaValidacion from '../PantallaValidacion';
 
 function App() {
   return (
-
-    <PantallaValidacion />
-    );
+    <div>
+        <div>
+          <PantallaValidacion />
+        </div>
+    
+        <div>
+          <BoardResolution />
+          <Score />
+        </div>
+    </div>
+);
 }
 
 export default App;

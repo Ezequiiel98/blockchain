@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import LineasGrises from '../../assets/img/lineasGrises.png';
 
@@ -13,14 +13,7 @@ function PantallaValidacion() {
         <div className={styles.secundario}>
 
           <h2 className={styles.revision}> Review</h2> 
-           
-            <div className={styles.rectangulo}>
-              <span className={styles.puntaje}>Tu Puntaje</span>
-                <span className={styles.cuadrado}>
-                  <span className={styles.suma}>+</span>
-                </span>
-                  <span className={styles.numero}>2152</span>
-            </div>        
+
         </div>
     
         <div className={styles.nombre}>
