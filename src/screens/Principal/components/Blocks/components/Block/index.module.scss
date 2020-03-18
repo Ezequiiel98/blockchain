@@ -21,8 +21,9 @@
 	transform: translateY(6px);
 }
 
-.block:hover {
+.block:active {
 	cursor: pointer;
+	position: absolute;
 }
 
 .block:active {
@@ -30,61 +31,63 @@
 }
 
 .blockPoints {
-	padding-top: 5px;
-	padding-left: 5px;
+	width: 32px;
+	height: 20px;
+	position: relative;
+	left: 5%;
 }
 
 .point {
 	content: '';
-	width: 5px;
-	height: 5px;
+	width: 6px;
+	height: 6px;
 	background-color: white;
 	border-radius: 50%;
 	position: absolute;
 }
 
-.point:nth-child(1n) {
-	top: 10px;
+.point:nth-child(odd) {
+	top: 30%;
 }
 
-.point:nth-child(2n) {
-	top: 17px
+.point:nth-child(even) {
+	top: 70%;
 }
 
 .point1 {
-	left: 7px;
+	left: 10%;
 }
 
 .point2 {
-	left: 12px;
+	left: 25%;
 }
 
 .point3 {
-	left: 17px;
+	left: 40%;
 }
 
 .point4 {
-	left: 22px;
+	left: 55%;
 
 }
 
 .point5 {
-	left: 27px;
+	left: 70%;
 }
 
 .point6 {
-	left: 32px;
+	left: 85%;
 
 }
 
 .point7 {
-	left: 37px;
+	left: 100%;
 }
 
 .blockNumber {
 	position: absolute;
 	top: -20px;
-	left: 27px;
+	left: 22px;
 	color: white;
 	font-size: 32px;
 	padding: 0;
@@ -92,4 +95,6 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	font-weight: bold;
 }
+
