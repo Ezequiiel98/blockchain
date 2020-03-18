@@ -2,8 +2,6 @@ import React from 'react';
 
 import styles from './index.module.scss';
 
-import '../../assets/css/index.css'
-
 function Login() {
   return (
     <div className={styles.Login}>
@@ -15,3 +13,4 @@ function Login() {
 }
 
 export default Login;
+
