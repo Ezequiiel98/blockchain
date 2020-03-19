@@ -1,7 +1,12 @@
-.login{    
+.login {    
+    display: flex;
     font-family:  'Montserrat', sans-serif;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+       
     
 }
-.label{
+.label {
     font-weight: 700;
 }
