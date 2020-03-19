@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ImagenSuperior from '../PantallaValidacion/ImagenSuperior';
+
 import BoardResolution from '../BoardResolution';
 import Score from '../Score';
 
@@ -8,15 +10,11 @@ import PantallaValidacion from '../PantallaValidacion';
 function App() {
   return (
     <div>
-        <div>
-          <PantallaValidacion />
-        </div>
-    
-        <div>
-          <BoardResolution />
-          <Score />
-        </div>
-    </div>
+      <ImagenSuperior />
+          {/* <PantallaValidacion /> */}
+          {/* <BoardResolution /> */}
+          {/* <Score /> */}
+    </div>      
 );
 }
 
