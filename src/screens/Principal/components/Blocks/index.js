@@ -17,13 +17,15 @@ function Blocks({ onBlockDrag }) {
   const handleDragStart = e => {
     const elemento = e.target;
     const child = elemento.childNodes[0];
-    onBlockDrag(elemento);
     child.classList.add(styles.blockHijoGrande);
     elemento.classList.add(styles.blockGrande);
+
+    const newElement = elemento.cloneNode(true);
+    onBlockDrag(newElement);
     setTimeout(() => {
-      elemento.classList.remove(styles.blockGrande);
       child.classList.remove(styles.blockHijoGrande);
-    }, 0); 
+      elemento.classList.remove(styles.blockGrande);
+    }, 0);
   };
 
   const handleDragEnd = e => {
@@ -31,12 +33,11 @@ function Blocks({ onBlockDrag }) {
     const dragSuccess = e.dataTransfer.dropEffect;
     const child = elemento.childNodes[0];
 
-    console.log(dragSuccess)
-    if (dragSuccess === 'move') {
+   if (dragSuccess === 'move') {
       setTimeout(() => {
-        child.classList.add(styles.blockHijoGrande);
-        elemento.classList.add(styles.blockGrande);
-      }, 0); } 
+        elemento.classList.add(styles.blockActive);
+        elemento.draggable = false;
+      }, 0); }  
   };
 
   return (
@@ -46,23 +47,7 @@ function Blocks({ onBlockDrag }) {
       <div className={styles.containerBlocks}>
         <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
         <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />{' '}
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
+       
       </div>
     </div>
   );

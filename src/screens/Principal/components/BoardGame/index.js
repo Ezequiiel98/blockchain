@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './index.module.scss';
 
-function BoardGame({ blockDrag, blockClass }) {
+function BoardGame({ blockDrag  }) {
   const handleDragOver = e => {
     e.preventDefault();
   };
@@ -18,9 +18,7 @@ function BoardGame({ blockDrag, blockClass }) {
   };
 
   const handleDragDrop = e => {
-    
     e.target.appendChild(blockDrag);
-
     e.target.classList.remove(styles.cellDragHover);
   };
 
