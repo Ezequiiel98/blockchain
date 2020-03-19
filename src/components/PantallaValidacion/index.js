@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 
 import LineasGrises from '../../assets/img/lineasGrises.png';
 
@@ -25,4 +25,4 @@ function PantallaValidacion() {
   }
 
 export default PantallaValidacion;
-
+ */
