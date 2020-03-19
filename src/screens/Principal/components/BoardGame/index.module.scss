@@ -12,7 +12,7 @@
 .cell {
   width: 25%;
   height: 25%;
-}
+ }
 
 .cell:nth-child(1) {
   border-top-left-radius: 3.66px;
@@ -45,3 +45,7 @@
   border-right: 2px dashed rgba(#a1a1a1, 0.4);
 }
  
+
+.cellDragHover{
+  background-color: #B5B5B6;
+}

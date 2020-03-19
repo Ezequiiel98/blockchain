@@ -2,11 +2,14 @@ import React from 'react';
 
 import styles from './index.module.scss';
 
-function Block({ onDragStart }) {
-
-
+function Block({ onDragStart, onDragEnd }) {
   return (
-    <div className={styles.containerBlock} onDragStart={e => onDragStart(e)} draggable>
+    <div
+      className={styles.containerBlock}
+      onDragEnd={e => onDragEnd(e)}
+      onDragStart={e => onDragStart(e)}
+      draggable
+    >
       <div className={styles.block}>
         <div className={styles.blockPoints}>
           <span className={`${styles.point} ${styles.point1}`} />

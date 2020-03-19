@@ -6,17 +6,25 @@ import Blocks from './components/Blocks';
 import BoardGame from './components/BoardGame';
 import Resolution from './components/Resolution';
 
-function Principal() {
-  return (
-    <div className={styles.mainContainer}>
-      <Header />
-      <Blocks />
-      <div className={styles.boards}>
-        <BoardGame />
-        <Resolution />
+class Principal extends React.Component {
+  state = {
+    blockDrag: ''
+  };
+
+  handleBlockDrag = blockDrag => this.setState({ blockDrag });
+
+  render() {
+    return (
+      <div className={styles.mainContainer}>
+        <Header />
+        <Blocks onBlockDrag={this.handleBlockDrag}  />
+        <div className={styles.boards}>
+          <BoardGame blockDrag={this.state.blockDrag} blockClass={this.state.blockClass} />
+          <Resolution />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Principal;
