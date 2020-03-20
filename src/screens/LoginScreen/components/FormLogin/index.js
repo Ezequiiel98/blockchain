@@ -11,11 +11,11 @@ function FormLogin() {
       <p className={styles.blockchain}>Blockchain</p>
       <div className={styles.input}>
         <label className={styles.label}>NOMBRE</label>
-        <input name="username" id="username" type="text" />
+        <input className={styles.input} name="username" id="username" type="text" />
       </div>
-      <div className={styles.input}>
+      <div>
         <label className={styles.label}>CÓDIGO DE INGRESO</label>
-        <input name="usercode" id="usercode" type="text" />
+        <input className={styles.input} name="usercode" id="usercode" type="text" />
       </div>
       <div className={styles.violetbutton}>
         <VioletButton text="ENTRAR" />
