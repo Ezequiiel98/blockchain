@@ -1,13 +1,15 @@
 import React from 'react';
 
 import VioletButton from '../../../../components/VioletButton';
+import WhiteButton from '../WhiteButton';
 
 import styles from './index.module.scss';
 
-function Login() {
+
+function FormLogin() {
   return (
-    <div className={styles.login}>
-      {' '}
+      <form className={styles.formLogin}>
+        <p className={styles.blockchain}>Blockchain</p>
       <div>
         <label className={styles.label}>NOMBRE</label>
         <input name="username" id="username" type="text" />
@@ -19,8 +21,11 @@ function Login() {
       <div className={styles.violetbutton}>
         <VioletButton text="ENTRAR" />
       </div>
-    </div>
+      <div>
+        <WhiteButton text="ESPECTAR" />
+      </div>
+     </form>
   );
 }
 
-export default Login;
+export default FormLogin;
