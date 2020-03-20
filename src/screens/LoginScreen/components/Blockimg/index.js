@@ -7,7 +7,7 @@ import styles from './index.module.scss';
 function Blockimg() {
   return (
     <div className={styles.blockimg}>
-      <img src={img} />
+      <img src={img} className={styles.img} />
     </div>
   );
 }

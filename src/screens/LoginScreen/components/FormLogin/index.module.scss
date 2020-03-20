@@ -2,8 +2,8 @@
     font-family:  'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
- }
+    
+}
 
 .blockchain {
     font-family:  'Montserrat', sans-serif;
@@ -12,5 +12,10 @@
 }
 .label {
     font-weight: 700;
+}
+
+.input {
+    display:flex;
+    flex-direction: column;
 }
 

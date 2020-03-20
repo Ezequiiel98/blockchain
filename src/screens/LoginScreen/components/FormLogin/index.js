@@ -5,16 +5,15 @@ import WhiteButton from '../WhiteButton';
 
 import styles from './index.module.scss';
 
-
 function FormLogin() {
   return (
-      <form className={styles.formLogin}>
-        <p className={styles.blockchain}>Blockchain</p>
-      <div>
+    <form className={styles.formLogin}>
+      <p className={styles.blockchain}>Blockchain</p>
+      <div className={styles.input}>
         <label className={styles.label}>NOMBRE</label>
         <input name="username" id="username" type="text" />
       </div>
-      <div>
+      <div className={styles.input}>
         <label className={styles.label}>CÓDIGO DE INGRESO</label>
         <input name="usercode" id="usercode" type="text" />
       </div>
@@ -24,7 +23,7 @@ function FormLogin() {
       <div>
         <WhiteButton text="ESPECTAR" />
       </div>
-     </form>
+    </form>
   );
 }
 
