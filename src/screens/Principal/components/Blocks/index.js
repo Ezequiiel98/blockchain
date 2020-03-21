@@ -2,6 +2,7 @@ import React from 'react';
 
 import styles from './index.module.scss';
 import Block from './components/Block';
+import blocks from './constants/blocks';
 
 function Blocks({ onBlockDrag }) {
   const handleScrollNext = e => {
@@ -33,11 +34,12 @@ function Blocks({ onBlockDrag }) {
     const dragSuccess = e.dataTransfer.dropEffect;
     const child = elemento.childNodes[0];
 
-   if (dragSuccess === 'move') {
+    if (dragSuccess === 'move') {
       setTimeout(() => {
         elemento.classList.add(styles.blockActive);
         elemento.draggable = false;
-      }, 0); }  
+      }, 0);
+    }
   };
 
   return (
@@ -47,7 +49,15 @@ function Blocks({ onBlockDrag }) {
       <div className={styles.containerBlocks}>
         <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
         <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-       
+        {blocks.map(block => (
+          <Block
+            key={block.id}
+            number={block.number}
+            numberPoints={block.points}
+            color={block.color}
+            broken={block.broken}
+          />
+        ))}
       </div>
     </div>
   );
