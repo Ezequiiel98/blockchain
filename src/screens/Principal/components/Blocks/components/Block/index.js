@@ -22,7 +22,7 @@ function Block({ onDragStart, onDragEnd, number, numberPoints, color, broken }) 
             <span key={point} className={styles[point]} />
           ))}
         </div>
-        <h4 className={styles.blockNumber}>05</h4>
+        <h4 className={styles.blockNumber}>{number}</h4>
       </div>
     </div>
   );

@@ -47,8 +47,6 @@ function Blocks({ onBlockDrag }) {
       <button type="button" onClick={handleScrollNext} className={styles.next} />
       <button type="button" onClick={hanldeScrollBack} className={styles.back} />
       <div className={styles.containerBlocks}>
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
-        <Block onDragEnd={handleDragEnd} onDragStart={handleDragStart} />
         {blocks.map(block => (
           <Block
             key={block.id}
@@ -56,6 +54,8 @@ function Blocks({ onBlockDrag }) {
             numberPoints={block.points}
             color={block.color}
             broken={block.broken}
+            onDragEnd={handleDragEnd}
+            onDragStart={handleDragStart}
           />
         ))}
       </div>
