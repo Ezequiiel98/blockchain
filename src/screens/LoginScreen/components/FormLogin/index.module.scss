@@ -4,6 +4,12 @@
     flex-direction: column;
 }
 
+.containerbutton {
+    flex-direction: column;
+    align-self: flex-start;
+
+}
+
 .blockchain {
     height: 44px;
     width: 212px;
@@ -16,33 +22,36 @@
 }
 
 .label {
-    height: 15px;
-    width: 40px;
     color: #525256;
     font-family: Montserrat;
     font-size: 12px;
     font-weight: bold;
-    letter-spacing: 0;
-    line-height: 15px;
+}
+
+.containerInput {
+    display: flex;
+    flex-direction: column;
+    border-color: #E8E8E8;
+    height: 33px;
+    width: 311px;
+    margin: 10px 5px 40px 0;
+}
+
+.label {
+    flex-direction: column;
+}
+
+.input {
+    flex-direction: column;
+    padding: 8.5px 9.5px;
+    border-radius: 2px;
+    margin: 10px 5px 5px 0;
+    font-family: Montserrat;
 }
 
 /*.input {
     display: flex;
     flex-direction: column;
-    border-color: #E8E8E8;
-    height: 33px;
-    width: 312px;
-}
-
-/*Falta mejorar el form*/
-
-/* FormLogError*/
-
-
-.input {
-    display: flex;
-    flex-direction: column;
     border-color: red;
     height: 33px;
-    width: 312px;
-}
+    width: 312px;*/

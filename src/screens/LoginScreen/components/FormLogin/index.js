@@ -9,18 +9,16 @@ function FormLogin() {
   return (
     <form className={styles.formLogin}>
       <p className={styles.blockchain}>Blockchain</p>
-      <div className={styles.input}>
+      <div className={styles.containerInput}>
         <label className={styles.label}>NOMBRE</label>
-        <input className={styles.input} name="username" id="username" type="text" />
+        <input placeholder="Juan Perez" className={styles.input} name="username" id="username" type="text" />
       </div>
-      <div>
+      <div className={styles.containerInput}>
         <label className={styles.label}>CÓDIGO DE INGRESO</label>
-        <input className={styles.input} name="usercode" id="usercode" type="text" />
+        <input placeholder="000 000" className={styles.input} name="usercode" id="usercode" type="text" />
       </div>
-      <div className={styles.violetbutton}>
+      <div className={styles.containerbutton}>
         <VioletButton text="ENTRAR" />
-      </div>
-      <div>
         <WhiteButton text="ESPECTAR" />
       </div>
     </form>
