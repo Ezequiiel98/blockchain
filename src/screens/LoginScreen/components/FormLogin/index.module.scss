@@ -16,15 +16,33 @@
 }
 
 .label {
-    font-weight: 700;
+    height: 15px;
+    width: 40px;
+    color: #525256;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 15px;
 }
 
-.input {
+/*.input {
     display: flex;
     flex-direction: column;
     border-color: #E8E8E8;
-    height:  33px;
+    height: 33px;
     width: 312px;
 }
 
 /*Falta mejorar el form*/
+
+/* FormLogError*/
+
+
+.input {
+    display: flex;
+    flex-direction: column;
+    border-color: red;
+    height: 33px;
+    width: 312px;
+}
