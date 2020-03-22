@@ -6,8 +6,8 @@ import Rojo from '../../../assets/img/Rojo.png';
 
 function RedButton() {
   return (
-    <div className={styles.containerBordo}>
-      <div className={styles.containerRojo}>
+    <div className={styles.containerRojo}>
+      <div className={styles.containerBordo}>
         <img className={styles.iconRectangle} src={Rojo} />
       </div>
     </div>

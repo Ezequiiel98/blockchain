@@ -8,6 +8,7 @@ import Score from './Score';
 
 import Text from './Text';
 import RedButton from './RedButton';
+import GreenButton from './GreenButton';
 
 
 function PantallaValidacion() {
@@ -29,6 +30,10 @@ function PantallaValidacion() {
 
       <div>
         <RedButton />
+      </div>
+
+      <div>
+        <GreenButton />
       </div>
     </div>
 );
