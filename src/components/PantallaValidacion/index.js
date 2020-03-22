@@ -7,7 +7,7 @@ import ImagenSuperior from '../PantallaValidacion/ImagenSuperior';
 import Score from './Score';
 
 import Text from './Text';
-import Rectangulos from './Rectangulos';
+import RedButton from './RedButton';
 
 
 function PantallaValidacion() {
@@ -28,7 +28,7 @@ function PantallaValidacion() {
       </div>
 
       <div>
-        <Rectangulos />
+        <RedButton />
       </div>
     </div>
 );
