@@ -12,11 +12,12 @@ function Block({ onDragStart, onDragEnd, number, numberPoints, color, broken }) 
   return (
     <div
       className={`${styles.containerBlock} ${styles[colorDark]}`}
-      onDragEnd={e => onDragEnd(e)}
+      /*  onDragEnd={e => onDragEnd(e)}
       onDragStart={e => onDragStart(e)}
-      draggable
+      draggable */
     >
-      <div className={`${styles.block} ${styles[color]}`}>
+          {broken && <span className={styles.noCertified}></span>}
+      <div className={`${styles[color]}`}>
         <div className={styles.blockPoints}>
           {points.map(point => (
             <span key={point} className={styles[point]} />

@@ -29,7 +29,7 @@ function BoardGame({ blockDrag }) {
 
       {boardCells.map(cell => (
         /* row */
-        <div className={styles.rowCell} key={cell.id} id={cell.idRow}>
+        <div className={styles.rowCell} key={cell.idRow} id={cell.idRow}>
           {cell.idColumns.map(idColumn => (
             /* columns  */
             <div className={styles.columnCell} key={idColumn} id={idColumn} />

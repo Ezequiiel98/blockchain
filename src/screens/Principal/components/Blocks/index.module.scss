@@ -25,7 +25,7 @@
 	border: none;
 	outline: none;
 	position: absolute;
-	z-index: 2;
+	z-index: 3;
 	background-color: white;
 }
 
@@ -45,6 +45,8 @@
 }
 
 
+
+/* borrar */
 .blockGrande{
 	min-height: 112px;
 	width: 88px;
@@ -58,10 +60,8 @@
 	margin-right: 5px;	
 	min-height: 100%;
 	position: relative;
-
 	margin-left: -10px;
 	margin-top: -2px;
-
 }
 
 .blockHijoGrande::after{

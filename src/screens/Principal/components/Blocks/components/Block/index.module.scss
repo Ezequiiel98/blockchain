@@ -1,28 +1,53 @@
-.containerBlock {
-	/* 	background-color: #D39B1E;
- */
-	background-color: #81AF24;
+@import '../../../../assets/scss/colors.scss';
 
+.containerBlock {
 	margin: 0 7.8px;
 	height: 68px;
 	width: 70px;
 	border-radius: 5px;
 	transition: background-color .2s ease, transform .2s ease;
 	flex-shrink: 0;
+	overflow: hidden;
+	position: relative;
 }
 
+.containerBlock:hover{
+	transform: translateY(6px);
+}
+
+.noCertified{
+	content: '';
+	position: absolute;
+	top: -15px;
+	background-color: inherit;
+	right: 29px;
+	width: 12px;
+	height: 95px;
+	transform: rotateZ(49deg);
+	opacity: 0;
+	transition: opacity .1s ease; 
+	z-index: 2;
+}
+
+.containerBlock:hover .noCertified{
+	opacity: 1;
+}
+
+/* Block */
 .block {
-	/* 	background-color: #FEC34D;
- */
-	background-color: #AED750;
 	display: flex;
 	flex-direction: column;
 	width: 70px;
 	border-radius: 5px;
 	height: 62px;
-
+	position: relative;	overflow: hidden;
+	
 }
 
+.containerBlock:hover .block {
+	border-radius: 0;
+	height: 64px;
+}
 
 .block:active {
 	cursor: pointer;
@@ -32,7 +57,58 @@
 	cursor: move;
 }
 
+/* Colors */
 
+.yellow {
+	@extend .block;
+	background-color: $yellow;
+}
+
+.yellowDark {
+	background-color: $yellowDark;
+}
+
+
+.green {
+	@extend .block;
+	background-color: $green;
+}
+
+.greenDark {
+	background-color: $greenDark;
+}
+
+
+.lightblue {
+	@extend .block;
+	background-color: $lightblue;
+}
+
+.lightblueDark {
+	background-color: $lightblueDark;
+}
+
+
+.pink {
+	@extend .block;
+	background-color: $pink;
+}
+
+.pinkDark {
+	background-color: $pinkDark;
+}
+
+.blue {
+	@extend .block;
+	background-color: $blue;
+}
+
+.blueDark {
+	background-color:$blueDark;
+}
+
+
+/* block points */
 .blockPoints {
 	max-width: 52%;
 	min-height: 30%;
@@ -44,7 +120,7 @@
 	content: '';
 	width: 5px;
 	height: 5px;
-	background-color: white;
+	background-color: $white;
 	border-radius: 50%;
 	position: absolute;
 }
@@ -57,46 +133,22 @@
 	top: 67%;
 }
 
-.point1 {
-	@extend .point;
-	left: 10%;
-}
 
-.point2 {
-	@extend .point;
-	left: 22%;
-}
+$left: 10%;
 
-.point3 {
-	@extend .point;
-	left: 34%;
-}
-
-.point4 {
-	@extend .point;
-	left: 46%;
-}
-
-.point5 {
-	@extend .point;
-	left: 58%;
-}
-
-.point6 {
-	@extend .point;
-	left: 70%;
-}
-
-.point7 {
-	@extend .point;
-	left: 82%;
+@for $i from 1 through 7{
+  .point#{$i}{
+		@extend .point;
+		left: $left;
+	}
+	$left: $left + 12%;
 }
 
 .blockNumber {
 	margin-top: 0;
 	margin-right: 5px;
 	align-self: flex-end;
-	color: white;
+	color: $white;
 	font-size: 32px;
 	padding: 0;
 	-webkit-user-select: none;
@@ -104,45 +156,6 @@
 	-ms-user-select: none;
 	user-select: none;
 	font-weight: bold;
+	z-index: 2;
 }
-
-
-.yellow {
-	background-color: #FEC34D;
-}
-
-.yellowDark {
-	background-color: #D39B1E;
-}
-
-.green {
-	background-color: #AED750;
-}
-
-.greenDark {
-	background-color: #81AF24;
-}
-
-.lightblue {
-	background-color: #33BFC6;
-}
-
-.lightblueDark {
-	background-color: #23858A;
-}
-
-.pink {
-	background-color: #F2754C;
-}
-
-.pinkDark {
-	background-color: #A85135;
-}
-
-.blue {
-	background-color: #22465C;
-}
-
-.blueDark {
-	background-color: #173040;
-}
+ 
