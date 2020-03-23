@@ -1,13 +1,9 @@
 import React from 'react';
 
 import Board from './Board';
-
 import BoardResolution from './BoardResolution';
-
 import ImagenSuperior from './ImagenSuperior';
-
 import Score from './Score';
-
 import Text from './Text';
 import RedButton from './RedButton';
 import GreenButton from './GreenButton';
