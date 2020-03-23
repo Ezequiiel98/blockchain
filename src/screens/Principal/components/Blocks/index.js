@@ -1,8 +1,9 @@
 import React from 'react';
 
-import styles from './index.module.scss';
+import blocks from '../constants/blocks';
+
 import Block from './components/Block';
-import blocks from './constants/blocks';
+import styles from './index.module.scss';
 
 function Blocks({ onBlockDrag }) {
   const handleScrollNext = e => {
@@ -15,13 +16,15 @@ function Blocks({ onBlockDrag }) {
     containerBlocks.scrollLeft -= 50;
   };
 
-  const handleDragStart = e => {
+  /* Dragevents  functions  */
+  /*   const handleDragStart = e => {
     const elemento = e.target;
     const child = elemento.childNodes[0];
     child.classList.add(styles.blockHijoGrande);
     elemento.classList.add(styles.blockGrande);
-
     const newElement = elemento.cloneNode(true);
+    elemento.classList.add(styles.blockActive);
+
     onBlockDrag(newElement);
     setTimeout(() => {
       child.classList.remove(styles.blockHijoGrande);
@@ -32,7 +35,7 @@ function Blocks({ onBlockDrag }) {
   const handleDragEnd = e => {
     const elemento = e.target;
     const dragSuccess = e.dataTransfer.dropEffect;
-    const child = elemento.childNodes[0];
+    elemento.classList.remove(styles.blockActive);
 
     if (dragSuccess === 'move') {
       setTimeout(() => {
@@ -40,7 +43,7 @@ function Blocks({ onBlockDrag }) {
         elemento.draggable = false;
       }, 0);
     }
-  };
+  }; */
 
   return (
     <div className={styles.container}>
@@ -54,8 +57,8 @@ function Blocks({ onBlockDrag }) {
             numberPoints={block.points}
             color={block.color}
             broken={block.broken}
-            onDragEnd={handleDragEnd}
-            onDragStart={handleDragStart}
+            /* onDragEnd={handleDragEnd}
+            onDragStart={handleDragStart} */
           />
         ))}
       </div>

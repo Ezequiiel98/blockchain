@@ -23,10 +23,6 @@
 
 }
 
-.containerBlock:active {
-	background-color: transparent;
-	transform: translateY(6px);
-}
 
 .block:active {
 	cursor: pointer;
@@ -36,85 +32,10 @@
 	cursor: move;
 }
 
+
 .blockPoints {
-	min-width: 32px;
-	min-height: 20px;
-	position: relative;
-	display: flex;
-}
-
-.blockPoints p {
-	margin: 0;
-	padding: 0;
-}
-
-.point {
-	content: '';
-	min-width: 5px;
-	min-height: 5px;
-	background-color: white;
-	border-radius: 50%;
-	position: absolute;
-}
-
-.point:nth-child(odd) {
-	top: 5px;
-}
-
-.point:nth-child(even) {
-	top: 12px;
-}
-
-.point1 {
-	left: 5px;
-}
-
-.point2 {
-	left: 10px;
-}
-
-.point3 {
-	left: 15px;
-}
-
-.point4 {
-	left: 20px;
-
-}
-
-.point5 {
-	left: 25px;
-}
-
-.point6 {
-	left: 30px;
-
-}
-
-.point7 {
-	left: 35px;
-}
-
-.blockNumber {
-	margin-top: 0;
-	margin-right: 5px;
-	align-self: flex-end;
-	color: white;
-	font-size: 32px;
-	padding: 0;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	font-weight: bold;
-}
-
-
-
-/* borrar */
-.blockPoints {
-	width: 47.5%;
-	height: 32%;
+	max-width: 52%;
+	min-height: 30%;
 	position: relative;
 	left: 10%;
 }
@@ -170,6 +91,21 @@
 	@extend .point;
 	left: 82%;
 }
+
+.blockNumber {
+	margin-top: 0;
+	margin-right: 5px;
+	align-self: flex-end;
+	color: white;
+	font-size: 32px;
+	padding: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	font-weight: bold;
+}
+
 
 .yellow {
 	background-color: #FEC34D;

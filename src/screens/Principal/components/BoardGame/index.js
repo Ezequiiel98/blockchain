@@ -1,9 +1,11 @@
 import React from 'react';
 
+import boardCells from '../constants/boardCells.js';
+
 import styles from './index.module.scss';
 
-function BoardGame({ blockDrag  }) {
-  const handleDragOver = e => {
+function BoardGame({ blockDrag }) {
+  /*   const handleDragOver = e => {
     e.preventDefault();
   };
 
@@ -20,122 +22,20 @@ function BoardGame({ blockDrag  }) {
   const handleDragDrop = e => {
     e.target.appendChild(blockDrag);
     e.target.classList.remove(styles.cellDragHover);
-  };
+  }; */
 
   return (
     <div className={styles.board}>
-      <div
-        className={styles.cell}
-        onDragOver={e => handleDragOver(e)}
-        onDragEnter={e => handleDragEnter(e)}
-        onDragLeave={e => handleDragLeave(e)}
-        onDrop={e => handleDragDrop(e)}
-      />
-      <div
-        className={styles.cell}
-        onDragOver={e => handleDragOver(e)}
-        onDragEnter={e => handleDragEnter(e)}
-        onDragLeave={e => handleDragLeave(e)}
-        onDrop={e => handleDragDrop(e)}
-      />
-      <div
-        className={styles.cell}
-        onDragOver={e => handleDragOver(e)}
-        onDragEnter={e => handleDragEnter(e)}
-        onDragLeave={e => handleDragLeave(e)}
-        onDrop={e => handleDragDrop(e)}
-      />
-      <div
-        className={styles.cell}
-        onDragOver={e => handleDragOver(e)}
-        onDragEnter={e => handleDragEnter(e)}
-        onDragLeave={e => handleDragLeave(e)}
-        onDrop={e => handleDragDrop(e)}
-      />
-      <div
-        className={styles.cell}
-        onDragOver={e => handleDragOver(e)}
-        onDragEnter={e => handleDragEnter(e)}
-        onDragLeave={e => handleDragLeave(e)}
-        onDrop={e => handleDragDrop(e)}
-      />
-      <div
-        className={styles.cell}
-        onDragOver={e => handleDragOver(e)}
-        onDragEnter={e => handleDragEnter(e)}
-        onDragLeave={e => handleDragLeave(e)}
-        onDrop={e => handleDragDrop(e)}
-      />
-      <div
-        className={styles.cell}
-        onDragOver={e => handleDragOver(e)}
-        onDragEnter={e => handleDragEnter(e)}
-        onDragLeave={e => handleDragLeave(e)}
-        onDrop={e => handleDragDrop(e)}
-      />
-      <div
-        className={styles.cell}
-        onDragOver={e => handleDragOver(e)}
-        onDragEnter={e => handleDragEnter(e)}
-        onDragLeave={e => handleDragLeave(e)}
-        onDrop={e => handleDragDrop(e)}
-      />
-      <div
-        className={styles.cell}
-        onDragOver={e => handleDragOver(e)}
-        onDragEnter={e => handleDragEnter(e)}
-        onDragLeave={e => handleDragLeave(e)}
-        onDrop={e => handleDragDrop(e)}
-      />
-      <div
-        className={styles.cell}
-        onDragOver={e => handleDragOver(e)}
-        onDragEnter={e => handleDragEnter(e)}
-        onDragLeave={e => handleDragLeave(e)}
-        onDrop={e => handleDragDrop(e)}
-      />
-      <div
-        className={styles.cell}
-        onDragOver={e => handleDragOver(e)}
-        onDragEnter={e => handleDragEnter(e)}
-        onDragLeave={e => handleDragLeave(e)}
-        onDrop={e => handleDragDrop(e)}
-      />
-      <div
-        className={styles.cell}
-        onDragOver={e => handleDragOver(e)}
-        onDragEnter={e => handleDragEnter(e)}
-        onDragLeave={e => handleDragLeave(e)}
-        onDrop={e => handleDragDrop(e)}
-      />
-      <div
-        className={styles.cell}
-        onDragOver={e => handleDragOver(e)}
-        onDragEnter={e => handleDragEnter(e)}
-        onDragLeave={e => handleDragLeave(e)}
-        onDrop={e => handleDragDrop(e)}
-      />
-      <div
-        className={styles.cell}
-        onDragOver={e => handleDragOver(e)}
-        onDragEnter={e => handleDragEnter(e)}
-        onDragLeave={e => handleDragLeave(e)}
-        onDrop={e => handleDragDrop(e)}
-      />
-      <div
-        className={styles.cell}
-        onDragOver={e => handleDragOver(e)}
-        onDragEnter={e => handleDragEnter(e)}
-        onDragLeave={e => handleDragLeave(e)}
-        onDrop={e => handleDragDrop(e)}
-      />
-      <div
-        className={styles.cell}
-        onDragOver={e => handleDragOver(e)}
-        onDragEnter={e => handleDragEnter(e)}
-        onDragLeave={e => handleDragLeave(e)}
-        onDrop={e => handleDragDrop(e)}
-      />
+
+      {boardCells.map(cell => (
+        /* row */
+        <div className={styles.rowCell} key={cell.id} id={cell.idRow}>
+          {cell.idColumns.map(idColumn => (
+            /* columns  */
+            <div className={styles.columnCell} key={idColumn} id={idColumn} />
+          ))}
+        </div>
+      ))}
     </div>
   );
 }

@@ -1,14 +1,13 @@
 .board {
   background-color: rgba(#E8E8E8, 0.7);
+ 
   height: 478px;
   width: 478px;
-  display: flex;
-  flex-wrap: wrap;
   padding: 15px;
   margin-bottom: 20px;
   border-radius: 5.57px;
 }
-
+/* 
 .cell {
   width: 25%;
   height: 25%;
@@ -45,7 +44,20 @@
   border-right: 2px dashed rgba(#a1a1a1, 0.4);
 }
  
-
+ */
 .cellDragHover{
   background-color: #B5B5B6;
 }
+
+.rowCell{
+  min-height: 25%;
+  display: flex;
+}
+
+.columnCell{
+  min-width: 25%;
+  min-height: 25%;
+  border: 2px dashed rgba(#a1a1a1, 0.4);
+}
+
+
