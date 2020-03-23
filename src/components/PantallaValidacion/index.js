@@ -1,9 +1,8 @@
 import React from 'react';
 
+import Board from './Board';
 import BoardResolution from './BoardResolution';
-
 import ImagenSuperior from '../PantallaValidacion/ImagenSuperior';
-
 import Score from './Score';
 
 import Text from './Text';
@@ -22,6 +21,10 @@ function PantallaValidacion() {
       
       <div>
         <Text />
+      </div>
+
+      <div>
+        <Board />
       </div>
 
       <div>

@@ -1,0 +1,159 @@
+.containerBoard {
+  box-sizing: border-box;
+  height: 481px;
+  width: 481px;
+  border: 1px solid #E1E1E2;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  
+}
+
+.board {
+  height: 481px;
+  width: 481px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  padding: 8.5px 8.5px 8.5px 8.5px;
+}
+
+.number {
+  height: 58px;
+  width: 62px;
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 58px;
+  text-align: center;
+  
+
+}
+
+.cell {
+  width: 25%;
+  height: 25%;
+}
+
+.cell:nth-child(odd) {
+  background-color: #FEC34D;
+}
+
+.cell:nth-child(9) {
+  background-color: #F2754C;
+}
+
+.cell:nth-child(7) {
+  background-color: #F2754C;
+}
+
+.cell:nth-child(10) {
+  background-color: #22465C;
+}
+
+
+
+.cell:nth-child(16) {
+  background-color: #33BFC6;
+}
+
+.cell:nth-child(1) {
+  background-color: #AED750;
+}
+
+.cell:nth-child(2) {
+  background-color: #33BFC6;
+}
+
+.cell:nth-child(3) {
+  background-color: #AED750;
+}
+
+.cell:nth-child(4) {
+  background-color: #F2754C;
+}
+
+.cell:nth-child(5) {
+  background-color: #F2754C;
+}
+
+.cell:nth-child(6) {
+  background-color: #AED750;
+}
+
+.cell:nth-child(7) {
+  background-color: #22465C;
+}
+
+.cell:nth-child(8) {
+  background-color: #22465C;
+}
+
+.cell:nth-child(9) {
+  background-color: #FEC34D;
+}
+
+.cell:nth-child(10) {
+  background-color: #22465C;
+}
+
+.cell:nth-child(11) {
+  background-color: #F2754C;
+}
+
+.cell:nth-child(12) {
+  background-color: #22465C;
+}
+
+.cell:nth-child(13) {
+  background-color: #22465C;
+}
+
+.cell:nth-child(14) {
+  background-color: #FEC34D;
+}
+
+.cell:nth-child(15) {
+  background-color: #22465C;
+}
+
+.cell:nth-child(16) {
+  background-color: #FEC34D;
+}
+
+
+.cell:nth-child(1) {
+  border-top-left-radius: 3.66px;
+}
+
+.cell:nth-child(4) {
+  border-top-right-radius: 3.66px;
+}
+
+.cell:nth-child(13) {
+  border-bottom-left-radius: 3.66px;
+}
+
+
+.cell:nth-child(16) {
+  border-bottom-right-radius: 3.66px;
+}
+
+.cell:nth-child(-n+4) {
+  border-top: 4px solid white;
+}
+
+.cell:nth-child(1n) {
+  border-bottom: 4px solid white;
+
+  border-left: 4px solid white;
+
+
+}
+
+.cell:nth-child(4n) {
+  border-right: 4px solid white;
+
+}
