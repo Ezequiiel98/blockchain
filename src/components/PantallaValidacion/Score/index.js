@@ -9,7 +9,7 @@ function Score() {
       <span className={styles.iconContainer}>
         <span className={styles.iconScore}>+</span>
       </span>
-      <span className={styles.score}>2152</span>
+      <span className={styles.score}>2175</span>
     </div>
   );
 }

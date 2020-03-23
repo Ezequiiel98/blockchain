@@ -9,21 +9,66 @@ function Board() {
         <div className={styles.cell} >
           <span className={styles.number}>24</span>
         </div>
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
+
+        <div className={styles.cell} >
+          <span className={styles.number}>24</span>
+        </div>
+
+        <div className={styles.cell} >
+          <span className={styles.number}>24</span>
+        </div>
+        
+        <div className={styles.cell} >
+          <span className={styles.number}>24</span>
+        </div>
+
+        <div className={styles.cell} >
+          <span className={styles.number}>24</span>
+        </div>
+
+        <div className={styles.cell} >
+          <span className={styles.number}>24</span>
+        </div>
+
+        <div className={styles.cell} >
+          <span className={styles.number}>24</span>
+        </div>
+
+        <div className={styles.cell} >
+          <span className={styles.number}>24</span>
+        </div>
+
+        <div className={styles.cell} >
+          <span className={styles.number}>24</span>
+        </div>
+
+        <div className={styles.cell} >
+          <span className={styles.number}>24</span>
+        </div>
+
+        <div className={styles.cell} >
+          <span className={styles.number}>24</span>
+        </div>
+
+        <div className={styles.cell} >
+          <span className={styles.number}>24</span>
+        </div>
+
+        <div className={styles.cell} >
+          <span className={styles.number}>24</span>
+        </div>
+
+        <div className={styles.cell} >
+          <span className={styles.number}>24</span>
+        </div>
+
+        <div className={styles.cell} >
+          <span className={styles.number}>24</span>
+        </div>
+
+        <div className={styles.cell} >
+          <span className={styles.number}>24</span>
+        </div>
       </div>
     </div>
   );

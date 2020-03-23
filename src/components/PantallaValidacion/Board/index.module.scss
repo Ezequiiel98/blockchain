@@ -16,6 +16,7 @@
   align-content: center;
   justify-content: center;
   padding: 8.5px 8.5px 8.5px 8.5px;
+  border-radius: 8px;
 }
 
 .number {
@@ -27,14 +28,15 @@
   font-weight: bold;
   letter-spacing: 0;
   line-height: 58px;
-  text-align: center;
-  
-
 }
 
 .cell {
   width: 25%;
   height: 25%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cell:nth-child(odd) {
