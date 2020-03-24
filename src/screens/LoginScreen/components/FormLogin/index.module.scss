@@ -35,13 +35,31 @@
     height: 33px;
     width: 311px;
     margin: 10px 5px 40px 0;
+    position: relative;
 }
 
 .label {
     flex-direction: column;
 }
 
+
 .input {
+    padding: 8.5px 9.5px;
+    border-radius: 2px;
+    margin: 10px 5px 5px 0;
+    font-family: Montserrat;
+    font-size: 12px;
+    outline-color: #EA4453;
+
+}
+
+.errorIcon {
+    position: absolute;
+    width: 26px;
+    height: 86px 
+}
+
+/*.input {
     flex-direction: column;
     padding: 8.5px 9.5px;
     border-radius: 2px;
@@ -78,5 +96,4 @@
         font-family: Montserrat;
         font-size: 12px;
         outline-color: #7758A2;
-    }
-}
+    }*/
