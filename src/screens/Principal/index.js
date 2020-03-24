@@ -7,12 +7,14 @@ import Header from './components/Header';
 import Blocks from './components/Blocks';
 import BoardGame from './components/BoardGame';
 import Resolution from './components/Resolution';
-import response from './response';
+import response from '../../response';
 
 class Principal extends React.Component {
   state = {
     /*     blockDrag: '',
      */
+    transactions: {},
+    miner: {}
   };
 
   /*   handleBlockDrag = blockDrag => this.setState({ blockDrag });
@@ -27,7 +29,7 @@ class Principal extends React.Component {
      */
 
     const { transactions, miner } = response;
-    this.setState({ transea})
+    this.setState({ transactions, miner });
   }
 
   render() {
