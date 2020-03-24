@@ -5,13 +5,16 @@ import blocks from '../constants/blocks';
 import Block from './components/Block';
 import styles from './index.module.scss';
 
-function Blocks({ onBlockDrag }) {
+function Blocks({ transactions }) {
+  Object.keys(transactions).forEach(transaction => {
+    console.log(transactions[transaction]);
+  });
   const handleScrollNext = e => {
     const containerBlocks = e.target.parentNode.childNodes[2];
     containerBlocks.scrollLeft += 50;
   };
 
-  const hanldeScrollBack = e => {
+  const handleScrollBack = e => {
     const containerBlocks = e.target.parentNode.childNodes[2];
     containerBlocks.scrollLeft -= 50;
   };
@@ -48,7 +51,7 @@ function Blocks({ onBlockDrag }) {
   return (
     <div className={styles.container}>
       <button type="button" onClick={handleScrollNext} className={styles.next} />
-      <button type="button" onClick={hanldeScrollBack} className={styles.back} />
+      <button type="button" onClick={handleScrollBack} className={styles.back} />
       <div className={styles.containerBlocks}>
         {blocks.map(block => (
           <Block
