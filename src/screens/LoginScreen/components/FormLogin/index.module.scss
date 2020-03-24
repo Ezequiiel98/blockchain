@@ -66,34 +66,34 @@
     font-size: 12px;
     outline-color: #B5B5B6;
     background-color: #E8E8E8;
+}
 
-    .input:hover {
-        flex-direction: column;
-        padding: 8.5px 9.5px;
-        border-radius: 2px;
-        margin: 10px 5px 5px 0;
-        font-family: Montserrat;
-        font-size: 12px;
-        outline-color: #525256;
-    }
+.input:hover {
+    flex-direction: column;
+    padding: 8.5px 9.5px;
+    border-radius: 2px;
+    margin: 10px 5px 5px 0;
+    font-family: Montserrat;
+    font-size: 12px;
+    outline-color: #525256;
+}
 
-    .input:focus {
-        flex-direction: column;
-        padding: 8.5px 9.5px;
-        border-radius: 2px;
-        margin: 10px 5px 5px 0;
-        font-family: Montserrat;
-        font-size: 12px;
-        outline-color: #7758A2;
-    }
+.input:focus {
+    flex-direction: column;
+    padding: 8.5px 9.5px;
+    border-radius: 2px;
+    margin: 10px 5px 5px 0;
+    font-family: Montserrat;
+    font-size: 12px;
+    outline-color: #7758A2;
+}
 
-    .error {
-        @extend .input;
-         padding: 8.5px 9.5px;
-        border-radius: 2px;
-        margin: 10px 5px 5px 0;
-        font-family: Montserrat;
-        font-size: 12px;
-        outline-color: #EA4453;
-    }
+.error {
+    @extend .input;
+    padding: 8.5px 9.5px;
+    border-radius: 2px;
+    margin: 10px 5px 5px 0;
+    font-family: Montserrat;
+    font-size: 12px;
+    outline-color: #EA4453;
 }
