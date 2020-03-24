@@ -1,14 +1,14 @@
 import React from 'react';
 
-import imgBackground from '../../assets/img/Group.png';
 import Score from '../../../../components/Score';
+import ImgBackground from '../ImgBackground';
 
 import styles from './index.module.scss';
 
 function Header() {
   return (
     <header className={styles.header}>
-      <img src={imgBackground} alt="imagen de fondo" className={styles.imgBackground} />
+      <ImgBackground />
       <div className={styles.container}>
         <h2>Nombre Apellido</h2>
         <Score />

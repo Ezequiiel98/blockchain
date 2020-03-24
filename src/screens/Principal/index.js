@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Blocks from './components/Blocks';
 import BoardGame from './components/BoardGame';
 import Resolution from './components/Resolution';
+import ImgBackground from './components/ImgBackground';
 
 class Principal extends React.Component {
   state = {
@@ -33,7 +34,6 @@ class Principal extends React.Component {
   }
 
   render() {
-    console.log(this.state.transactions)
     return (
       <div className={styles.mainContainer}>
         <Header />
@@ -42,6 +42,7 @@ class Principal extends React.Component {
           <BoardGame blockDrag={this.state.blockDrag} blockClass={this.state.blockClass} />
           <Resolution />
         </div>
+        <ImgBackground />
       </div>
     );
   }

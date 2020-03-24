@@ -6,9 +6,6 @@ import Block from './components/Block';
 import styles from './index.module.scss';
 
 function Blocks({ transactions }) {
-  Object.keys(transactions).forEach(transaction => {
-    console.log(transactions[transaction]);
-  });
   const handleScrollNext = e => {
     const containerBlocks = e.target.parentNode.childNodes[2];
     containerBlocks.scrollLeft += 50;
@@ -18,7 +15,9 @@ function Blocks({ transactions }) {
     const containerBlocks = e.target.parentNode.childNodes[2];
     containerBlocks.scrollLeft -= 50;
   };
-
+  Object.keys(transactions).forEach(transaction => {
+    console.log(transactions[transaction].color);
+  });
   /* Dragevents  functions  */
   /*   const handleDragStart = e => {
     const elemento = e.target;
@@ -56,14 +55,25 @@ function Blocks({ transactions }) {
         {blocks.map(block => (
           <Block
             key={block.id}
+            uuid={block.id}
             number={block.number}
             numberPoints={block.points}
             color={block.color}
             broken={block.broken}
             /* onDragEnd={handleDragEnd}
-            onDragStart={handleDragStart} */
+            onDragStart={handleDragStart}  */
           />
-        ))}
+         ))}  
+        {/* {Object.keys(transactions).map(transaction => (
+          <Block
+           key={transactions[transaction].uuid}
+            uuid={transactions[transaction].uuid}
+            number={transactions[transaction].puzzle_number}
+            certified={transactions[transaction].certified}
+            color={transactions[transaction].color}
+            amount={Math.floor(transactions[transaction].amount)}
+          />
+        ))} */}
       </div>
     </div>
   );
