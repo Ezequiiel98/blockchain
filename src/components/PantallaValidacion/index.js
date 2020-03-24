@@ -9,33 +9,34 @@ import RedButton from './RedButton';
 import GreenButton from './GreenButton';
 import ImagenInferior from './ImagenInferior';
 
+import styles from './index.module.scss';
 
 function PantallaValidacion() {
   return (
-    <div>
+    <div className={styles.PantallaValidacion}>
       <ImagenSuperior />
-  
-      <div>  
+
+      <div className={styles.Score}>
         <Score />
       </div>
-      
-      <div>
+
+      <div className={styles.Text}>
         <Text />
       </div>
 
-      <div>
+      <div className={styles.Board}>
         <Board />
       </div>
 
-      <div>
+      <div className={styles.BoardResolution}>
         <BoardResolution />
       </div>
 
-      <div>
+      <div className={styles.RedButton}>
         <RedButton />
       </div>
 
-      <div>
+      <div className={styles.GreenButton}>
         <GreenButton />
       </div>
 
