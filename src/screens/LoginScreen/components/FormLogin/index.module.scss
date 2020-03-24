@@ -45,8 +45,8 @@
 .errorIcon {
     position: absolute;
     top: 33.5px;
-    right:2px;
-    left:283px;
+    right: 2px;
+    left: 283px;
     width: 17px;
     height: 17px;
 }
@@ -59,6 +59,7 @@
     font-family: Montserrat;
     font-size: 12px;
     outline-color: #EA4453;
+    background-color: black;
 }
 
 .error {
@@ -68,7 +69,7 @@
     margin: 10px 5px 5px 0;
     font-family: Montserrat;
     font-size: 12px;
-    border-color:  #EA4453;
+    outline-color: #EA4453;
 }
 
 .input:disabled {
@@ -101,4 +102,3 @@
     font-size: 12px;
     outline-color: #7758A2;
 }
-
