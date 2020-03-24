@@ -9,7 +9,7 @@ import styles from './index.module.scss';
 function FormLogin() {
   return (
     <form className={styles.formLogin}>
-      <p className={styles.blockchain}>Blockchain</p>
+      <p className={styles.title}>Blockchain</p>
       <div className={styles.containerInput}>
         <label className={styles.label}>NOMBRE</label>
         <input placeholder="Juan Perez" className={styles.input} name="username" id="username" type="text" />
