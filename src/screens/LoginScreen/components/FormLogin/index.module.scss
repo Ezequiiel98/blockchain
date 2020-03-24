@@ -58,6 +58,17 @@
     margin: 10px 5px 5px 0;
     font-family: Montserrat;
     font-size: 12px;
+    outline-color: #EA4453;
+}
+
+.error {
+    @extend .input;
+    padding: 8.5px 9.5px;
+    border-radius: 2px;
+    margin: 10px 5px 5px 0;
+    font-family: Montserrat;
+    font-size: 12px;
+    border-color:  #EA4453;
 }
 
 .input:disabled {
@@ -91,12 +102,3 @@
     outline-color: #7758A2;
 }
 
-.error {
-    @extend .input;
-    padding: 8.5px 9.5px;
-    border-radius: 2px;
-    margin: 10px 5px 5px 0;
-    font-family: Montserrat;
-    font-size: 12px;
-    outline-color: #EA4453;
-}
