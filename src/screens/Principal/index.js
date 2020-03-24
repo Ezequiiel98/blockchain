@@ -7,22 +7,27 @@ import Header from './components/Header';
 import Blocks from './components/Blocks';
 import BoardGame from './components/BoardGame';
 import Resolution from './components/Resolution';
+import response from './response';
 
 class Principal extends React.Component {
   state = {
-    blockDrag: '',
-    res: ''
+    /*     blockDrag: '',
+     */
   };
 
-  handleBlockDrag = blockDrag => this.setState({ blockDrag });
-
-  nose = async () => {
+  /*   handleBlockDrag = blockDrag => this.setState({ blockDrag });
+   */
+  /* getGame = async () => {
     const res = await fetchGame();
-    console.log(res.data)
-  };
+    console.log(res.data);
+  }; */
 
   componentDidMount() {
-    this.nose();
+    /*     this.getGame();
+     */
+
+    const { transactions, miner } = response;
+    this.setState({ transea})
   }
 
   render() {
