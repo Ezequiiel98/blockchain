@@ -5,7 +5,7 @@ import Blockimg from './components/Blockimg';
 import styles from './index.module.scss';
 
 function LoginScreen() {
-  return ( 
+  return (
     <div className={styles.loginScreen}>
       <FormLogin />
       <Blockimg />
