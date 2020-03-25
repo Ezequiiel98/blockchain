@@ -1,28 +1,24 @@
 .PantallaValidacion{
+    width: 1024px;
+    margin: 0 auto;
 }
 
-.score{
+.ContainerTextScore{
     display: flex;
     justify-content: space-between;
 }
 
-.Text{
-    
+.ContainerBoardResolutionButton{
+    display: flex;
+    flex-direction: column;
 }
 
-.Board{
-    
+.ContainerButton{
+    display: flex;
+    justify-content: space-around;
 }
 
-.BoardResolution{
-    
+.ContainerBoardBoardResolutionButton{
+    display: flex;
+    justify-content: space-around;
 }
-
-.RedButton{
-    
-}
-
-.GreenButton{
-    
-}
-

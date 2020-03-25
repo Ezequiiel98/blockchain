@@ -14,36 +14,44 @@ import styles from './index.module.scss';
 function PantallaValidacion() {
   return (
     <div className={styles.PantallaValidacion}>
+
       <ImagenSuperior />
 
-      <div className={styles.Score}>
-        <Score />
-      </div>
+     <div className={styles.ContainerTextScore}> 
+        <div className={styles.Text}>
+          <Text />
+        </div>
+        <div className={styles.Score}>
+          <Score />
+        </div>
+     </div>
 
-      <div className={styles.Text}>
-        <Text />
-      </div>
+      <div className={styles.ContainerBoardBoardResolutionButton}>
+        <div>
+          <Board />
+        </div>
 
-      <div className={styles.Board}>
-        <Board />
-      </div>
+       <div className={styles.ContainerBoardResolutionButton}>
+        <div>
+          <BoardResolution />
+        </div>
 
-      <div className={styles.BoardResolution}>
-        <BoardResolution />
-      </div>
+       <div className={styles.ContainerButton}>
+        <div>
+          <RedButton />
+        </div>
 
-      <div className={styles.RedButton}>
-        <RedButton />
-      </div>
-
-      <div className={styles.GreenButton}>
-        <GreenButton />
+        <div>
+          <GreenButton />
+        </div>
+        </div>
+       </div>
       </div>
 
       <div>
         <ImagenInferior />
       </div>
-    </div>
+     </div>
 );
 }
 export default PantallaValidacion;
