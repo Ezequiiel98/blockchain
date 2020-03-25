@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { fetchGame } from '../../services/gameService';
-import response from '../../response';
+/* import { fetchGame } from '../../services/gameService';
+import response from '../../response'; */
 
 import styles from './index.module.scss';
 import Header from './components/Header';
@@ -14,8 +14,8 @@ class Principal extends React.Component {
   state = {
     /*     blockDrag: '',
      */
-    transactions: '',
-    miner: {}
+  /*   transactions: '',
+    miner: {} */
   };
 
   /*   handleBlockDrag = blockDrag => this.setState({ blockDrag });
@@ -29,8 +29,8 @@ class Principal extends React.Component {
     /*     this.getGame();
      */
 
-    const { transactions, miner } = response;
-    this.setState({ transactions, miner });
+    /* const { transactions, miner } = response;
+    this.setState({ transactions, miner }); */
   }
 
   render() {

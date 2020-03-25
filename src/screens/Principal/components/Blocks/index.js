@@ -4,8 +4,9 @@ import blocks from '../constants/blocks';
 
 import Block from './components/Block';
 import styles from './index.module.scss';
-
-function Blocks({ transactions }) {
+/* transactions */
+function Blocks() {
+  /* scrolls  */
   const handleScrollNext = e => {
     const containerBlocks = e.target.parentNode.childNodes[2];
     containerBlocks.scrollLeft += 50;
@@ -15,9 +16,7 @@ function Blocks({ transactions }) {
     const containerBlocks = e.target.parentNode.childNodes[2];
     containerBlocks.scrollLeft -= 50;
   };
-  Object.keys(transactions).forEach(transaction => {
-    console.log(transactions[transaction].color);
-  });
+
   /* Dragevents  functions  */
   /*   const handleDragStart = e => {
     const elemento = e.target;
@@ -47,6 +46,24 @@ function Blocks({ transactions }) {
     }
   }; */
 
+  const handleDragStart = e => {
+    const data = JSON.stringify({ id: e.target.id, style: styles.blockActive });
+
+    e.dataTransfer.setData('text/plain', data);
+  };
+
+  const handleDragEnd = e => {
+    const elemento = e.target;
+    const dragSuccess = e.dataTransfer.dropEffect;
+    elemento.classList.remove(styles.blockActive);
+
+    if (dragSuccess === 'move') {
+      setTimeout(() => {
+        elemento.classList.add(styles.blockActive);
+        elemento.draggable = false;
+      }, 0);
+    }
+  };
   return (
     <div className={styles.container}>
       <button type="button" onClick={handleScrollNext} className={styles.next} />
@@ -60,10 +77,11 @@ function Blocks({ transactions }) {
             numberPoints={block.points}
             color={block.color}
             broken={block.broken}
-            /* onDragEnd={handleDragEnd}
-            onDragStart={handleDragStart}  */
+            onDragStart={handleDragStart}
+            onDragEnd={handleDragEnd}
           />
-         ))}  
+        ))}
+
         {/* {Object.keys(transactions).map(transaction => (
           <Block
            key={transactions[transaction].uuid}

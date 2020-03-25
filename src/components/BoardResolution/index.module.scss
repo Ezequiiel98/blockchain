@@ -53,8 +53,6 @@
   background-color: #22465C;
 }
 
-
-
 .cell:nth-child(16) {
   background-color: #33BFC6;
 }
@@ -123,7 +121,6 @@
   background-color: #FEC34D;
 }
 
-
 .cell:nth-child(1) {
   border-top-left-radius: 3.66px;
 }
@@ -136,7 +133,6 @@
   border-bottom-left-radius: 3.66px;
 }
 
-
 .cell:nth-child(16) {
   border-bottom-right-radius: 3.66px;
 }
@@ -147,13 +143,9 @@
 
 .cell:nth-child(1n) {
   border-bottom: 4px solid white;
-
   border-left: 4px solid white;
-
-
 }
 
 .cell:nth-child(4n) {
   border-right: 4px solid white;
-
 }
