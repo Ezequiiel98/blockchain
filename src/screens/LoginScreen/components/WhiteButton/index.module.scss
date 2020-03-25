@@ -23,9 +23,11 @@
 
 .containerButton:active {
   background-color: white;
-  transform: translateY(8px);
+  /*/transform: translateY(8px);*/
 }
 
 .button:hover {
   cursor: pointer;
+  border-color: #533D71;
+  color:#533D71;
 }
