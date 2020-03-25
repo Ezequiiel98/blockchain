@@ -5,7 +5,7 @@
 
 .ContainerTextScore{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
 .ContainerBoardResolutionButton{
@@ -21,4 +21,8 @@
 .ContainerBoardBoardResolutionButton{
     display: flex;
     justify-content: space-around;
+}
+
+.containerBoard{
+    display: flex;
 }
