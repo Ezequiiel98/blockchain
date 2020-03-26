@@ -21,8 +21,8 @@ function PantallaValidacion() {
         <div className={styles.containerBoard}>
           <Board />
           <BoardResolution />
-          <RedButton />
-          <GreenButton />
+          {/* <RedButton />
+          <GreenButton /> */}
         </div>
       </div>
 

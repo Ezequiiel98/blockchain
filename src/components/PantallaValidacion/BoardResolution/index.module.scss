@@ -1,3 +1,8 @@
+.container{
+  display: flex;
+  flex-direction: column;
+}
+
 .containerBoard {
   padding: 31.5px 42.5px;
   border: 1px solid #E1E1E2;
@@ -158,4 +163,50 @@
 .cell:nth-child(4n) {
   border-right: 4px solid white;
 
+}
+
+
+.containerStrongGreen{
+  height: 58px;
+  width: 120px;
+  border-radius: 4px;
+  background-color: #44B449;
+}
+
+.containerGreen{
+  height: 66px;
+  width: 120px;
+  border-radius: 4px;
+  background-color: #00942A;
+  margin-right: 24px;
+}
+
+.iconRectangle{
+transform: translate(47.24px , 19.27px);  
+}
+
+.containerBordo{
+  height: 58px;
+  width: 120px;
+  border-radius: 4px;
+  background-color: #EA4453;
+}
+
+.containerRojo{
+    height: 66px;
+    width: 120px;
+    border-radius: 4px;
+    background-color: #D12C43;
+    margin-right: 24px;
+}
+
+
+.iconRectangle{
+  transform: translate(50.21px , 19.01px);    
+}
+
+.ContainerButton{
+  margin-top: 23.5px;
+  display: flex;
+  justify-content: center;
 }
