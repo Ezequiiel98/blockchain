@@ -4,7 +4,9 @@ import styles from './index.module.scss';
 
 function Text() {
   return (
+    
     <div className={styles.container}>
+      <span className={styles.revision}>Review</span>
       <span className={styles.texto}>Propuesta</span>
       <span className={styles.texto}>Juan Carlos Perez</span>
     </div>

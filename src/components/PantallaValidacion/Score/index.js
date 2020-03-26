@@ -5,8 +5,6 @@ import styles from './index.module.scss';
 function Score() {
   return (
     <div className={styles.container}>
-      <span className={styles.revision}>Review</span>
-
       <div className={styles.containerScore}>
         <span className={styles.textScore}>Tu Puntaje</span>
         <span className={styles.iconContainer}>

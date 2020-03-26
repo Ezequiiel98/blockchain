@@ -15,9 +15,11 @@ function PantallaValidacion() {
     <div className={styles.PantallaValidacion}>
       <ImagenSuperior />
 
-      <div className={styles.ContainerTextScore}>
-        <Score />
+      <div className={styles.Container}>
+        <div className={styles.ContainerTextScore}>
         <Text />
+        <Score />
+        </div>
         <div className={styles.containerBoard}>
           <Board />
           <BoardResolution />

@@ -3,7 +3,7 @@
     margin: 0 auto;
 }
 
-.ContainerTextScore{
+.Container{
     display: flex;
     flex-direction: column;
 }
@@ -11,3 +11,14 @@
 .containerBoard{
     display: flex;
 }
+
+.ContainerTextScore{
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-15px);
+
+}
+/* .ContainerTextScore:first-child {
+    margin-right: 10px;
+}
+ */

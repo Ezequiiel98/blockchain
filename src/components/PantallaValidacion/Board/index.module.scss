@@ -16,13 +16,11 @@
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  padding: 8px 8px 8px 8px;
   border-radius: 8px;
+  padding: 8px;
 }
 
 .number {
-  height: 58px;
-  width: 62px;
   color: #FFFFFF;
   font-family: 'Montserrat', sans-serif;
   font-size: 48px;
@@ -32,8 +30,8 @@
 }
 
 .cell {
-  width: 25%;
-  height: 25%;
+  min-width: 25%;
+  min-height: 25%;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -126,37 +124,6 @@
   background-color: #FEC34D;
 }
 
-
-.cell:nth-child(1) {
-  border-top-left-radius: 3.66px;
-}
-
-.cell:nth-child(4) {
-  border-top-right-radius: 3.66px;
-}
-
-.cell:nth-child(13) {
-  border-bottom-left-radius: 3.66px;
-}
-
-
-.cell:nth-child(16) {
-  border-bottom-right-radius: 3.66px;
-}
-
-.cell:nth-child(-n+4) {
-  border-top: 4px solid white;
-}
-
-.cell:nth-child(1n) {
-  border-bottom: 4px solid white;
-
-  border-left: 4px solid white;
-
-
-}
-
-.cell:nth-child(4n) {
-  border-right: 4px solid white;
-
+.cell{
+  border: 4px solid white;
 }
