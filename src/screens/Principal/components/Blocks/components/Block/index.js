@@ -15,12 +15,12 @@ function Block({  uuid, number, numberPoints, color, broken, onDragEnd, onDragSt
   return (
     <div
       id={uuid}
-      className={`${styles.containerBlock} ${styles[colorDark]} `}
+      className={`block ${styles.containerBlock} ${styles[colorDark]} `}
       draggable
       onDragEnd={e => onDragEnd(e)}
       onDragStart={(e, node) => onDragStart(e, node)}
     >
-      <div className={`${styles[color]} block`}>
+      <div className={`${styles[color]}`}>
         <div className={styles.blockPoints}>
           {points.map(point => (
             <span key={point} className={styles[point]} />

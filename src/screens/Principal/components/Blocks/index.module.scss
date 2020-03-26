@@ -8,7 +8,7 @@
 }
 .containerBlocks {
 	transition: all .5s ease;
-	height: 70px;
+	max-height: 70px;
 
 	padding: 0 12px;
 	display: flex;

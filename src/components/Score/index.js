@@ -5,7 +5,7 @@ import styles from './index.module.scss';
 class Score extends React.Component {
   state = { score: 1 };
 
-  setScore = () => {
+   setScore = () => {
     this.score = setInterval(() => {
       this.setState(prevState => ({
         score: (prevState.score - parseFloat('0.001')).toFixed(3)
@@ -24,7 +24,7 @@ class Score extends React.Component {
 
   componentWillUnmount() {
     this.resetScore();
-  }
+  } 
 
   render() {
     const { score } = this.state;

@@ -18,7 +18,7 @@ function Blocks() {
   };
 
   /* Dragevents  functions  */
-  /*   const handleDragStart = e => {
+    /*  const handleDragStart = e => {
     const elemento = e.target;
     const child = elemento.childNodes[0];
     child.classList.add(styles.blockHijoGrande);
@@ -44,9 +44,9 @@ function Blocks() {
         elemento.draggable = false;
       }, 0);
     }
-  }; */
+  };  */
 
-  const handleDragStart = e => {
+   const handleDragStart = e => {
     const data = JSON.stringify({ id: e.target.id, style: styles.blockActive });
 
     e.dataTransfer.setData('text/plain', data);
@@ -63,7 +63,7 @@ function Blocks() {
         elemento.draggable = false;
       }, 0);
     }
-  };
+  }; 
   return (
     <div className={styles.container}>
       <button type="button" onClick={handleScrollNext} className={styles.next} />

@@ -1,7 +1,7 @@
 import React from 'react';
 
-/* import { fetchGame } from '../../services/gameService';
-import response from '../../response'; */
+import { fetchGame } from '../../services/gameService';
+ import response from '../../response'; 
 
 import styles from './index.module.scss';
 import Header from './components/Header';
@@ -14,7 +14,7 @@ class Principal extends React.Component {
   state = {
     /*     blockDrag: '',
      */
-  /*   transactions: '',
+    /*   transactions: '',
     miner: {} */
   };
 
@@ -22,13 +22,12 @@ class Principal extends React.Component {
    */
   /* getGame = async () => {
     const res = await fetchGame();
-    console.log(res.data);
-  }; */
-
+    console.log(res);
+  };
+ */
   componentDidMount() {
-    /*     this.getGame();
-     */
-
+/*     this.getGame();
+ */
     /* const { transactions, miner } = response;
     this.setState({ transactions, miner }); */
   }
