@@ -1,9 +1,6 @@
 @import '../../../../assets/scss/colors.scss';
 
 .containerBlock {
-	margin: 0 7.8px;
-	height: 68px;
-	width: 70px;
 	border-radius: 5px;
 	transition: background-color .2s ease, transform .2s ease;
 	flex-shrink: 0;
@@ -11,7 +8,23 @@
 	position: relative;
 }
 
-.containerBlock:hover{
+.containerSmallBlock{
+	@extend .containerBlock;
+	margin: 0 7.8px;
+	height: 68px;
+	width: 70px;
+}
+
+.containerBigBlock{
+	@extend .containerBlock;
+	border-radius: 0;
+	border: 2px solid white;
+	height: 112px;
+	width: 114px;
+	transform: translateX(-2px);
+}
+
+.containerSmallBlock:hover{
 	transform: translateY(6px);
 }
 
@@ -29,7 +42,7 @@
 	z-index: 2;
 }
 
-.containerBlock:hover .noCertified{
+.containerSmallBlock:hover .noCertified{
 	opacity: 1;
 }
 
@@ -42,10 +55,9 @@
 	height: 62px;
 	position: relative;	
 	overflow: hidden;
-	
 }
 
-.containerBlock:hover .block {
+.containerSmallBlock:hover .block {
 	border-radius: 0;
 	height: 64px;
 }

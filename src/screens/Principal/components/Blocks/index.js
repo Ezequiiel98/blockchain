@@ -4,7 +4,7 @@ import blocks from '../constants/blocks';
 
 import Block from './components/Block';
 import styles from './index.module.scss';
-/* transactions */
+
 function Blocks() {
   /* scrolls  */
   const handleScrollNext = e => {
@@ -17,53 +17,29 @@ function Blocks() {
     containerBlocks.scrollLeft -= 50;
   };
 
-  /* Dragevents  functions  */
-    /*  const handleDragStart = e => {
-    const elemento = e.target;
-    const child = elemento.childNodes[0];
-    child.classList.add(styles.blockHijoGrande);
-    elemento.classList.add(styles.blockGrande);
-    const newElement = elemento.cloneNode(true);
-    elemento.classList.add(styles.blockActive);
-
-    onBlockDrag(newElement);
+  const handleDragStart = e => {
+    const element = e.target;
+    const { id } = e.target;
+    e.dataTransfer.setData('text/plain', id);
+    element.classList.add(styles.blockHijoGrande)
     setTimeout(() => {
-      child.classList.remove(styles.blockHijoGrande);
-      elemento.classList.remove(styles.blockGrande);
-    }, 0);
+      element.classList.remove(styles.blockGrande)
+      element.classList.remove(styles.blockHijoGrande)
+    })
   };
 
   const handleDragEnd = e => {
-    const elemento = e.target;
+    const element = e.target;
     const dragSuccess = e.dataTransfer.dropEffect;
-    elemento.classList.remove(styles.blockActive);
+    element.classList.remove(styles.blockActive);
 
     if (dragSuccess === 'move') {
       setTimeout(() => {
-        elemento.classList.add(styles.blockActive);
-        elemento.draggable = false;
+        element.classList.add(styles.blockActive);
+        element.draggable = false;
       }, 0);
     }
-  };  */
-
-   const handleDragStart = e => {
-    const data = JSON.stringify({ id: e.target.id, style: styles.blockActive });
-
-    e.dataTransfer.setData('text/plain', data);
   };
-
-  const handleDragEnd = e => {
-    const elemento = e.target;
-    const dragSuccess = e.dataTransfer.dropEffect;
-    elemento.classList.remove(styles.blockActive);
-
-    if (dragSuccess === 'move') {
-      setTimeout(() => {
-        elemento.classList.add(styles.blockActive);
-        elemento.draggable = false;
-      }, 0);
-    }
-  }; 
   return (
     <div className={styles.container}>
       <button type="button" onClick={handleScrollNext} className={styles.next} />
@@ -72,9 +48,9 @@ function Blocks() {
         {blocks.map(block => (
           <Block
             key={block.id}
-            uuid={block.id}
+            id={block.id}
             number={block.number}
-            numberPoints={block.points}
+            points={block.points}
             color={block.color}
             broken={block.broken}
             onDragStart={handleDragStart}

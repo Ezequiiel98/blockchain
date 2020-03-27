@@ -1,6 +1,6 @@
 import React from 'react';
 
-import boardCells from '../constants/boardCells.js';
+import boardCells from '../constants/boardCells';
 import blocks from '../constants/blocks';
 import Block from '../Blocks/components/Block';
 
@@ -8,24 +8,29 @@ import styles from './index.module.scss';
 
 class BoardGame extends React.Component {
   state = {
-    element: '',
-    key: 0,
-    row: '',
-    column: '',
-    myState: {}
+    data: ''
   };
 
-  getBlock = (id, elements) => {
-    const myState = { ...this.state.myState };
-    const row = elements[0];
-    const column = [elements[1]];
-    myState[row] = { [column]: id };
-    const obj = {};
-    const mio = Object.keys(this.state.myState).map(
-      elemento => new Object({ [row]: this.state.myState[elemento] })
-    );
-    console.log(mio);
-    this.setState({ element: blocks.filter(block => block.id === parseInt(id)), myState, row, column });
+  handleDragStart = e => {
+    const { id } = e.target;
+    const lastColumn = Object.keys(this.state).filter(value => this.state[value] === id)[0];
+    e.dataTransfer.setData('text/plain', id);
+    setTimeout(() => {
+      this.setState({ [lastColumn]: '' });
+    }, 0);
+  };
+
+  handleDragEnd = e => {
+    const elemento = e.target;
+    // const dragSuccess = e.dataTransfer.dropEffect;
+    /*     elemento.classList.remove(styles.blockActive);
+     */
+    /* if (dragSuccess === 'move') {
+      setTimeout(() => {
+        // elemento.classList.add(styles.blockActive);
+        // elemento.draggable = false;
+      }, 0);
+    } */
   };
 
   handleDragOver = e => {
@@ -34,58 +39,33 @@ class BoardGame extends React.Component {
 
   handleDragEnter = e => {
     e.preventDefault();
-    e.target.classList.add(styles.cellDragHover);
+    if (e.target.classList.contains('dragZone')) {
+      e.target.classList.add(styles.cellDragHover);
+    }
   };
 
   handleDragLeave = e => {
     e.preventDefault();
-    e.target.classList.remove(styles.cellDragHover);
+    if (e.target.classList.contains('dragZone')) {
+      e.target.classList.remove(styles.cellDragHover);
+    }
+  };
+
+  getBlock = (id, elements) => {
+    const data = { ...this.state.data };
+    data[elements] = blocks.filter(block => block.id === parseInt(id))[0];
+    this.setState({ ...this.prevState, [elements]: id, data });
   };
 
   handleDrop = e => {
     e.preventDefault();
-  /*   const elements = e.target.id.split('_');
-    const { id, style } = JSON.parse(e.dataTransfer.getData('text'));
-    this.getBlock(id, elements); */
-
- if (e.target.classList.contains('dragZone')) {
-      console.log('dragzone');
-      const { id, style } = JSON.parse(e.dataTransfer.getData('text'));
-      const element = document.getElementById(id);
-      const elementClone = element.cloneNode(true);
-      e.target.appendChild(elementClone);
-      elementClone.style.width = '115px';
-      elementClone.childNodes[0].style.width = '114px';
-      elementClone.style.height = '114px';
-      elementClone.childNodes[0].style.height = '115px';
-
-      elementClone.style.marginLeft = '-2px';
-       elementClone.style.marginTop = '-2px'
-      elementClone.style.borderRadius = '0';
-      elementClone.style.border = '2px solid #fff';
-    } else if (e.target.classList.contains('block')) {
-      const { id, style } = JSON.parse(e.dataTransfer.getData('text'));
-      console.log(style);
-      const element = document.getElementById(id);
-      const elementClone = element.cloneNode(true);
-      console.log('blok');
-      e.target.parentNode.parentNode.appendChild(elementClone);
-      const primerElementoId = e.target.parentNode.parentNode.childNodes[0].id;
-      console.log(e.target.parentNode.parentNode.removeChild(e.target.parentNode.parentNode.childNodes[0]));
-      const elementoPrimer = document.getElementById(primerElementoId);
-      elementoPrimer.classList.remove(style);
-      elementoPrimer.draggable = true;
-      elementClone.style.width = '115px';
-      elementClone.childNodes[0].style.width = '115px';
-      elementClone.style.height = '114px';
-      elementClone.childNodes[0].style.height = '114px';
-      elementClone.style.marginLeft = '-2px';
-       elementClone.style.marginTop = '-2px'
-      elementClone.style.borderRadius = '0';
-      elementClone.style.border = '2px solid #fff';
+    if (e.target.classList.contains('dragZone')) {
+      const elements = e.target.id;
+      const id = e.dataTransfer.getData('text');
+      this.getBlock(id, elements);
+      e.target.classList.remove(styles.cellDragHover);
     }
   };
-  
 
   render() {
     return (
@@ -104,8 +84,15 @@ class BoardGame extends React.Component {
                 onDragLeave={e => this.handleDragLeave(e)}
                 onDrop={e => this.handleDrop(e)}
               >
-{/*                 <Block {...nose[0]} />
- */}              </div>
+                {this.state[idColumn] && (
+                  <Block
+                    {...this.state.data[idColumn]}
+                    onDragStart={e => this.handleDragStart(e)}
+                    onDragEnd={e => this.handleDragEnd(e)}
+                    bigBlock
+                  />
+                )}
+              </div>
             ))}
           </div>
         ))}
@@ -148,5 +135,3 @@ export default BoardGame;
       console.log(element);
       e.target.appendChild(elementClone)
     } */
-
-

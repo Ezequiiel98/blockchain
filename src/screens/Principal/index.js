@@ -20,14 +20,14 @@ class Principal extends React.Component {
 
   /*   handleBlockDrag = blockDrag => this.setState({ blockDrag });
    */
-  /* getGame = async () => {
+   getGame = async () => {
     const res = await fetchGame();
-    console.log(res);
+    console.log(res.data);
   };
- */
+
   componentDidMount() {
-/*     this.getGame();
- */
+   this.getGame();
+ 
     /* const { transactions, miner } = response;
     this.setState({ transactions, miner }); */
   }

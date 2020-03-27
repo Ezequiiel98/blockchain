@@ -4,25 +4,25 @@ import styles from './index.module.scss';
 
 /* onDragStart, onDragEnd, uuid, number, certified, color, amount
  */
-function Block({  uuid, number, numberPoints, color, broken, onDragEnd, onDragStart }) {
+function Block({ id, number, points, color, broken, onDragEnd, onDragStart, bigBlock }) {
   const colorDark = `${color}Dark`;
 
-  const points = [];
-  for (let i = 1; i <= numberPoints; i++) {
-    points.push(`point${i}`);
+  const pointsClass = [];
+  for (let i = 1; i <= points; i++) {
+    pointsClass.push(`point${i}`);
   }
 
   return (
     <div
-      id={uuid}
-      className={`block ${styles.containerBlock} ${styles[colorDark]} `}
+      id={id}
+      className={` ${bigBlock ? styles.containerBigBlock : styles.containerSmallBlock} ${styles[colorDark]} `}
       draggable
       onDragEnd={e => onDragEnd(e)}
       onDragStart={(e, node) => onDragStart(e, node)}
     >
       <div className={`${styles[color]}`}>
         <div className={styles.blockPoints}>
-          {points.map(point => (
+          {pointsClass.map(point => (
             <span key={point} className={styles[point]} />
           ))}
         </div>
