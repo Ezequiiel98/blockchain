@@ -39,16 +39,12 @@ class BoardGame extends React.Component {
 
   handleDragEnter = e => {
     e.preventDefault();
-    if (e.target.classList.contains('dragZone')) {
-      e.target.classList.add(styles.cellDragHover);
-    }
+    e.target.classList.add(styles.cellDragHover);
   };
 
   handleDragLeave = e => {
     e.preventDefault();
-    if (e.target.classList.contains('dragZone')) {
-      e.target.classList.remove(styles.cellDragHover);
-    }
+    e.target.classList.remove(styles.cellDragHover);
   };
 
   getBlock = (id, elements) => {
@@ -59,12 +55,10 @@ class BoardGame extends React.Component {
 
   handleDrop = e => {
     e.preventDefault();
-    if (e.target.classList.contains('dragZone')) {
-      const elements = e.target.id;
-      const id = e.dataTransfer.getData('text');
-      this.getBlock(id, elements);
-      e.target.classList.remove(styles.cellDragHover);
-    }
+    const elements = e.target.id;
+    const id = e.dataTransfer.getData('text');
+    this.getBlock(id, elements);
+    e.target.classList.remove(styles.cellDragHover);
   };
 
   render() {

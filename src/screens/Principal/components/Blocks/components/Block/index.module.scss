@@ -18,10 +18,11 @@
 .containerBigBlock{
 	@extend .containerBlock;
 	border-radius: 0;
-	border: 2px solid white;
-	height: 112px;
+	border: 3px solid white;
+	height: 114px;
 	width: 114px;
-	transform: translateX(-2px);
+	transform: translate(-2px, -2px);
+
 }
 
 .containerSmallBlock:hover{
@@ -50,11 +51,22 @@
 .block {
 	display: flex;
 	flex-direction: column;
-	width: 70px;
-	border-radius: 5px;
-	height: 62px;
+	
 	position: relative;	
 	overflow: hidden;
+}
+
+.containerBigBlock .block{
+	@extend .block;
+	height: 112px;
+	width: 114px;
+}
+
+.containerSmallBlock .block{
+	@extend .block;
+	width: 70px;
+	height: 62px;
+	border-radius: 5px;
 }
 
 .containerSmallBlock:hover .block {
@@ -131,13 +143,22 @@
 
 .point {
 	content: '';
-	width: 5px;
-	height: 5px;
 	background-color: $white;
 	border-radius: 50%;
 	position: absolute;
 }
 
+.containerBigBlock .point{
+	@extend .point;
+	width: 8px;
+	height: 8px;
+}
+
+.containerSmallBlock .point{
+	@extend .point;
+	width: 5px;
+	height: 5px;
+}
 .point:nth-child(odd) {
 	top: 30%;
 }
@@ -157,11 +178,8 @@ $left: 10%;
 }
 
 .blockNumber {
-	margin-top: 0;
-	margin-right: 5px;
 	align-self: flex-end;
 	color: $white;
-	font-size: 32px;
 	padding: 0;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -170,4 +188,17 @@ $left: 10%;
 	font-weight: bold;
 	z-index: 2;
 }
- 
+
+.containerBigBlock .blockNumber{
+	@extend .blockNumber;
+	margin-top: 12px;
+	margin-right: 12px;
+	font-size: 40px;
+}
+
+.containerSmallBlock .blockNumber{
+	@extend .blockNumber;
+	margin-top: 0px;
+	margin-right: 5px;
+	font-size: 32px;
+}
