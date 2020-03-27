@@ -15,12 +15,12 @@ function Block({ id, number, points, color, broken, onDragEnd, onDragStart, bigB
   return (
     <div
       id={id}
-      className={` ${bigBlock ? styles.containerBigBlock : styles.containerSmallBlock} ${styles[colorDark]} blockDrag`}
+      className={` ${bigBlock ? styles.containerBigBlock : styles.containerSmallBlock} ${styles[colorDark]} containerBlockDrag`}
       draggable
       onDragEnd={e => onDragEnd(e)}
       onDragStart={(e, node) => onDragStart(e, node)}
     >
-      <div className={`${styles[color]}`}>
+      <div className={`${styles[color]} blockDrag`}>
         <div className={styles.blockPoints}>
           {pointsClass.map(point => (
             <span key={point} className={styles[point]} />

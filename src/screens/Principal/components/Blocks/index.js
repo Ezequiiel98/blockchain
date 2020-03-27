@@ -19,7 +19,7 @@ function Blocks() {
 
   const handleDragStart = e => {
     const element = e.target;
-    if (element.classList.contains('blockDrag')) {
+    if (element.classList.contains('containerBlockDrag')) {
       const { id } = e.target;
       e.dataTransfer.setData('text/plain', id);
       const child = element.childNodes[0];

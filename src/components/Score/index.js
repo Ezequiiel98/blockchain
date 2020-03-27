@@ -2,7 +2,6 @@ import React from 'react';
 
 import iconScorePositive from './assets/img/iconScorePositive.png';
 import iconScoreNegative from './assets/img/iconScoreNegative.png';
-
 import styles from './index.module.scss';
 
 class Score extends React.Component {

@@ -35,17 +35,22 @@ class BoardGame extends React.Component {
 
   handleDragOver = e => {
     e.preventDefault();
+ /*    if (e.target.classList.contains('containerBlockDrag')) {
+      e.target.style.zIndex = '-5';
+    } */
   };
 
   handleDragEnter = e => {
     e.preventDefault();
-    e.target.classList.add(styles.cellDragHover)
-    console.log("enter");
+    e.target.classList.add(styles.cellDragHover);
+
+   
   };
 
   handleDragLeave = e => {
     e.preventDefault();
     e.target.classList.remove(styles.cellDragHover);
+   
   };
 
   getBlock = (id, elements) => {
