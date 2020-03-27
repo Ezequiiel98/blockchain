@@ -18,14 +18,17 @@ function Blocks() {
   };
 
   const handleDragStart = e => {
-    const element = e.target;
     const { id } = e.target;
     e.dataTransfer.setData('text/plain', id);
-    element.classList.add(styles.blockHijoGrande)
+    const elemento = e.target;
+    const child = elemento.childNodes[0];
+    child.classList.add(styles.blockHijoGrande);
+    elemento.classList.add(styles.blockGrande);
+
     setTimeout(() => {
-      element.classList.remove(styles.blockGrande)
-      element.classList.remove(styles.blockHijoGrande)
-    })
+      child.classList.remove(styles.blockHijoGrande);
+      elemento.classList.remove(styles.blockGrande);
+    }, 0);
   };
 
   const handleDragEnd = e => {

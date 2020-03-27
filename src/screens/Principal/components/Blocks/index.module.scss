@@ -46,21 +46,23 @@
 
 
 
-/* borrar */
+
 .blockGrande{
-	min-height: 112px;
-	width: 88px;
-	margin: 0 7.8px;
+	min-height: 111px;
 	padding: 0;
+	overflow: visible;
+	margin:0!important;
+	background-color: transparent;
 }
 
+.blockGrande [class*=noCertified]{
+	display:none;
+}
 .blockHijoGrande{
 	min-width: 115px;
 	margin-right: 5px;	
-	min-height: 100%;
+	min-height: 115px;
 	position: relative;
-	margin-left: -10px;
-	margin-top: -2px;
 }
 
 .blockHijoGrande::after{
@@ -72,22 +74,13 @@
 	top: 0;
 }
 .blockHijoGrande h4{
-	font-size: 45px;
-	margin-top: auto;
-	margin-bottom: 12px;
-	margin-right: 12px;
+	margin-top: 12px!important;
+	margin-right: 12px!important;
+	font-size: 40px!important;
 	}
+
 .blockHijoGrande span{
 	margin-top: 5px;
-	width: 6px;
-	height: 6px;
-}
-.blockInvisible{
-	display: none;
-}
-
-
-.blockActive {
-	background-color: transparent!important;
-	transform: translateY(6px);
+min-width: 8px;
+	min-height: 8px;
 }
