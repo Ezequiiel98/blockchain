@@ -39,7 +39,8 @@ class BoardGame extends React.Component {
 
   handleDragEnter = e => {
     e.preventDefault();
-    e.target.classList.add(styles.cellDragHover);
+    e.target.classList.add(styles.cellDragHover)
+    console.log("enter");
   };
 
   handleDragLeave = e => {

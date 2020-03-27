@@ -15,7 +15,7 @@ function Block({ id, number, points, color, broken, onDragEnd, onDragStart, bigB
   return (
     <div
       id={id}
-      className={` ${bigBlock ? styles.containerBigBlock : styles.containerSmallBlock} ${styles[colorDark]} `}
+      className={` ${bigBlock ? styles.containerBigBlock : styles.containerSmallBlock} ${styles[colorDark]} blockDrag`}
       draggable
       onDragEnd={e => onDragEnd(e)}
       onDragStart={(e, node) => onDragStart(e, node)}

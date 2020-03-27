@@ -2,7 +2,7 @@
   background-color: #E8E8E8;
   display: flex;
   align-items: center;
-  min-width: 196px;
+  max-width: 220px;
   height: 53px;
   padding: 10px;
   border-radius: 5px;
@@ -14,31 +14,18 @@
 }
 
 .iconContainer {
-  margin: 0 8px;
-  width: 17px;
-  height: 16px;
+  margin: 0 10px;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  position: relative;
 }
 
-.iconContainerPositive {
-  @extend .iconContainer;
-  background-color: #44B449;
-}
-
-
-.iconContainerNegative {
-  @extend .iconContainer;
-  background-color: #EA4453;
-}
-.iconScore {
-  padding-bottom: 1px;
-}
 
 .score {
   font-size: 29px;
   font-weight: bold;
+  margin-right: 10px;
 }

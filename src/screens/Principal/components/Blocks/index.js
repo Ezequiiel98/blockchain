@@ -18,17 +18,18 @@ function Blocks() {
   };
 
   const handleDragStart = e => {
-    const { id } = e.target;
-    e.dataTransfer.setData('text/plain', id);
-    const elemento = e.target;
-    const child = elemento.childNodes[0];
-    child.classList.add(styles.blockHijoGrande);
-    elemento.classList.add(styles.blockGrande);
-
-    setTimeout(() => {
-      child.classList.remove(styles.blockHijoGrande);
-      elemento.classList.remove(styles.blockGrande);
-    }, 0);
+    const element = e.target;
+    if (element.classList.contains('blockDrag')) {
+      const { id } = e.target;
+      e.dataTransfer.setData('text/plain', id);
+      const child = element.childNodes[0];
+      child.classList.add(styles.blockHijoGrande);
+      element.classList.add(styles.blockGrande);
+      setTimeout(() => {
+        child.classList.remove(styles.blockHijoGrande);
+        element.classList.remove(styles.blockGrande);
+      }, 0);
+    }
   };
 
   const handleDragEnd = e => {
