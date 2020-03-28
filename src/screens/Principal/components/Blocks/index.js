@@ -59,6 +59,8 @@ function Blocks() {
             broken={block.broken}
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
+            onMouseOver={() => ''}
+            onMouseLeave={() => ''}
           />
         ))}
 

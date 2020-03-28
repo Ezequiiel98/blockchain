@@ -139,6 +139,7 @@
 	min-height: 30%;
 	position: relative;
 	left: 10%;
+	pointer-events: none; 
 }
 
 .point {
@@ -187,6 +188,9 @@ $left: 10%;
 	user-select: none;
 	font-weight: bold;
 	z-index: 2;
+ 
+    pointer-events: none; 
+
 }
 
 .containerBigBlock .blockNumber{

@@ -14,9 +14,12 @@ class BoardGame extends React.Component {
   handleDragStart = e => {
     const { id } = e.target;
     const lastColumn = Object.keys(this.state).filter(value => this.state[value] === id)[0];
+    const data = { ...this.state.data };
+    data[lastColumn] = '';
     e.dataTransfer.setData('text/plain', id);
+    /* Borra los datos del state de la celda donde estaba posicionado el block */
     setTimeout(() => {
-      this.setState({ [lastColumn]: '' });
+      this.setState({ [lastColumn]: '', data });
     }, 0);
   };
 
@@ -35,36 +38,40 @@ class BoardGame extends React.Component {
 
   handleDragOver = e => {
     e.preventDefault();
- /*    if (e.target.classList.contains('containerBlockDrag')) {
-      e.target.style.zIndex = '-5';
-    } */
   };
 
   handleDragEnter = e => {
     e.preventDefault();
     e.target.classList.add(styles.cellDragHover);
-
-   
   };
 
   handleDragLeave = e => {
     e.preventDefault();
     e.target.classList.remove(styles.cellDragHover);
-   
   };
 
-  getBlock = (id, elements) => {
+  getBlock = (idBlock, idColumn) => {
     const data = { ...this.state.data };
-    data[elements] = blocks.filter(block => block.id === parseInt(id))[0];
-    this.setState({ ...this.prevState, [elements]: id, data });
+    data[idColumn] = blocks.filter(block => block.id === parseInt(idBlock))[0];
+
+    const [row, column] = idColumn.split('_');
+
+    this.setState({
+      ...this.prevState,
+      [idColumn]: idBlock,
+      data
+    });
   };
 
   handleDrop = e => {
     e.preventDefault();
-    const elements = e.target.id;
-    const id = e.dataTransfer.getData('text');
-    this.getBlock(id, elements);
-    e.target.classList.remove(styles.cellDragHover);
+    const element = e.target;
+    const isColumn = element.classList.contains('columnDrag');
+    const idColumn = isColumn ? element.id : element.parentNode.parentNode.id;
+    const idBlock = e.dataTransfer.getData('text');
+
+    this.getBlock(idBlock, idColumn);
+    element.classList.remove(styles.cellDragHover);
   };
 
   render() {
@@ -76,7 +83,7 @@ class BoardGame extends React.Component {
             {cell.idColumns.map(idColumn => (
               /* columns  */
               <div
-                className={`${styles.columnCell} dragZone`}
+                className={`${styles.columnCell} columnDrag`}
                 key={idColumn}
                 id={idColumn}
                 onDragOver={e => this.handleDragOver(e)}
