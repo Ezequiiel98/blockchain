@@ -9,7 +9,8 @@ import styles from './index.module.scss';
 class BoardGame extends React.Component {
   state = {
     dataBlocks: '',
-    dataBoardPositions: ''
+    dataBoardPositions: '',
+    dataColumn: ''
   };
 
   handleDragStart = e => {
@@ -23,12 +24,30 @@ class BoardGame extends React.Component {
 
     e.dataTransfer.setData('text/plain', id);
 
+    const dataColumn = e.target.parentNode.id;
+    const lastId = e.target.id;
     /* Borra los datos del state de la celda donde estaba posicionado el block antes de moverlo*/
     dataBlocks[lastColumn] = '';
     dataBoardPositions[lastColumn] = '';
     setTimeout(() => {
-      this.setState({ dataBoardPositions, dataBlocks });
+      this.setState({ dataBoardPositions, dataBlocks, dataColumn, lastId });
     }, 0);
+  };
+
+  getBlock = (idBlock, idColumn) => {
+    const { state } = this;
+    const dataBlocks = { ...state.dataBlocks };
+    const dataBoardPositions = { ...state.dataBoardPositions };
+
+    [dataBlocks[idColumn]] = blocks.filter(block => block.id === parseInt(idBlock));
+    dataBoardPositions[idColumn] = idBlock;
+    // const [row, column] = idColumn.split('_');
+    this.setState({
+      ...this.prevState,
+      dataBoardPositions,
+      dataBlocks,
+    
+    });
   };
 
   handleDragEnd = e => {
@@ -51,27 +70,21 @@ class BoardGame extends React.Component {
 
   handleDragEnter = e => {
     e.preventDefault();
-    e.target.classList.add(styles.cellDragHover);
+    const element = e.target;
+    element.classList.add(styles.cellDragHover);
+    const isBlock = element.classList.contains('blockDrag');
+
+    if (isBlock) {
+      this.getBlock(e.target.parentNode.id, this.state.dataColumn);
+    } else {
+      this.getBlock('', this.state.dataColumn);
+     
+    }
   };
 
   handleDragLeave = e => {
     e.preventDefault();
     e.target.classList.remove(styles.cellDragHover);
-  };
-
-  getBlock = (idBlock, idColumn) => {
-    const { state } = this;
-    const dataBlocks = { ...state.dataBlocks };
-    const dataBoardPositions = { ...state.dataBoardPositions };
-
-    [dataBlocks[idColumn]] = blocks.filter(block => block.id === parseInt(idBlock));
-    dataBoardPositions[idColumn] = idBlock;
-    // const [row, column] = idColumn.split('_');
-    this.setState({
-      ...this.prevState,
-      dataBoardPositions,
-      dataBlocks
-    });
   };
 
   handleDrop = e => {
@@ -82,7 +95,11 @@ class BoardGame extends React.Component {
     const idBlock = e.dataTransfer.getData('text');
 
     this.getBlock(idBlock, idColumn);
+
     element.classList.remove(styles.cellDragHover);
+    if(!isColumn){
+      this.setState({dataColumn: ''})
+    }
   };
 
   render() {
