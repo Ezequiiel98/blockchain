@@ -38,7 +38,7 @@ class Principal extends React.Component {
         <Header />
         <Blocks transactions={this.state.transactions} />
         <div className={styles.boards}>
-          <BoardGame blockDrag={this.state.blockDrag} blockClass={this.state.blockClass} />
+          <BoardGame />
           <Resolution />
         </div>
         <ImgBackground />

@@ -8,20 +8,27 @@ import styles from './index.module.scss';
 
 class BoardGame extends React.Component {
   state = {
-    dataBlock: ''
+    dataBlocks: '',
+    dataBoardPositions: ''
   };
 
   handleDragStart = e => {
     const { id } = e.target;
-    const [lastColumn] = Object.keys(this.state).filter(value => this.state[value] === id);
-    const dataBlock = { ...this.state.dataBlock };
+    const dataBlocks = { ...this.state.dataBlocks };
+    const dataBoardPositions = { ...this.state.dataBoardPositions };
+
+    const [lastColumn] = Object.keys(dataBoardPositions).filter(
+      keyColumnId => dataBoardPositions[keyColumnId] === id
+    );
+
     e.dataTransfer.setData('text/plain', id);
+
     /* Borra los datos del state de la celda donde estaba posicionado el block antes de moverlo*/
-    dataBlock[lastColumn] = '';
+    dataBlocks[lastColumn] = '';
+    dataBoardPositions[lastColumn] = '';
     setTimeout(() => {
-      this.setState({ [lastColumn]: '', dataBlock });
+      this.setState({ dataBoardPositions, dataBlocks });
     }, 0);
-    console.log('strat bg')
   };
 
   handleDragEnd = e => {
@@ -53,15 +60,18 @@ class BoardGame extends React.Component {
   };
 
   getBlock = (idBlock, idColumn) => {
-    const dataBlock = { ...this.state.dataBlock };
-    [dataBlock[idColumn]] = blocks.filter(block => block.id === parseInt(idBlock));
-    const [row, column] = idColumn.split('_');
+    const { state } = this;
+    const dataBlocks = { ...state.dataBlocks };
+    const dataBoardPositions = { ...state.dataBoardPositions };
+
+    [dataBlocks[idColumn]] = blocks.filter(block => block.id === parseInt(idBlock));
+    dataBoardPositions[idColumn] = idBlock;
+    // const [row, column] = idColumn.split('_');
     this.setState({
       ...this.prevState,
-      [idColumn]: idBlock,
-      dataBlock
+      dataBoardPositions,
+      dataBlocks
     });
-    console.log(idBlock)
   };
 
   handleDrop = e => {
@@ -70,7 +80,7 @@ class BoardGame extends React.Component {
     const isColumn = element.classList.contains('columnDrag');
     const idColumn = isColumn ? element.id : element.parentNode.parentNode.id;
     const idBlock = e.dataTransfer.getData('text');
-    
+
     this.getBlock(idBlock, idColumn);
     element.classList.remove(styles.cellDragHover);
   };
@@ -92,9 +102,9 @@ class BoardGame extends React.Component {
                 onDragLeave={e => this.handleDragLeave(e)}
                 onDrop={e => this.handleDrop(e)}
               >
-                {this.state.dataBlock[idColumn]  && (
+                {this.state.dataBlocks[idColumn] && (
                   <Block
-                    {...this.state.dataBlock[idColumn]}
+                    {...this.state.dataBlocks[idColumn]}
                     onDragStart={e => this.handleDragStart(e)}
                     onDragEnd={e => this.handleDragEnd(e)}
                     bigBlock
