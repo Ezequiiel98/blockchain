@@ -35,12 +35,13 @@ function BoardResolution() {
             <img className={styles.iconRectangle} src={Rojo} />
           </div>
         </div>
-
-        <div className={styles.containerGreen}>
-          <div className={styles.containerStrongGreen}>
-            <img className={styles.iconRectangle} src={Verde} />
+        <button className={styles.button}>
+          <div className={styles.containerGreen}>
+            <div className={styles.containerStrongGreen}>
+              <img className={styles.iconRectangle} src={Verde} />
+            </div>
           </div>
-        </div>
+        </button>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 .container{
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 }
 
 .containerBoard {
@@ -179,6 +180,8 @@
   border-radius: 4px;
   background-color: #00942A;
   margin-right: 24px;
+  
+ 
 }
 
 .iconRectangle{
@@ -200,13 +203,23 @@ transform: translate(47.24px , 19.27px);
     margin-right: 24px;
 }
 
-
 .iconRectangle{
-  transform: translate(50.21px , 19.01px);    
+  display: flex;
+  align-items: center;
 }
 
 .ContainerButton{
   margin-top: 23.5px;
+  margin-left: 25px;
   display: flex;
   justify-content: center;
+}
+
+.button{
+  padding: 0;
+  border: none;
+  height: 66px;
+    width: 120px;
+  outline: none;
+  
 }
