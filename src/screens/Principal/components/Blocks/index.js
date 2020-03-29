@@ -30,6 +30,7 @@ function Blocks() {
         element.classList.remove(styles.blockGrande);
       }, 0);
     }
+    console.log('start')
   };
 
   const handleDragEnd = e => {
