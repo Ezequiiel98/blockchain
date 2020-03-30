@@ -1,9 +1,11 @@
 import React from 'react';
 
+import PopUpVotacion from '../PopUpVotacion';
+
 import styles from './index.module.scss';
 
 function App() {
-  return <h1> Proyecto blockchain </h1>;
+  return <PopUpVotacion />;
 }
 
 export default App;

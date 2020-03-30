@@ -1,0 +1,16 @@
+.Container{
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.WhiteBox {
+    height: 413px;
+    width: 400px;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
