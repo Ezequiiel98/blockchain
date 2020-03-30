@@ -49,13 +49,14 @@ class BoardGame extends React.Component {
   };
 
   clearCell = idColumn => {
-    const { state } = this;
-    const dataBlocks = { ...state.dataBlocks };
-    const dataBoardPositions = { ...state.dataBoardPositions };
-
-    dataBlocks[idColumn] = '';
-    dataBoardPositions[idColumn] = '';
-    this.setState({ dataBlocks, dataBoardPositions });
+    if (idColumn !== '') {
+      const { state } = this;
+      const dataBlocks = { ...state.dataBlocks };
+      const dataBoardPositions = { ...state.dataBoardPositions };
+      dataBlocks[idColumn] = '';
+      dataBoardPositions[idColumn] = '';
+      this.setState({ dataBlocks, dataBoardPositions });
+    }
   };
 
   handleDragEnd = e => {
@@ -82,6 +83,7 @@ class BoardGame extends React.Component {
     const isBlock = element.classList.contains('blockDrag');
     const idBlock = element.parentNode.id;
     const { lastColumnTemp } = this.state;
+
     if (isBlock) {
       this.getBlock(idBlock, lastColumnTemp);
     } else {
@@ -104,8 +106,8 @@ class BoardGame extends React.Component {
     this.getBlock(idBlock, idColumn);
 
     element.classList.remove(styles.cellDragHover);
-    const dragSuccess = e.dataTransfer.dropEffect;
-    console.log(dragSuccess);
+    /*    const dragSuccess = e.dataTransfer.dropEffect;
+    console.log(dragSuccess); */
     this.setState({ lastColumnTemp: '' });
   };
 
