@@ -3,22 +3,22 @@ import PropTypes from 'prop-types';
 
 import styles from './index.module.scss';
 
-function VioletButton({ text, typeButton, disableState }) {
+function VioletButton({ text, typeButton, disable }) {
   return (
-    <div className={disableState ? styles.containerBtnDisabled : styles.containerBtnActive}>
+    <div className={disable ? styles.containerBtnDisabled : styles.containerBtnActive}>
       {typeButton === 'button' ? (
         <button
           type="button"
-          className={disableState ? styles.btnDisabled : styles.btnActive}
-          disable={disableState.toString()}
+          className={disable ? styles.btnDisabled : styles.btnActive}
+          disable={disable.toString()}
         >
           {text}
         </button>
       ) : (
         <button
           type="submit"
-          className={disableState ? styles.btnDisabled : styles.btnActive}
-          disable={disableState.toString()}
+          className={disable ? styles.btnDisabled : styles.btnActive}
+          disable={disable.toString()}
         >
           {text}
         </button>
@@ -28,13 +28,13 @@ function VioletButton({ text, typeButton, disableState }) {
 }
 
 VioletButton.propTypes = {
-  disableState: PropTypes.bool,
+  disable: PropTypes.bool,
   text: PropTypes.string,
   typeButton: PropTypes.string
 };
 
 VioletButton.defaultProps = {
-  disableState: false,
+  disable: false,
   text: 'Text Button',
   typeButton: 'button'
 };

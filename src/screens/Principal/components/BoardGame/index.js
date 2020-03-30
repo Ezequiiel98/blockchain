@@ -128,6 +128,7 @@ class BoardGame extends React.Component {
                 onDragLeave={e => this.handleDragLeave(e)}
                 onDrop={e => this.handleDrop(e)}
               >
+                {/* block */}
                 {this.state.dataBlocks[idColumn] && (
                   <Block
                     {...this.state.dataBlocks[idColumn]}
