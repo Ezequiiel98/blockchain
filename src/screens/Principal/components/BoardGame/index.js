@@ -10,7 +10,7 @@ class BoardGame extends React.Component {
   state = {
     dataBlocks: '',
     dataBoardPositions: '',
-    dataColumn: ''
+    lastColumnTemp: ''
   };
 
   handleDragStart = e => {
@@ -19,18 +19,17 @@ class BoardGame extends React.Component {
     const dataBoardPositions = { ...this.state.dataBoardPositions };
 
     const [lastColumn] = Object.keys(dataBoardPositions).filter(
-      keyColumnId => dataBoardPositions[keyColumnId] === id
+      columnId => dataBoardPositions[columnId] === id
     );
 
     e.dataTransfer.setData('text/plain', id);
 
-    const dataColumn = e.target.parentNode.id;
-    const lastId = e.target.id;
+    const lastColumnTemp = e.target.parentNode.id;
     /* Borra los datos del state de la celda donde estaba posicionado el block antes de moverlo*/
     dataBlocks[lastColumn] = '';
     dataBoardPositions[lastColumn] = '';
     setTimeout(() => {
-      this.setState({ dataBoardPositions, dataBlocks, dataColumn, lastId });
+      this.setState({ dataBoardPositions, dataBlocks, lastColumnTemp });
     }, 0);
   };
 
@@ -45,17 +44,27 @@ class BoardGame extends React.Component {
     this.setState({
       ...this.prevState,
       dataBoardPositions,
-      dataBlocks,
-    
+      dataBlocks
     });
   };
 
+  clearCell = idColumn => {
+    const { state } = this;
+    const dataBlocks = { ...state.dataBlocks };
+    const dataBoardPositions = { ...state.dataBoardPositions };
+
+    dataBlocks[idColumn] = '';
+    dataBoardPositions[idColumn] = '';
+    this.setState({ dataBlocks, dataBoardPositions });
+  };
+
   handleDragEnd = e => {
-    const elemento = e.target;
-    // const dragSuccess = e.dataTransfer.dropEffect;
+ 
+    console.log('end')
     /*     elemento.classList.remove(styles.blockActive);
      */
-    /* if (dragSuccess === 'move') {
+    /*
+    const elemento = e.target;
       setTimeout(() => {
         // elemento.classList.add(styles.blockActive);
         // elemento.draggable = false;
@@ -64,7 +73,6 @@ class BoardGame extends React.Component {
   };
 
   handleDragOver = e => {
-    const element = e.target;
     e.preventDefault();
   };
 
@@ -75,10 +83,9 @@ class BoardGame extends React.Component {
     const isBlock = element.classList.contains('blockDrag');
 
     if (isBlock) {
-      this.getBlock(e.target.parentNode.id, this.state.dataColumn);
+      this.getBlock(e.target.parentNode.id, this.state.lastColumnTemp);
     } else {
-      this.getBlock('', this.state.dataColumn);
-     
+      this.clearCell(this.state.lastColumnTemp);
     }
   };
 
@@ -97,9 +104,9 @@ class BoardGame extends React.Component {
     this.getBlock(idBlock, idColumn);
 
     element.classList.remove(styles.cellDragHover);
-    if(!isColumn){
-      this.setState({dataColumn: ''})
-    }
+    const dragSuccess = e.dataTransfer.dropEffect;
+    console.log(dragSuccess)
+    this.setState({ lastColumnTemp: '' });
   };
 
   render() {
@@ -122,8 +129,8 @@ class BoardGame extends React.Component {
                 {this.state.dataBlocks[idColumn] && (
                   <Block
                     {...this.state.dataBlocks[idColumn]}
-                    onDragStart={e => this.handleDragStart(e)}
-                    onDragEnd={e => this.handleDragEnd(e)}
+                    onDragStart={this.handleDragStart}
+                    onDragEnd={this.handleDragEnd}
                     bigBlock
                   />
                 )}

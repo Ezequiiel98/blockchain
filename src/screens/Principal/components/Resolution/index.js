@@ -9,7 +9,7 @@ function Resolution() {
   return (
     <div className={styles.containerResolution}>
       <BoardResolution />
-      <VioletButton text="MINAR" />
+      <VioletButton text="MINAR" typeButton="button" />
     </div>
   );
 }

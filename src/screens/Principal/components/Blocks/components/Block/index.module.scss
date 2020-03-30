@@ -4,32 +4,33 @@
 	border-radius: 5px;
 	transition: background-color .2s ease, transform .2s ease;
 	flex-shrink: 0;
+	z-index: 2;
 	overflow: hidden;
 	position: relative;
 }
 
-.containerSmallBlock{
+.containerSmallBlock {
 	@extend .containerBlock;
 	margin: 0 7.8px;
 	height: 68px;
 	width: 70px;
 }
 
-.containerBigBlock{
+.containerBigBlock {
 	@extend .containerBlock;
 	border-radius: 0;
-	border: 3px solid white;
+	border: 3px solid $white;
 	height: 114px;
 	width: 114px;
 	transform: translate(-2px, -2px);
 
 }
 
-.containerSmallBlock:hover{
+.containerSmallBlock:hover {
 	transform: translateY(6px);
 }
 
-.noCertified{
+.noCertified {
 	content: '';
 	position: absolute;
 	top: -15px;
@@ -39,11 +40,11 @@
 	height: 95px;
 	transform: rotateZ(49deg);
 	opacity: 0;
-	transition: opacity .1s ease; 
+	transition: opacity .1s ease;
 	z-index: 2;
 }
 
-.containerSmallBlock:hover .noCertified{
+.containerSmallBlock:hover .noCertified {
 	opacity: 1;
 }
 
@@ -51,39 +52,39 @@
 .block {
 	display: flex;
 	flex-direction: column;
-	
-	position: relative;	
+	position: relative;
 	overflow: hidden;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&:active {
+		cursor: move;
+	}
 }
 
-.containerBigBlock .block{
+.containerBigBlock .block {
 	@extend .block;
 	height: 112px;
 	width: 114px;
 }
 
-.containerSmallBlock .block{
+.containerSmallBlock .block {
 	@extend .block;
 	width: 70px;
 	height: 62px;
 	border-radius: 5px;
+
+
+	&:hover {
+		cursor: pointer;
+		border-radius: 0;
+		height: 64px;
+	}
 }
 
-.containerSmallBlock:hover .block {
-	border-radius: 0;
-	height: 64px;
-}
-
-.block:active {
-	cursor: pointer;
-}
-
-.block:active {
-	cursor: move;
-}
-
-/* Colors */
-
+/* Blocks  Background colors  */
 .yellow {
 	@extend .block;
 	background-color: $yellow;
@@ -92,7 +93,6 @@
 .yellowDark {
 	background-color: $yellowDark;
 }
-
 
 .green {
 	@extend .block;
@@ -103,7 +103,6 @@
 	background-color: $greenDark;
 }
 
-
 .lightblue {
 	@extend .block;
 	background-color: $lightblue;
@@ -112,7 +111,6 @@
 .lightblueDark {
 	background-color: $lightblueDark;
 }
-
 
 .pink {
 	@extend .block;
@@ -129,9 +127,8 @@
 }
 
 .blueDark {
-	background-color:$blueDark;
+	background-color: $blueDark;
 }
-
 
 /* block points */
 .blockPoints {
@@ -139,7 +136,7 @@
 	min-height: 30%;
 	position: relative;
 	left: 10%;
-	pointer-events: none; 
+	pointer-events: none;
 }
 
 .point {
@@ -149,17 +146,18 @@
 	position: absolute;
 }
 
-.containerBigBlock .point{
+.containerBigBlock .point {
 	@extend .point;
 	width: 8px;
 	height: 8px;
 }
 
-.containerSmallBlock .point{
+.containerSmallBlock .point {
 	@extend .point;
 	width: 5px;
 	height: 5px;
 }
+
 .point:nth-child(odd) {
 	top: 30%;
 }
@@ -168,14 +166,16 @@
 	top: 67%;
 }
 
+//* posiciona los spans con 12% de diferencia entre ellos */
 $left: 10%;
 
-@for $i from 1 through 7{
-  .point#{$i}{
+@for $i from 1 through 7 {
+	.point#{$i} {
 		@extend .point;
 		left: $left;
 	}
-	$left: $left + 12%;
+
+	$left: $left+12%;
 }
 
 .blockNumber {
@@ -188,19 +188,17 @@ $left: 10%;
 	user-select: none;
 	font-weight: bold;
 	z-index: 2;
- 
-    pointer-events: none; 
-
+	pointer-events: none;
 }
 
-.containerBigBlock .blockNumber{
+.containerBigBlock .blockNumber {
 	@extend .blockNumber;
 	margin-top: 12px;
 	margin-right: 12px;
 	font-size: 40px;
 }
 
-.containerSmallBlock .blockNumber{
+.containerSmallBlock .blockNumber {
 	@extend .blockNumber;
 	margin-top: 0px;
 	margin-right: 5px;

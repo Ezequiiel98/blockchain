@@ -17,34 +17,37 @@ function Blocks() {
     containerBlocks.scrollLeft -= 50;
   };
 
+  /* Drags Functions */
   const handleDragStart = e => {
     const element = e.target;
     if (element.classList.contains('containerBlockDrag')) {
-      const { id } = e.target;
-      e.dataTransfer.setData('text/plain', id);
+      const { id } = element;
       const child = element.childNodes[0];
-      child.classList.add(styles.blockHijoGrande);
-      element.classList.add(styles.blockGrande);
+
+      e.dataTransfer.setData('text/plain', id);
+      child.classList.add(styles.childBigBlock);
+      element.classList.add(styles.bigBlock);
+
       setTimeout(() => {
-        child.classList.remove(styles.blockHijoGrande);
-        element.classList.remove(styles.blockGrande);
+        child.classList.remove(styles.childBigBlock);
+        element.classList.remove(styles.bigBlock);
       }, 0);
     }
-    console.log('start')
   };
 
   const handleDragEnd = e => {
     const element = e.target;
     const dragSuccess = e.dataTransfer.dropEffect;
+
     element.classList.remove(styles.blockActive);
 
     if (dragSuccess === 'move') {
       setTimeout(() => {
-        element.classList.add(styles.blockActive);
-        element.draggable = false;
+        element.style.display = 'none';
       }, 0);
     }
   };
+
   return (
     <div className={styles.container}>
       <button type="button" onClick={handleScrollNext} className={styles.next} />
@@ -60,8 +63,6 @@ function Blocks() {
             broken={block.broken}
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
-            onMouseOver={() => ''}
-            onMouseLeave={() => ''}
           />
         ))}
 
