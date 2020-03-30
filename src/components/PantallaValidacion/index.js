@@ -15,8 +15,8 @@ function PantallaValidacion() {
 
       <div className={styles.Container}>
         <div className={styles.ContainerTextScore}>
-        <Text />
-        <Score />
+          <Text />
+          <Score />
         </div>
         <div className={styles.containerBoard}>
           <Board />
