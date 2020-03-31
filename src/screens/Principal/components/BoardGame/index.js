@@ -11,22 +11,39 @@ class BoardGame extends React.Component {
     dataBlocks: {},
     dataBoardPositions: {},
     lastColumnTemp: '',
-    lastIdTemp: ''
+    lastIdTemp: '',
+    count: 1
+  };
+
+  countFillCells = () => {
+    const dataBoardPositions = { ...this.state.dataBoardPositions };
+    const positions = Object.keys(dataBoardPositions).map(columnId => {
+      const [row, column] = columnId.split('_');
+      return { [row]: { [column]: dataBoardPositions[columnId]} };
+    });
+    if (positions.length === 16) {
+      this.props.onDisabledButton({ disable: false });
+    } else {
+      this.props.onDisabledButton({ disable: true });
+    }
+    console.log(positions);
   };
 
   getBlock = (idBlock, idColumn) => {
-    const { state } = this;
-    const dataBlocks = { ...state.dataBlocks };
-    const dataBoardPositions = { ...state.dataBoardPositions };
+    if (idColumn !== '') {
+      const { state } = this;
+      const dataBlocks = { ...state.dataBlocks };
+      const dataBoardPositions = { ...state.dataBoardPositions };
 
-    [dataBlocks[idColumn]] = blocks.filter(block => block.id === parseInt(idBlock));
-    dataBoardPositions[idColumn] = idBlock;
-    // const [row, column] = idColumn.split('_');
-    this.setState({
-      ...this.prevState,
-      dataBoardPositions,
-      dataBlocks
-    });
+      [dataBlocks[idColumn]] = blocks.filter(block => block.id === parseInt(idBlock));
+      dataBoardPositions[idColumn] = idBlock;
+      // const [row, column] = idColumn.split('_');
+      this.setState({
+        ...this.prevState,
+        dataBoardPositions,
+        dataBlocks
+      });
+    }
   };
 
   clearCell = idColumn => {
@@ -116,22 +133,16 @@ class BoardGame extends React.Component {
     /*    const dragSuccess = e.dataTransfer.dropEffect;
     console.log(dragSuccess); */
     this.setState({ lastColumnTemp: '', lastIdTemp: '' });
+    this.countFillCells();
   };
 
+  /*
   componentDidUpdate(prevProps, prevState) {
     if (prevState.dataBoardPositions !== this.state.dataBoardPositions) {
-      const dataBoardPositions = { ...this.state.dataBoardPositions };
-
-      let positions = Object.keys(dataBoardPositions).filter(columnId => dataBoardPositions[columnId] !== '');
-      if (positions.length > 16) {
-        this.props.onDisabledButton({ disable: false });
-      } else {
-        this.props.onDisabledButton({ disable: true });
-        positions = '';
-      }
+      this.countFillCells();
     }
   }
-
+*/
   render() {
     return (
       <div className={styles.board}>

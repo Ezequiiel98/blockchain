@@ -10,7 +10,7 @@ class Score extends React.Component {
   setScore = () => {
     this.score = setInterval(() => {
       this.setState(prevState => ({
-        score: (prevState.score - parseFloat('0.001')).toFixed(3)
+        score: prevState.score - parseFloat('0.001')
       }));
     }, 100);
   };
@@ -39,7 +39,7 @@ class Score extends React.Component {
             alt="icono que indica puntaje positivo o negativo"
           />
         </div>
-        <span className={styles.score}>{Math.abs(score)}</span>
+        <span className={styles.score}>{Math.abs(score.toFixed(2))}</span>
       </div>
     );
   }
