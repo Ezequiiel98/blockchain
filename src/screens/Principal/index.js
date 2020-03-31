@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { fetchGame } from '../../services/gameService';
- import response from '../../response'; 
+import response from '../../response';
 
 import styles from './index.module.scss';
 import Header from './components/Header';
@@ -16,21 +16,24 @@ class Principal extends React.Component {
      */
     /*   transactions: '',
     miner: {} */
+    disable: true
   };
 
   /*   handleBlockDrag = blockDrag => this.setState({ blockDrag });
    */
-   getGame = async () => {
+  getGame = async () => {
     const res = await fetchGame();
     console.log(res.data);
   };
 
   componentDidMount() {
-   this.getGame();
- 
+    this.getGame();
+
     /* const { transactions, miner } = response;
     this.setState({ transactions, miner }); */
   }
+
+  handleDisabledButton = ({disable}) => this.setState({ disable });
 
   render() {
     return (
@@ -38,8 +41,8 @@ class Principal extends React.Component {
         <Header />
         <Blocks transactions={this.state.transactions} />
         <div className={styles.boards}>
-          <BoardGame />
-          <Resolution />
+          <BoardGame onDisabledButton={this.handleDisabledButton} />
+          <Resolution disable={this.state.disable} />
         </div>
         <ImgBackground />
       </div>

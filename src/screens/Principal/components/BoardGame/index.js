@@ -8,29 +8,10 @@ import styles from './index.module.scss';
 
 class BoardGame extends React.Component {
   state = {
-    dataBlocks: '',
-    dataBoardPositions: '',
-    lastColumnTemp: ''
-  };
-
-  handleDragStart = e => {
-    const { id } = e.target;
-    const dataBlocks = { ...this.state.dataBlocks };
-    const dataBoardPositions = { ...this.state.dataBoardPositions };
-
-    const [lastColumn] = Object.keys(dataBoardPositions).filter(
-      columnId => dataBoardPositions[columnId] === id
-    );
-
-    e.dataTransfer.setData('text/plain', id);
-
-    const lastColumnTemp = e.target.parentNode.id;
-    /* Borra los datos del state de la celda donde estaba posicionado el block antes de moverlo*/
-    dataBlocks[lastColumn] = '';
-    dataBoardPositions[lastColumn] = '';
-    setTimeout(() => {
-      this.setState({ dataBoardPositions, dataBlocks, lastColumnTemp });
-    }, 0);
+    dataBlocks: {},
+    dataBoardPositions: {},
+    lastColumnTemp: '',
+    lastIdTemp: ''
   };
 
   getBlock = (idBlock, idColumn) => {
@@ -59,6 +40,29 @@ class BoardGame extends React.Component {
     }
   };
 
+  /* DragBlock */
+  handleDragStart = e => {
+    const { id } = e.target;
+    const dataBlocks = { ...this.state.dataBlocks };
+    const dataBoardPositions = { ...this.state.dataBoardPositions };
+
+    const [lastColumn] = Object.keys(dataBoardPositions).filter(
+      columnId => dataBoardPositions[columnId] === id
+    );
+
+    e.dataTransfer.setData('text/plain', id);
+
+    const lastColumnTemp = e.target.parentNode.id;
+    const lastIdTemp = e.target.id;
+
+    /* Borra los datos del state de la celda donde estaba posicionado el block antes de moverlo*/
+    dataBlocks[lastColumn] = '';
+    dataBoardPositions[lastColumn] = '';
+    setTimeout(() => {
+      this.setState({ dataBoardPositions, dataBlocks, lastColumnTemp, lastIdTemp });
+    }, 0);
+  };
+
   handleDragEnd = e => {
     console.log('end');
     /*     elemento.classList.remove(styles.blockActive);
@@ -72,23 +76,26 @@ class BoardGame extends React.Component {
     } */
   };
 
-  handleDragOver = e => {
+  /* drag Column cell */
+  handleDragOver = async e => {
     e.preventDefault();
+    const element = e.target;
+    const isBlock = element.classList.contains('blockDrag');
+    const idBlock = element.parentNode.id;
+    const idColumn = element.parentNode.parentNode.id;
+    const { lastColumnTemp } = this.state;
+
+    element.classList.add(styles.cellDragHover);
+
+    if (isBlock) {
+      await this.getBlock(idBlock, lastColumnTemp);
+    } else {
+      await this.clearCell(lastColumnTemp);
+    }
   };
 
   handleDragEnter = e => {
     e.preventDefault();
-    const element = e.target;
-    element.classList.add(styles.cellDragHover);
-    const isBlock = element.classList.contains('blockDrag');
-    const idBlock = element.parentNode.id;
-    const { lastColumnTemp } = this.state;
-
-    if (isBlock) {
-      this.getBlock(idBlock, lastColumnTemp);
-    } else {
-      this.clearCell(lastColumnTemp);
-    }
   };
 
   handleDragLeave = e => {
@@ -108,9 +115,23 @@ class BoardGame extends React.Component {
     element.classList.remove(styles.cellDragHover);
     /*    const dragSuccess = e.dataTransfer.dropEffect;
     console.log(dragSuccess); */
-    this.setState({ lastColumnTemp: '' });
+    this.setState({ lastColumnTemp: '', lastIdTemp: '' });
   };
 
+ /*  componentDidUpdate(prevProps, prevState) {
+    if (prevState.dataBoardPositions !== this.state.dataBoardPositions) {
+      const dataBoardPositions = { ...this.state.dataBoardPositions };
+
+      let positions = Object.keys(dataBoardPositions).filter(columnId => dataBoardPositions[columnId] !== '');
+      if (positions.length > 16) {
+        this.props.onDisabledButton({ disable: false });
+      } else {
+        this.props.onDisabledButton({ disable: true });
+        positions = '';
+      }
+    }
+  } 
+ */
   render() {
     return (
       <div className={styles.board}>
@@ -147,36 +168,3 @@ class BoardGame extends React.Component {
 }
 
 export default BoardGame;
-
-/*
-  const handleDragOver = e => {
-    e.preventDefault();
-  };
-
-  const handleDragEnter = e => {
-    e.preventDefault();
-    e.target.classList.add(styles.cellDragHover);
-  };
-
-  const handleDragLeave = e => {
-    e.preventDefault();
-    e.target.classList.remove(styles.cellDragHover);
-  };
-
-  const handleDragDrop = e => {
-    e.target.appendChild(blockDrag);
-    e.target.classList.remove(styles.cellDragHover);
-  }; */
-
-/*
-    drop aca
-    const id = e.dataTransfer.getData('text');
-    const element = document.getElementById(id) || false ;
-    const dataElement = element ? element.attributes['data-drag'] : false;
-    const elementClone = element.cloneNode(true)
-    if (dataElement) {
-     console.log( e.target.id.split("_"))
-      e.target.classList.remove(styles.cellDragHover);
-      console.log(element);
-      e.target.appendChild(elementClone)
-    } */
