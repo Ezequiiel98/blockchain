@@ -18,19 +18,19 @@ class BoardGame extends React.Component {
   countFillCells = () => {
     const numberColumns = 16;
     const dataBoardPositions = { ...this.state.dataBoardPositions };
-    let positions = Object.keys(dataBoardPositions).map(columnId => {
+    /*  let positions = Object.keys(dataBoardPositions).map(columnId => {
       const [row, column] = columnId.split('_');
 
-      /*       return dataBoardPositions !== ''  && { [row]: { [column]: dataBoardPositions[columnId] } };
-       */
+        return dataBoardPositions !== ''  && { [row]: { [column]: dataBoardPositions[columnId] } };
+
       return { [columnId]: dataBoardPositions[columnId] };
-    });
+    }); */
+    const positions = Object.keys(dataBoardPositions).filter(columnId => dataBoardPositions[columnId] !== '');
 
     if (positions.length === numberColumns) {
       this.props.onDisabledButton({ disable: false });
     } else {
       this.props.onDisabledButton({ disable: true });
-      positions = '';
     }
     console.log(positions);
   };
@@ -84,6 +84,8 @@ class BoardGame extends React.Component {
     setTimeout(() => {
       this.setState({ dataBoardPositions, dataBlocks, lastColumnTemp, lastIdTemp });
     }, 0);
+
+    this.setState({ noUpdate: true });
   };
 
   handleDragEnd = e => {
@@ -146,7 +148,7 @@ class BoardGame extends React.Component {
     if (prevState.dataBoardPositions !== this.state.dataBoardPositions && this.state.noUpdate !== true) {
       setTimeout(() => {
         this.countFillCells();
-      }, 3000);
+      }, 1000);
     }
   }
 
