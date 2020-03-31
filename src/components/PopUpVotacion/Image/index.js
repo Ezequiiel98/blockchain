@@ -6,7 +6,7 @@ import Styles from './index.module.scss';
 
 function Image() {
   return (
-    <div>
+    <div className={Styles.Container}>
       <img className={Styles.AzulyOro} src={AzulyOro} />
     </div>
   );

@@ -2,10 +2,16 @@ import React from 'react';
 
 import PopUpVotacion from '../PopUpVotacion';
 
-import styles from './index.module.scss';
+import Styles from './index.module.scss';
 
 function App() {
-  return <PopUpVotacion />;
+  return (
+    <div className={Styles.WhiteBox}>
+      <div className={Styles.Container}>
+        <PopUpVotacion />
+      </div>
+    </div>
+  );
 }
 
 export default App;
