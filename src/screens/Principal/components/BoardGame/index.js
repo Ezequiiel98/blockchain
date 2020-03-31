@@ -12,19 +12,25 @@ class BoardGame extends React.Component {
     dataBoardPositions: {},
     lastColumnTemp: '',
     lastIdTemp: '',
-    count: 1
+    noUpdate: true
   };
 
   countFillCells = () => {
+    const numberColumns = 16;
     const dataBoardPositions = { ...this.state.dataBoardPositions };
-    const positions = Object.keys(dataBoardPositions).map(columnId => {
+    let positions = Object.keys(dataBoardPositions).map(columnId => {
       const [row, column] = columnId.split('_');
-      return { [row]: { [column]: dataBoardPositions[columnId]} };
+
+      /*       return dataBoardPositions !== ''  && { [row]: { [column]: dataBoardPositions[columnId] } };
+       */
+      return { [columnId]: dataBoardPositions[columnId] };
     });
-    if (positions.length === 16) {
+
+    if (positions.length === numberColumns) {
       this.props.onDisabledButton({ disable: false });
     } else {
       this.props.onDisabledButton({ disable: true });
+      positions = '';
     }
     console.log(positions);
   };
@@ -109,6 +115,7 @@ class BoardGame extends React.Component {
     } else {
       await this.clearCell(lastColumnTemp);
     }
+    this.setState({ noUpdate: true });
   };
 
   handleDragEnter = e => {
@@ -128,21 +135,21 @@ class BoardGame extends React.Component {
     const idBlock = e.dataTransfer.getData('text');
 
     this.getBlock(idBlock, idColumn);
+    this.setState({ lastColumnTemp: '', lastIdTemp: '', noUpdate: false });
 
     element.classList.remove(styles.cellDragHover);
     /*    const dragSuccess = e.dataTransfer.dropEffect;
     console.log(dragSuccess); */
-    this.setState({ lastColumnTemp: '', lastIdTemp: '' });
-    this.countFillCells();
   };
 
-  /*
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.dataBoardPositions !== this.state.dataBoardPositions) {
-      this.countFillCells();
+    if (prevState.dataBoardPositions !== this.state.dataBoardPositions && this.state.noUpdate !== true) {
+      setTimeout(() => {
+        this.countFillCells();
+      }, 3000);
     }
   }
-*/
+
   render() {
     return (
       <div className={styles.board}>
