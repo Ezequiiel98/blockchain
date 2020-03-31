@@ -16,10 +16,11 @@ class FormLogin extends React.Component {
       <form className={styles.formLogin}>
         <p className={styles.title}>Blockchain</p>
         <div className={styles.containerInput}>
+          <img src={img} className={styles.errorIcon} />
           <label className={styles.label}>NOMBRE</label>
           <input
             placeholder="Juan Perez"
-            className={styles.input}
+            className={this.state.error ? styles.input : styles.error}
             name="username"
             id="username"
             type="text"
