@@ -118,7 +118,7 @@ class BoardGame extends React.Component {
     this.setState({ lastColumnTemp: '', lastIdTemp: '' });
   };
 
- /*  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevState.dataBoardPositions !== this.state.dataBoardPositions) {
       const dataBoardPositions = { ...this.state.dataBoardPositions };
 
@@ -130,8 +130,8 @@ class BoardGame extends React.Component {
         positions = '';
       }
     }
-  } 
- */
+  }
+
   render() {
     return (
       <div className={styles.board}>
