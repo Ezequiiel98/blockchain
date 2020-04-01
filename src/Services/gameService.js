@@ -1,3 +1,3 @@
 import api from './api';
 
-export const sendGame = data => api.post('/join_game', data); /* ahora si */
+export const sendGame = data => api.post('/game/join_game', data);
