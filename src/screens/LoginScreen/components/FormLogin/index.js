@@ -45,7 +45,7 @@ class FormLogin extends React.Component {
           />
         </div>
         <div className={styles.containerbutton}>
-          <VioletButton text="ENTRAR" />
+          <VioletButton text="ENTRAR" type="submit" />
           <WhiteButton text="ESPECTAR" />
         </div>
       </form>
