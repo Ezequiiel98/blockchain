@@ -9,9 +9,9 @@ import styles from './index.module.scss';
 
 class FormLogin extends React.Component {
   state = {
-    /* ves tenes 1 solo error sisi como global necesito errores especificos 
-    necesitas 3  dale rey 
-    bueno ahora tenes 3 tenes que usarlos algo asi  te hago 1 y despues te manejas jaja 
+    /* ves tenes 1 solo error sisi como global necesito errores especificos
+    necesitas 3  dale rey
+    bueno ahora tenes 3 tenes que usarlos algo asi  te hago 1 y despues te manejas jaja
     */
     errorCode: false,
     errorName: false,
@@ -19,45 +19,46 @@ class FormLogin extends React.Component {
     code: '',
     name: ''
   };
+
   handleChange = event => {
-    let { value, name } = event.target;
-    if(value !== ''){
-      this.setState({ [name]: value});
+    const { value, name } = event.target;
+    if (value !== '') {
+      this.setState({ [name]: value });
     }
   };
 
-  handleSubmit = event => {
-
-    let { name, code } = this.state;
-/* 
-    if(name !== '' && code !== ''){
-      
-      let data = { name, code };okokoko
-
-    } else{
-      this.setState({error: true})
-    } */
-
-    /* esto es masomenos asi SI EL NOMBRE ESTA Vacio entonces error nombre, 
-    si el nombre no esta vacio pero el ocdigo si entonces tiras error de codigo y
-     si los dos  son false quiere decir que tienen algo adentro entonces creas la data 
-    se tildo, no? jajaj
-    sisi medio lag anda okok
-    igual te va a llenar de errores el navegador porque mas avbajo usas this.state.erro y eso ya no existe
-    */
-
-   if(name === '' && code == ''){
-    this.setState({ errorName: true, errorCode: true });
-    }
-    
-    else if(name === ''){
-      this.setState({ errorName: true })
-    } else if(code === '') {
-      this.setState({ errorCode: true })
+  /* ahi vaque mas falta? :CCC no falta un const res= okis SI SISII
+  que hace señora jajajaj sisis pero en el ELSE mmira 
+  vos tenes esto sendGame eeso se conecta con la api  y te hace el post solo porque ya lo configuraste 
+*/
+  handleSubmit = async event => {
+    event.preventDefault();
+    const { name, code } = this.state;
+    if (name === '' && code == '') {
+      this.setState({ errorName: true, errorCode: true });
+    } else if (name === '') {
+      this.setState({ errorName: true });
+    } else if (code === '') {
+      this.setState({ errorCode: true });
     } else {
-      let data = { name, code };
+
+      const data = { name, code };
+      /* data es los datos de los inputs, hasta ahi vamos ?  SIII PSICOPATAjajajJAJAJA NO dije nada
+      jiiji mmm
+       bueno si cambio de archivo me seguis no ? no me seguis jaja anda a services / gameServices    y no apareces alla tarad jajaj */ 
+       /* export const sendGame = data => api.post('/join_game', data)
+  bueno ves esto lo vamos a usar  aca  asincronicamente (?) 
+  aver :OOOOOOOOOOOOOOOOOOO
+   bueno ahi haces una variable con la respuesta que te da la api 
+    le pones el await para que lo espere y no sea ansioso como yo(?)
+  */
+
+      const res = await sendGame(data);
+      console.log(res.data, res.status);
+      /* fijate que dice la consola de chrome y? */
+
     }
-  }
+  };
 
   render() {
     return (
