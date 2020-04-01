@@ -5,13 +5,7 @@ import PopUpVotacion from '../PopUpVotacion';
 import Styles from './index.module.scss';
 
 function App() {
-  return (
-    <div className={Styles.WhiteBox}>
-      <div className={Styles.Container}>
-        <PopUpVotacion />
-      </div>
-    </div>
-  );
+  return <PopUpVotacion />;
 }
 
 export default App;

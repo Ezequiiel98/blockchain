@@ -6,7 +6,7 @@ function VioletButton({ text }) {
   return (
     <div className={Styles.containerButton}>
       <button type="button" className={Styles.button}>
-        {text} 
+      { text }
       </button>
     </div>
   );

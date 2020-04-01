@@ -9,10 +9,12 @@ import VioletButton from './VioletteButton';
 function PopUpVotacion() {
   return (
     <div className={Styles.Container}>
-      <MainText />
-      <AzulyOro />
-      <SecondaryText />
-      <VioletButton />
+      <div className={Styles.WhiteBox}>
+        <MainText />
+        <AzulyOro />
+        <SecondaryText />
+        <VioletButton text="REVISAR" />
+      </div>
     </div>
   );
 }
