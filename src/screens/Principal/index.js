@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { fetchGame } from '../../services/gameService';
-import response from '../../response';
 
 import styles from './index.module.scss';
 import Header from './components/Header';
@@ -36,7 +35,8 @@ class Principal extends React.Component {
   handleDisabledButton = ({disable}) => this.setState({ disable });
 
   render() {
-    return (
+console.log(process.env.REACT_APP_API_URL)
+	  return (
       <div className={styles.mainContainer}>
         <Header />
         <Blocks transactions={this.state.transactions} />
