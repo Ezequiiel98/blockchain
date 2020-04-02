@@ -9,10 +9,6 @@ import styles from './index.module.scss';
 
 class FormLogin extends React.Component {
   state = {
-    /* ves tenes 1 solo error sisi como global necesito errores especificos
-    necesitas 3  dale rey
-    bueno ahora tenes 3 tenes que usarlos algo asi  te hago 1 y despues te manejas jaja
-    */
     errorCode: false,
     errorName: false,
     errorServer: false,
@@ -20,17 +16,23 @@ class FormLogin extends React.Component {
     name: ''
   };
 
+  /* buenas
+
+ que hicisteeeeeee?  SII se me tildo wp
+ estas aca? jaja dejalo quieto
+ bueno porque lo pusiste en el change?
+ no entiendo que hiciste jajaok
+
+eso dejalo asi
+
+*/
   handleChange = event => {
     const { value, name } = event.target;
-    if (value !== '') {
-      this.setState({ [name]: value });
-    }
+    this.setState({ [name]: value });
   };
 
-  /* ahi vaque mas falta? :CCC no falta un const res= okis SI SISII
-  que hace señora jajajaj sisis pero en el ELSE mmira 
-  vos tenes esto sendGame eeso se conecta con la api  y te hace el post solo porque ya lo configuraste 
-*/
+  /* porque se llamaniguales las 2 ? cagadas ke izizte :c */
+
   handleSubmit = async event => {
     event.preventDefault();
     const { name, code } = this.state;
@@ -41,22 +43,22 @@ class FormLogin extends React.Component {
     } else if (code === '') {
       this.setState({ errorCode: true });
     } else {
+      /* bueno ves esta variable res? AH jajajajaja lpm :( no
 
-      const data = { name, code };
-      /* data es los datos de los inputs, hasta ahi vamos ?  SIII PSICOPATAjajajJAJAJA NO dije nada
-      jiiji mmm
-       bueno si cambio de archivo me seguis no ? no me seguis jaja anda a services / gameServices    y no apareces alla tarad jajaj */ 
-       /* export const sendGame = data => api.post('/join_game', data)
-  bueno ves esto lo vamos a usar  aca  asincronicamente (?) 
-  aver :OOOOOOOOOOOOOOOOOOO
-   bueno ahi haces una variable con la respuesta que te da la api 
-    le pones el await para que lo espere y no sea ansioso como yo(?)
-  */
-
+        sabia que era una var) es la respuesta de la api :c lpm jajaj y como MAquetearias los errores
+        o sea si se como pero como pones el mensaje, lo pones como atributo?
+ss
+        haces una <p> error tal cosa </p>
+        bueno masomenos es eso lo que tenes que hacer onda ya esta era eso queda medio asqueroso igual
+        */
+       const data = {name, code}
       const res = await sendGame(data);
       console.log(res.data, res.status);
-      /* fijate que dice la consola de chrome y? */
-
+      if (res.status === 500) {
+        this.setState({ errorServer: true });
+      } else {
+        console.log('atr');
+      }
     }
   };
 
@@ -74,7 +76,12 @@ class FormLogin extends React.Component {
             name="name"
             id="name"
             type="text"
-          />
+          />{' '}
+          {/* dale lpm AAA dale jajaj   y ygracias a eso solo
+            podes hacer un componente error yp asarle props pero da igua
+            l  ahora ubica esto bien con flexbox pq queda mal creo  el texto, no? que paaja
+          */}
+          {this.state.errorName && <p>El nombre es obligatorio</p>}
         </div>
         <div className={styles.containerInput}>
           {this.state.errorCode && <img src={img} className={styles.errorIcon} />}
