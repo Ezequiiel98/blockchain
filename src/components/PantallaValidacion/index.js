@@ -7,6 +7,8 @@ import Score from './Score';
 import Text from './Text';
 import ImagenInferior from './ImagenInferior';
 import styles from './index.module.scss';
+import RedButton from './RedButton';
+import GreenButton from './GreenButton';
 
 function PantallaValidacion() {
   return (
@@ -20,7 +22,13 @@ function PantallaValidacion() {
         </div>
         <div className={styles.containerBoard}>
           <Board />
-          <BoardResolution />
+          <div className={styles.ContainerButton}>
+            <BoardResolution />
+            <div className={styles.Button}>
+              <RedButton />
+              <GreenButton />
+            </div>
+          </div>
         </div>
       </div>
 
