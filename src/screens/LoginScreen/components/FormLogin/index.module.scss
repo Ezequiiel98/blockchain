@@ -5,6 +5,7 @@
 }
 
 .containerbutton {
+    padding-top:50px;
     flex-direction: column;
     align-self: flex-start;
 
@@ -93,16 +94,31 @@
     outline-color: #7758A2;
 }
 
-/* aca esto esta mal onda vos tenes que extender a error de input asi ok
- */ .error{
+ .error{
     @extend .input;
 }
 
-
-/* y ahora  al focus le editamos el outline 
- */
-/* ahora si anda 
- */ .error:focus{
+ .error:focus{
      outline-color: #EA4453;
      border-color: #EA4453;
  }
+
+.msgCode {
+    font-family: Montserrat;   
+    color: #EA4453;
+    font-size: 10px;
+    line-height: 0.5px;
+}
+.msgName {
+    font-family: Montserrat;   
+    color: #EA4453;
+    font-size: 10px;
+    line-height: 0.5px;
+}
+
+.msgServer {
+    font-family: Montserrat;   
+    color: #EA4453;
+    font-size: 10px;
+    line-height: 0.5px;
+}
