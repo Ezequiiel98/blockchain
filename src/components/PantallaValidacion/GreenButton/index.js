@@ -2,12 +2,10 @@ import React from 'react';
 
 import Styles from './index.module.scss';
 
-function GreenButton({ text }) {
+function GreenButton() {
   return (
     <div className={Styles.containerButton}>
-      <button type="button" className={Styles.button}>
-      { text }
-      </button>
+      <button type="button" className={Styles.button} />
     </div>
   );
 }
