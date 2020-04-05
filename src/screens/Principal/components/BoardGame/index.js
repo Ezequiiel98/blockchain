@@ -87,19 +87,6 @@ class BoardGame extends React.Component {
     this.setState({ noUpdate: true });
   };
 
-  handleDragEnd = e => {
-    console.log('end');
-    /*     elemento.classList.remove(styles.blockActive);
-     */
-    /*
-    const elemento = e.target;
-      setTimeout(() => {
-        // elemento.classList.add(styles.blockActive);
-        // elemento.draggable = false;
-      }, 0);
-    } */
-  };
-
   /* drag Column cell */
   handleDragOver = e => {
     e.preventDefault();
@@ -133,11 +120,11 @@ class BoardGame extends React.Component {
     const element = e.target;
     const isColumn = element.classList.contains('columnDrag');
     const idColumn = isColumn ? element.id : element.parentNode.parentNode.id;
-    const idBlock = e.dataTransfer.getData('text');
+    const { id, points, number, color, broken } = JSON.parse(e.dataTransfer.getData('text'));
     const { effectAllowed } = e.dataTransfer;
 
     if (effectAllowed === 'move') {
-      this.getBlock(idBlock, idColumn);
+      this.getBlock(id, idColumn);
       this.setState({ lastColumnTemp: '', noUpdate: false });
     }
 
@@ -172,7 +159,7 @@ class BoardGame extends React.Component {
                   <Block
                     {...this.state.dataBlocks[idColumn]}
                     onDragStart={this.handleDragStart}
-                    onDragEnd={this.handleDragEnd}
+                    onDragEnd={() => null}
                     bigBlock
                   />
                 )}

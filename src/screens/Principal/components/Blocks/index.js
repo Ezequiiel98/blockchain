@@ -29,8 +29,8 @@ function Blocks() {
       const broken = !!element.childNodes[1];
       const dataBlock = { id, points, number, color, broken };
       e.dataTransfer.effectAllowed = 'move';
-      /*       e.dataTransfer.setData('text/plain', id);
-       */
+/*              e.dataTransfer.setData('text/plain', id);
+ */       
       e.dataTransfer.setData('text/plain', JSON.stringify(dataBlock));
 
       element.classList.add(styles.bigBlock);
