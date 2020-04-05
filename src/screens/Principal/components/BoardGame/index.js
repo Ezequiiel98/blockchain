@@ -11,7 +11,6 @@ class BoardGame extends React.Component {
     dataBlocks: {},
     dataBoardPositions: {},
     lastColumnTemp: '',
-    lastIdTemp: '',
     noUpdate: true
   };
 
@@ -43,7 +42,7 @@ class BoardGame extends React.Component {
 
       [dataBlocks[idColumn]] = blocks.filter(block => block.id === parseInt(idBlock));
       dataBoardPositions[idColumn] = idBlock;
-      // const [row, column] = idColumn.split('_');
+
       this.setState({
         ...this.prevState,
         dataBoardPositions,
@@ -68,11 +67,11 @@ class BoardGame extends React.Component {
     const { id } = e.target;
     const dataBlocks = { ...this.state.dataBlocks };
     const dataBoardPositions = { ...this.state.dataBoardPositions };
-
     const [lastColumn] = Object.keys(dataBoardPositions).filter(
       columnId => dataBoardPositions[columnId] === id
     );
 
+    e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/plain', id);
 
     const lastColumnTemp = e.target.parentNode.id;
@@ -102,7 +101,7 @@ class BoardGame extends React.Component {
   };
 
   /* drag Column cell */
-  handleDragOver = async e => {
+  handleDragOver = e => {
     e.preventDefault();
     const element = e.target;
     const isBlock = element.classList.contains('blockDrag');
@@ -113,9 +112,9 @@ class BoardGame extends React.Component {
     element.classList.add(styles.cellDragHover);
 
     if (isBlock) {
-      await this.getBlock(idBlock, lastColumnTemp);
+      this.getBlock(idBlock, lastColumnTemp);
     } else {
-      await this.clearCell(lastColumnTemp);
+      this.clearCell(lastColumnTemp);
     }
     this.setState({ noUpdate: true });
   };
@@ -135,20 +134,19 @@ class BoardGame extends React.Component {
     const isColumn = element.classList.contains('columnDrag');
     const idColumn = isColumn ? element.id : element.parentNode.parentNode.id;
     const idBlock = e.dataTransfer.getData('text');
+    const { effectAllowed } = e.dataTransfer;
 
-    this.getBlock(idBlock, idColumn);
-    this.setState({ lastColumnTemp: '', lastIdTemp: '', noUpdate: false });
+    if (effectAllowed === 'move') {
+      this.getBlock(idBlock, idColumn);
+      this.setState({ lastColumnTemp: '', noUpdate: false });
+    }
 
     element.classList.remove(styles.cellDragHover);
-    /*    const dragSuccess = e.dataTransfer.dropEffect;
-    console.log(dragSuccess); */
   };
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.dataBoardPositions !== this.state.dataBoardPositions && this.state.noUpdate !== true) {
-      setTimeout(() => {
-        this.countFillCells();
-      }, 1000);
+      this.countFillCells();
     }
   }
 

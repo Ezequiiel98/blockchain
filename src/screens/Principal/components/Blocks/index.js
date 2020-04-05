@@ -23,14 +23,22 @@ function Blocks() {
     if (element.classList.contains('containerBlockDrag')) {
       const { id } = element;
       const child = element.childNodes[0];
+      const points = child.childNodes[0].childNodes.length;
+      const number = child.childNodes[1].textContent;
+      const color = child.classList[0].split('_')[1];
+      const broken = !!element.childNodes[1];
+      const dataBlock = { id, points, number, color, broken };
+      e.dataTransfer.effectAllowed = 'move';
+      /*       e.dataTransfer.setData('text/plain', id);
+       */
+      e.dataTransfer.setData('text/plain', JSON.stringify(dataBlock));
 
-      e.dataTransfer.setData('text/plain', id);
-      child.classList.add(styles.childBigBlock);
       element.classList.add(styles.bigBlock);
+      child.classList.add(styles.childBigBlock);
 
       setTimeout(() => {
-        child.classList.remove(styles.childBigBlock);
         element.classList.remove(styles.bigBlock);
+        child.classList.remove(styles.childBigBlock);
       }, 0);
     }
   };
