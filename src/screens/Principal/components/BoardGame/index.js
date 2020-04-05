@@ -31,7 +31,6 @@ class BoardGame extends React.Component {
     } else {
       this.props.onDisabledButton({ disable: true });
     }
-    console.log(positions);
   };
 
   getBlock = (idBlock, idColumn) => {
@@ -40,7 +39,8 @@ class BoardGame extends React.Component {
       const dataBlocks = { ...state.dataBlocks };
       const dataBoardPositions = { ...state.dataBoardPositions };
 
-      [dataBlocks[idColumn]] = blocks.filter(block => block.id === parseInt(idBlock));
+/*       [dataBlocks[idColumn]] = blocks.filter(block => block.id === parseInt(idBlock));
+ */      [dataBlocks[idColumn]] = Object.keys(dataBlocks).filter(columnId => dataBlocks[columnId].id === parseInt(idBlock));
       dataBoardPositions[idColumn] = idBlock;
 
       this.setState({
@@ -70,18 +70,18 @@ class BoardGame extends React.Component {
     const [lastColumn] = Object.keys(dataBoardPositions).filter(
       columnId => dataBoardPositions[columnId] === id
     );
-
+    const dataBlock = { ...this.state.dataBlocks[lastColumn] };
+    dataBlock.id = id;
     e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/plain', id);
+    e.dataTransfer.setData('text/plain', JSON.stringify(dataBlock));
 
     const lastColumnTemp = e.target.parentNode.id;
-    const lastIdTemp = e.target.id;
 
     /* Borra los datos del state de la celda donde estaba posicionado el block antes de moverlo*/
-    dataBlocks[lastColumn] = '';
-    dataBoardPositions[lastColumn] = '';
+    /* dataBlocks[lastColumn] = '';
+    dataBoardPositions[lastColumn] = ''; */
     setTimeout(() => {
-      this.setState({ dataBoardPositions, dataBlocks, lastColumnTemp, lastIdTemp });
+      this.setState({ dataBoardPositions, dataBlocks, lastColumnTemp });
     }, 0);
 
     this.setState({ noUpdate: true });
@@ -93,7 +93,6 @@ class BoardGame extends React.Component {
     const element = e.target;
     const isBlock = element.classList.contains('blockDrag');
     const idBlock = element.parentNode.id;
-    const idColumn = element.parentNode.parentNode.id;
     const { lastColumnTemp } = this.state;
 
     element.classList.add(styles.cellDragHover);
@@ -101,8 +100,8 @@ class BoardGame extends React.Component {
     if (isBlock) {
       this.getBlock(idBlock, lastColumnTemp);
     } else {
-      this.clearCell(lastColumnTemp);
-    }
+/*       this.clearCell(lastColumnTemp);
+ */    }
     this.setState({ noUpdate: true });
   };
 
@@ -120,11 +119,13 @@ class BoardGame extends React.Component {
     const element = e.target;
     const isColumn = element.classList.contains('columnDrag');
     const idColumn = isColumn ? element.id : element.parentNode.parentNode.id;
-    const { id, points, number, color, broken } = JSON.parse(e.dataTransfer.getData('text'));
     const { effectAllowed } = e.dataTransfer;
 
     if (effectAllowed === 'move') {
-      this.getBlock(id, idColumn);
+      const { id, points, number, color, broken } = JSON.parse(e.dataTransfer.getData('text'));
+      const dataBlocks = { ...this.state.dataBlocks };
+      dataBlocks[idColumn] = { id, points, number, color, broken };
+      this.setState({ ...this.prevState, dataBlocks });
       this.setState({ lastColumnTemp: '', noUpdate: false });
     }
 
