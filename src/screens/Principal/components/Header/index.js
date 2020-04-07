@@ -11,7 +11,7 @@ function Header({ name }) {
     <header className={styles.header}>
       <ImgBackground />
       <div className={styles.container}>
-        <h2>{name}</h2>
+        <h2>Juan Carlos</h2>
         <Score />
       </div>
     </header>
@@ -19,7 +19,7 @@ function Header({ name }) {
 }
 
 Header.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string
 };
 
 export default Header;
