@@ -31,8 +31,7 @@ class FormLogin extends React.Component {
   handleChange = event => {
     const { value, name } = event.target;
     this.setState({ [name]: value });
-    this.setState({ errorCode: false, errorName: false, errorServer: false });
-  };
+  }
 
   handleSubmit = event => {
     event.preventDefault();
