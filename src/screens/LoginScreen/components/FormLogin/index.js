@@ -50,7 +50,7 @@ class FormLogin extends React.Component {
 
   render() {
     return (
-      <form onSubmit={e => this.handleSubmit(e)} className={styles.formLogin}>
+      <form onSubmit={this.handleSubmit} className={styles.formLogin}>
         <p className={styles.title}>Blockchain</p>
         <div className={styles.containerInput}>
           {this.state.errorName && <img src={img} className={styles.errorIcon} />}
