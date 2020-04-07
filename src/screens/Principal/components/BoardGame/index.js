@@ -159,6 +159,8 @@ class BoardGame extends React.Component {
                 {this.state.dataBlocks[idColumn] && (
                   <Block
                     {...this.state.dataBlocks[idColumn]}
+                  number={this.state.dataBlocks[idColumn].puzzle_number}
+
                     onDragStart={this.handleDragStart}
                     onDragEnd={() => null}
                     bigBlock

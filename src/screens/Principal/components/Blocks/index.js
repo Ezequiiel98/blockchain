@@ -71,7 +71,7 @@ function Blocks({transactions}) {
         {Object.keys(transactions).map(transaction => (
           <Block
             key={transactions[transaction].uuid}
-            id={transactions[transaction].uuid}
+            uuid={transactions[transaction].uuid}
             number={transactions[transaction].puzzle_number}
             certified={transactions[transaction].certified}
             color={transactions[transaction].color}

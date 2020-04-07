@@ -10,7 +10,7 @@ certified
 color
 fee
  */
-function Block({ id, number, certified, color, fee, onDragEnd, onDragStart, bigBlock }) {
+function Block({ uuid, number, certified, color, fee, onDragEnd, onDragStart, bigBlock }) {
   const colorDark = `${color}Dark`;
  /*  const pointsClass = [];
   for (let i = 1; i <= points; i++) {
@@ -19,7 +19,7 @@ function Block({ id, number, certified, color, fee, onDragEnd, onDragStart, bigB
 
   return (
     <div
-      id={id}
+      id={uuid}
       className={` ${bigBlock ? styles.containerBigBlock : styles.containerSmallBlock} ${
         styles[colorDark]
       } containerBlockDrag`}
