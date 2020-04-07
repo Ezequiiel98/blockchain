@@ -1,5 +1,7 @@
 import React from 'react';
 
+import cells from './constants/cells'
+
 import styles from './index.module.scss';
 
 function BoardResolution() {
@@ -7,24 +9,9 @@ function BoardResolution() {
     <div className={styles.containerBoard}>
       <h2 className={styles.legend}>Resolución</h2>
       <div className={styles.board}>
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-        <div className={styles.cell} />
-      </div>
+	 { cells.map(keyCell => <div key={keyCell} className={styles.cell}/>)}
     </div>
+  </div>
   );
 }
 
