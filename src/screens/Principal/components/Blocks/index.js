@@ -1,11 +1,9 @@
 import React from 'react';
 
-import blocks from '../constants/blocks';
-
 import Block from './components/Block';
 import styles from './index.module.scss';
 
-function Blocks({transactions}) {
+function Blocks({ transactions }) {
   /* scrolls  */
   const handleScrollNext = e => {
     const containerBlocks = e.target.parentNode.childNodes[2];
@@ -55,19 +53,6 @@ function Blocks({transactions}) {
       <button type="button" onClick={handleScrollNext} className={styles.next} />
       <button type="button" onClick={handleScrollBack} className={styles.back} />
       <div className={styles.containerBlocks}>
-        {/*  {blocks.map(block => (
-          <Block
-            key={block.id}
-            id={block.id}
-            number={block.number}
-            points={block.points}
-            color={block.color}
-            broken={block.broken}
-            onDragStart={handleDragStart}
-            onDragEnd={handleDragEnd}
-          />
-        ))}
-*/}
         {Object.keys(transactions).map(transaction => (
           <Block
             key={transactions[transaction].uuid}

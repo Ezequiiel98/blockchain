@@ -15,6 +15,7 @@ function Block({ uuid, number, certified, color, fee, onDragEnd, onDragStart, bi
   const MAX_FEE = 1;
   const points = (fee / MAX_FEE) * 7 + 1;
   const pointsClass = [];
+
   for (let i = 1; i <= points; i++) {
     pointsClass.push(`point${i}`);
   }

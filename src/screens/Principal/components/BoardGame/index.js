@@ -1,7 +1,6 @@
 import React from 'react';
 
 import boardCells from '../constants/boardCells';
-import blocks from '../constants/blocks';
 import Block from '../Blocks/components/Block';
 
 import styles from './index.module.scss';
@@ -39,12 +38,10 @@ class BoardGame extends React.Component {
       const dataBlocks = { ...state.dataBlocks };
       const dataBoardPositions = { ...state.dataBoardPositions };
       let { transactions } = this.props;
+
       transactions = JSON.stringify(transactions);
-      transactions = JSON.parse(transactions);
-      [dataBlocks[idColumn]] = transactions.filter(transaction => transaction.uuid == idBlock)
-      /*  s
-      
-      ] = blocks.filter(block => block.id === parseInt(idBlock))); */
+
+      [dataBlocks[idColumn]] = JSON.parse(transactions).filter(transaction => transaction.uuid === idBlock);
       dataBoardPositions[idColumn] = idBlock;
 
       this.setState({
@@ -159,8 +156,7 @@ class BoardGame extends React.Component {
                 {this.state.dataBlocks[idColumn] && (
                   <Block
                     {...this.state.dataBlocks[idColumn]}
-                  number={this.state.dataBlocks[idColumn].puzzle_number}
-
+                    number={this.state.dataBlocks[idColumn].puzzle_number}
                     onDragStart={this.handleDragStart}
                     onDragEnd={() => null}
                     bigBlock
