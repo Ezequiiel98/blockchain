@@ -10,7 +10,7 @@ function VioletButton({ text, typeButton, disable }) {
         <button
           type="button"
           className={disable ? styles.btnDisabled : styles.btnActive}
-          disable={disable.toString()}
+          disabled={disable.toString()}
         >
           {text}
         </button>
