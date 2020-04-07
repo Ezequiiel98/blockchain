@@ -1,11 +1,10 @@
 .formLogin {
-    font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
 }
 
 .containerbutton {
-    padding-top:50px;
+    padding-top: 50px;
     flex-direction: column;
     align-self: flex-start;
 
@@ -15,7 +14,6 @@
     height: 44px;
     width: 212px;
     color: #7758A2;
-    font-family: Montserrat;
     font-size: 36px;
     font-weight: bold;
     letter-spacing: 0;
@@ -24,7 +22,6 @@
 
 .label {
     color: #525256;
-    font-family: Montserrat;
     font-size: 12px;
     font-weight: bold;
 }
@@ -57,8 +54,7 @@
     padding: 8.5px 9.5px;
     border-radius: 2px;
     margin: 10px 5px 5px 0;
-    font-family: Montserrat;
-    font-size: 12px; 
+    font-size: 12px;
     border: 1px solid #BBBBBB;
     outline-color: #EA4453;
 }
@@ -68,7 +64,6 @@
     padding: 8.5px 9.5px;
     border-radius: 2px;
     margin: 10px 5px 5px 0;
-    font-family: Montserrat;
     font-size: 12px;
     outline-color: #B5B5B6;
     background-color: #E8E8E8;
@@ -79,7 +74,6 @@
     padding: 8.5px 9.5px;
     border-radius: 2px;
     margin: 10px 5px 5px 0;
-    font-family: Montserrat;
     font-size: 12px;
     outline-color: #525256;
 }
@@ -89,35 +83,32 @@
     padding: 8.5px 9.5px;
     border-radius: 2px;
     margin: 10px 5px 5px 0;
-    font-family: Montserrat;
     font-size: 12px;
     outline-color: #7758A2;
 }
 
- .error{
+.error {
     @extend .input;
 }
 
- .error:focus{
-     outline-color: #EA4453;
-     border-color: #EA4453;
- }
+.error:focus {
+    outline-color: #EA4453;
+    border-color: #EA4453;
+}
 
 .msgCode {
-    font-family: Montserrat;   
     color: #EA4453;
     font-size: 10px;
     line-height: 0.5px;
 }
+
 .msgName {
-    font-family: Montserrat;   
     color: #EA4453;
     font-size: 10px;
     line-height: 0.5px;
 }
 
 .msgServer {
-    font-family: Montserrat;   
     color: #EA4453;
     font-size: 10px;
     line-height: 0.5px;
