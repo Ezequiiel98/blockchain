@@ -11,7 +11,7 @@ function Header({ name }) {
     <header className={styles.header}>
       <ImgBackground />
       <div className={styles.container}>
-        <h2>Juan Carlos</h2>
+        <h2>{name}</h2>
         <Score />
       </div>
     </header>
