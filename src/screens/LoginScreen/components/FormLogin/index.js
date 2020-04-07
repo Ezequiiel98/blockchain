@@ -3,9 +3,10 @@ import React from 'react';
 import VioletButton from '../../../../components/VioletButton';
 import WhiteButton from '../WhiteButton';
 import img from '../../assets/img/erroricon.png';
-import { sendGame } from '../../../../services/gameService';
+import { sendGame } from '../../../../Services/gameService';
 
 import styles from './index.module.scss';
+/* This is a login screen form*/
 
 class FormLogin extends React.Component {
   state = {
