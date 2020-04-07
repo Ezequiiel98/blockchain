@@ -5,7 +5,7 @@ import blocks from '../constants/blocks';
 import Block from './components/Block';
 import styles from './index.module.scss';
 
-function Blocks() {
+function Blocks({transactions}) {
   /* scrolls  */
   const handleScrollNext = e => {
     const containerBlocks = e.target.parentNode.childNodes[2];
@@ -55,7 +55,7 @@ function Blocks() {
       <button type="button" onClick={handleScrollNext} className={styles.next} />
       <button type="button" onClick={handleScrollBack} className={styles.back} />
       <div className={styles.containerBlocks}>
-        {blocks.map(block => (
+        {/*  {blocks.map(block => (
           <Block
             key={block.id}
             id={block.id}
@@ -67,17 +67,19 @@ function Blocks() {
             onDragEnd={handleDragEnd}
           />
         ))}
-
-        {/* {Object.keys(transactions).map(transaction => (
+*/}
+        {Object.keys(transactions).map(transaction => (
           <Block
-           key={transactions[transaction].uuid}
-            uuid={transactions[transaction].uuid}
+            key={transactions[transaction].uuid}
+            id={transactions[transaction].uuid}
             number={transactions[transaction].puzzle_number}
             certified={transactions[transaction].certified}
             color={transactions[transaction].color}
-            amount={Math.floor(transactions[transaction].amount)}
+            fee={transactions[transaction].fee}
+            onDragStart={handleDragStart}
+            onDragEnd={handleDragEnd}
           />
-        ))} */}
+        ))}
       </div>
     </div>
   );

@@ -38,9 +38,13 @@ class BoardGame extends React.Component {
       const { state } = this;
       const dataBlocks = { ...state.dataBlocks };
       const dataBoardPositions = { ...state.dataBoardPositions };
-
-      [dataBlocks[idColumn]] = blocks.filter(block => block.id === parseInt(idBlock));
-/*       [dataBlocks[idColumn]] = Object.keys(dataBlocks).filter(columnId => dataBlocks[columnId].id === parseInt(idBlock)); */
+      let { transactions } = this.props;
+      transactions = JSON.stringify(transactions);
+      transactions = JSON.parse(transactions);
+      [dataBlocks[idColumn]] = transactions.filter(transaction => transaction.uuid == idBlock)
+      /*  s
+      
+      ] = blocks.filter(block => block.id === parseInt(idBlock))); */
       dataBoardPositions[idColumn] = idBlock;
 
       this.setState({
@@ -98,7 +102,7 @@ class BoardGame extends React.Component {
     if (isBlock) {
       this.getBlock(idBlock, lastColumnTemp);
     } else {
-       this.clearCell(lastColumnTemp);
+      this.clearCell(lastColumnTemp);
     }
     this.setState({ noUpdate: true });
   };

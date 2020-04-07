@@ -11,37 +11,31 @@ import ImgBackground from './components/ImgBackground';
 
 class Principal extends React.Component {
   state = {
-    /*     blockDrag: '',
-     */
-    /*   transactions: '',
-    miner: {} */
+    transactions: {},
+    miner: {},
     disable: true
   };
 
-  /*   handleBlockDrag = blockDrag => this.setState({ blockDrag });
-   */
   getGame = async () => {
     const res = await fetchGame();
     console.log(res.data);
+    const { transactions, miner } = res.data;
+    this.setState({ transactions, miner });
   };
 
   componentDidMount() {
     this.getGame();
-
-    /* const { transactions, miner } = response;
-    this.setState({ transactions, miner }); */
   }
 
-  handleDisabledButton = ({disable}) => this.setState({ disable });
+  handleDisabledButton = ({ disable }) => this.setState({ disable });
 
   render() {
-console.log(process.env.REACT_APP_API_URL)
-	  return (
+    return (
       <div className={styles.mainContainer}>
         <Header />
         <Blocks transactions={this.state.transactions} />
         <div className={styles.boards}>
-          <BoardGame onDisabledButton={this.handleDisabledButton} />
+          <BoardGame transactions={this.state.transactions} onDisabledButton={this.handleDisabledButton} />
           <Resolution disable={this.state.disable} />
         </div>
         <ImgBackground />

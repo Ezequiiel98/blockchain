@@ -3,14 +3,19 @@ import React from 'react';
 import styles from './index.module.scss';
 
 /* onDragStart, onDragEnd, uuid, number, certified, color, amount
+key
+id
+number
+certified
+color
+fee
  */
-function Block({ id, number, points, color, broken, onDragEnd, onDragStart, bigBlock }) {
+function Block({ id, number, certified, color, fee, onDragEnd, onDragStart, bigBlock }) {
   const colorDark = `${color}Dark`;
-
-  const pointsClass = [];
+ /*  const pointsClass = [];
   for (let i = 1; i <= points; i++) {
     pointsClass.push(`point${i}`);
-  }
+  } */
 
   return (
     <div
@@ -24,13 +29,13 @@ function Block({ id, number, points, color, broken, onDragEnd, onDragStart, bigB
     >
       <div className={`${styles[color]} blockDrag`}>
         <div className={styles.blockPoints}>
-          {pointsClass.map(point => (
+         {/*  {pointsClass.map(point => (
             <span key={point} className={styles[point]} />
-          ))}
+          ))} */}
         </div>
         <h4 className={styles.blockNumber}>{number}</h4>
       </div>
-      {broken && <span className={styles.noCertified} />}
+      {!certified && <span className={styles.noCertified} />}
     </div>
   );
 }
