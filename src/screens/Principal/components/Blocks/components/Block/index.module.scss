@@ -191,10 +191,10 @@ $left: 10%;
 	pointer-events: none;
 }
 
-.blockNumber > *{
-
-pointer-events: none;
+.blockNumber>* {
+	pointer-events: none;
 }
+
 .containerBigBlock .blockNumber {
 	@extend .blockNumber;
 	margin-top: 12px;

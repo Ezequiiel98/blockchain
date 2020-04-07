@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import boardCells from '../constants/boardCells';
 import Block from '../Blocks/components/Block';
@@ -10,25 +11,18 @@ class BoardGame extends React.Component {
     dataBlocks: {},
     dataBoardPositions: {},
     lastColumnTemp: '',
-    noUpdate: true
+    updateCount: false
   };
 
-  countFillCells = () => {
+  countFullColumns = () => {
     const numberColumns = 16;
     const dataBoardPositions = { ...this.state.dataBoardPositions };
-    /*  let positions = Object.keys(dataBoardPositions).map(columnId => {
-      const [row, column] = columnId.split('_');
-
-        return dataBoardPositions !== ''  && { [row]: { [column]: dataBoardPositions[columnId] } };
-
-      return { [columnId]: dataBoardPositions[columnId] };
-    }); */
     const positions = Object.keys(dataBoardPositions).filter(columnId => dataBoardPositions[columnId] !== '');
 
     if (positions.length === numberColumns) {
-      this.props.onDisabledButton({ disable: false });
+      this.props.onDisabledButton({ disabled: false });
     } else {
-      this.props.onDisabledButton({ disable: true });
+      this.props.onDisabledButton({ disabled: true });
     }
   };
 
@@ -82,8 +76,6 @@ class BoardGame extends React.Component {
     setTimeout(() => {
       this.setState({ dataBoardPositions, dataBlocks, lastColumnTemp });
     }, 0);
-
-    this.setState({ noUpdate: true });
   };
 
   /* drag Column cell */
@@ -101,7 +93,7 @@ class BoardGame extends React.Component {
     } else {
       this.clearCell(lastColumnTemp);
     }
-    this.setState({ noUpdate: true });
+    this.setState({ updateCount: false });
   };
 
   handleDragEnter = e => {
@@ -123,15 +115,15 @@ class BoardGame extends React.Component {
     if (effectAllowed === 'move') {
       const idBlock = e.dataTransfer.getData('text');
       this.getBlock(idBlock, idColumn);
-      this.setState({ lastColumnTemp: '', noUpdate: false });
+      this.setState({ lastColumnTemp: '', updateCount: TextTrackCue });
     }
 
     element.classList.remove(styles.cellDragHover);
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.dataBoardPositions !== this.state.dataBoardPositions && this.state.noUpdate !== true) {
-      this.countFillCells();
+    if (prevState.dataBoardPositions !== this.state.dataBoardPositions && this.state.updateCount) {
+      this.countFullColumns();
     }
   }
 
@@ -170,5 +162,10 @@ class BoardGame extends React.Component {
     );
   }
 }
+
+BoardGame.propTypes = {
+  transactions: PropTypes.instanceOf(Object).isRequired,
+  onDisabledButton: PropTypes.func.isRequired
+};
 
 export default BoardGame;

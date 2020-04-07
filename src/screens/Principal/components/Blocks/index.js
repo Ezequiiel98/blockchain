@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Block from './components/Block';
 import styles from './index.module.scss';
@@ -69,5 +70,9 @@ function Blocks({ transactions }) {
     </div>
   );
 }
+
+Blocks.propTypes = {
+  transactions: PropTypes.instanceOf(Object).isRequired
+};
 
 export default Blocks;

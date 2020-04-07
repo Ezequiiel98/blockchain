@@ -28,12 +28,13 @@
 	position: absolute;
 	z-index: 3;
 	background-color: $white;
+
+	&:hover {
+		cursor: pointer;
+	}
 }
 
-.next:hover,
-.back:hover {
-	cursor: pointer;
-}
+
 
 .back {
 	transform: rotateZ(180deg);
@@ -49,7 +50,7 @@
 	min-height: 111px;
 	padding: 0;
 	overflow: visible;
-	margin: 0!important;
+	margin: 0 !important;
 	z-index: 1;
 }
 
