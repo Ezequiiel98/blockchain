@@ -30,9 +30,10 @@ class Principal extends React.Component {
   handleDisabledButton = ({ disabled }) => this.setState({ disabled });
 
   render() {
+  const { miner, transactions, disabled } = this.state;
     return (
       <div className={styles.mainContainer}>
-        <Header name={this.state.miner.name} />
+        <Header name={miner.name} />
         <Blocks transactions={this.state.transactions} />
         <div className={styles.boards}>
           <BoardGame transactions={this.state.transactions} onDisabledButton={this.handleDisabledButton} />
