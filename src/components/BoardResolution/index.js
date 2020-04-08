@@ -1,6 +1,6 @@
 import React from 'react';
 
-import cells from './constants/cells';
+import { cells } from './constants/cells';
 import styles from './index.module.scss';
 
 function BoardResolution() {
