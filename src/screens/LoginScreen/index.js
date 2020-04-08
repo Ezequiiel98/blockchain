@@ -1,14 +1,14 @@
 import React from 'react';
 
 import FormLogin from './components/FormLogin';
-import Blockimg from './components/Blockimg';
+import BlockImg from './components/BlockImg';
 import styles from './index.module.scss';
 
 function LoginScreen() {
   return (
     <div className={styles.loginScreen}>
       <FormLogin />
-      <Blockimg />
+      <BlockImg />
     </div>
   );
 }

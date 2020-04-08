@@ -4,11 +4,11 @@ import img from '../../assets/img/blockimg.svg';
 
 import styles from './index.module.scss';
 
-function Blockimg() {
+function BlockImg() {
   return (
-    <div className={styles.blockimg}>
+    <div className={styles.blockImg}>
       <img src={img} className={styles.img} />
     </div>
   );
 }
-export default Blockimg;
+export default BlockImg;
