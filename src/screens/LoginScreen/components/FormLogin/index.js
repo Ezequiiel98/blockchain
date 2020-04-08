@@ -50,13 +50,13 @@ class FormLogin extends React.Component {
 
   render() {
     return (
-      <form onSubmit={e => this.handleSubmit(e)} className={styles.formLogin}>
+      <form onSubmit={this.handleSubmit} className={styles.formLogin}>
         <p className={styles.title}>Blockchain</p>
         <div className={styles.containerInput}>
           {this.state.errorName && <img src={img} className={styles.errorIcon} />}
           <label className={styles.label}>NOMBRE</label>
           <input
-            onChange={e => this.handleChange(e)}
+            onChange={this.handleChange}
             placeholder="Juan Perez"
             className={this.state.errorName ? styles.error : styles.input}
             name="name"
@@ -69,7 +69,7 @@ class FormLogin extends React.Component {
           {this.state.errorCode && <img src={img} className={styles.errorIcon} />}
           <label className={styles.label}>CÓDIGO DE INGRESO</label>
           <input
-            onChange={e => this.handleChange(e)}
+            onChange={this.handleChange}
             placeholder="000 000"
             className={this.state.errorCode ? styles.error : styles.input}
             name="code"
