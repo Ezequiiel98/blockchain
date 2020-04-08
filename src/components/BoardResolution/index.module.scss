@@ -34,10 +34,10 @@
 .cell {
   width: 25%;
   height: 25%;
-}
 
-.cell:nth-child(odd) {
-  background-color: #FEC34D;
+  &:nth-child(odd) {
+    background-color: #FEC34D;
+  }
 }
 
 .cell:nth-child(9) {
