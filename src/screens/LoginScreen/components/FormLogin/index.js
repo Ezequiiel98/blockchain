@@ -36,13 +36,13 @@ class FormLogin extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     const { name, code } = this.state;
-    if (name === '' && code === '') {
-      this.setState({ errorName: true, errorCode: true });
-    } else if (name === '') {
+    if (name === '') {
       this.setState({ errorName: true });
-    } else if (code === '') {
+    }
+    if (code === '') {
       this.setState({ errorCode: true });
-    } else {
+    }
+    if (name && code) {
       const data = { name, code };
       this.handleSendGame(data);
     }
