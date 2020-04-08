@@ -31,7 +31,7 @@ class FormLogin extends React.Component {
   handleChange = event => {
     const { value, name } = event.target;
     this.setState({ [name]: value });
-  }
+  };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -50,7 +50,7 @@ class FormLogin extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className={styles.formLogin}>
+      <form onSubmit={e => this.handleSubmit(e)} className={styles.formLogin}>
         <p className={styles.title}>Blockchain</p>
         <div className={styles.containerInput}>
           {this.state.errorName && <img src={img} className={styles.errorIcon} />}
