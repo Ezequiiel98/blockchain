@@ -81,12 +81,12 @@
         font-size: 12px;
         outline-color: #7758A2;
     }
+}
 
-    &.error {
-        @extend .input;
-    }
+.error {
+    @extend .input;
 
-    .error:focus {
+    &:focus {
         outline-color: #EA4453;
         border-color: #EA4453;
     }
