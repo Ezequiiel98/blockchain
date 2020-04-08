@@ -21,9 +21,9 @@ function Block({ uuid, number, certified, color, fee, onDragEnd, onDragStart, bi
         styles[colorDark]
       } containerBlockDrag`}
       draggable
-      {onDragStart}
-      {onDragEnd}
-    >
+    onDragEnd={onDragEnd}
+    onDragStart={onDragStart}
+     >
       <div className={`${styles[color]} blockDrag`}>
         <div className={styles.blockPoints}>
           {pointsClass.map(point => (
