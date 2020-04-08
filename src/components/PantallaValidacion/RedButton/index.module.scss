@@ -1,5 +1,4 @@
-
-.containerButton {
+.container {
     width: 120px;
     height: 66px;
     background-color: #D12C43;
@@ -21,7 +20,7 @@
  
   }
   
-  .containerButton:active {
+  .container:active {
     background-color: white;
     transform: translateY(8px);
   }

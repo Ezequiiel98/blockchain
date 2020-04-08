@@ -1,13 +1,13 @@
 import React from 'react';
 
-import LineasGrises from '../../../assets/img/LineasGrises.png';
+import LineasGrises from '../../../assets/img/lineasGrises.png';
 
 import styles from './index.module.scss';
 
 function ImagenSuperior() {
   return (
     <div>
-      <img className={styles.LineasGrises} src={LineasGrises} />
+      <img className={styles.lineasGrises} src={LineasGrises} />
     </div>
 );
 }

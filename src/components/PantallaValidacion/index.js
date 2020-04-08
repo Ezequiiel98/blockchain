@@ -12,26 +12,25 @@ import GreenButton from './GreenButton';
 
 function PantallaValidacion() {
   return (
-    <div className={styles.PantallaValidacion}>
+    <div className={styles.pantallaValidacion}>
       <ImagenSuperior />
 
-      <div className={styles.Container}>
-        <div className={styles.ContainerTextScore}>
+      <div className={styles.container}>
+        <div className={styles.containerTextScore}>
           <Text />
           <Score />
         </div>
         <div className={styles.containerBoard}>
           <Board />
-          <div className={styles.ContainerButton}>
+          <div className={styles.containerButton}>
             <BoardResolution />
-            <div className={styles.Button}>
+            <div className={styles.button}>
               <RedButton />
               <GreenButton />
             </div>
           </div>
         </div>
       </div>
-
       <div>
         <ImagenInferior />
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LineasGrises from '../../../assets/img/LineasGrises.png';
+import LineasGrises from '../../../assets/img/lineasGrises.png';
 
 import styles from './index.module.scss';
 
