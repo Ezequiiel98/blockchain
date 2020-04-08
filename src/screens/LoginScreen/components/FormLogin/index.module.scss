@@ -21,6 +21,7 @@
 }
 
 .label {
+    flex-direction: column;
     color: #525256;
     font-size: 12px;
     font-weight: bold;
@@ -34,10 +35,6 @@
     width: 311px;
     margin: 10px 5px 40px 0;
     position: relative;
-}
-
-.label {
-    flex-direction: column;
 }
 
 .errorIcon {
@@ -85,15 +82,15 @@
         font-size: 12px;
         outline-color: #7758A2;
     }
-}
 
-.error {
-    @extend .input;
-}
+    &.error {
+        @extend .input;
+    }
 
-.error:focus {
-    outline-color: #EA4453;
-    border-color: #EA4453;
+    .error:focus {
+        outline-color: #EA4453;
+        border-color: #EA4453;
+    }
 }
 
 .msgCode {
