@@ -34,8 +34,6 @@
   }
 }
 
-
-
 .back {
   transform: rotateZ(180deg);
   left: -8px;
@@ -50,7 +48,7 @@
   min-height: 111px;
   padding: 0;
   overflow: visible;
-  margin: 0 !important;
+  margin: 0;
   z-index: 1;
 }
 

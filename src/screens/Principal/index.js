@@ -19,7 +19,6 @@ class Principal extends React.Component {
   getGame = async () => {
     const res = await fetchGame();
     const { transactions, miner } = res.data;
-
     this.setState({ transactions, miner });
   };
 

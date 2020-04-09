@@ -10,13 +10,12 @@ class Score extends React.Component {
   };
 
   setScore = () => {
-    const timeInterval = 100;
-
+    const TIME_INTERVAL = 100;
     this.score = setInterval(() => {
       this.setState(prevState => ({
         score: prevState.score - parseFloat('0.001')
       }));
-    }, timeInterval);
+    }, TIME_INTERVAL);
   };
 
   resetScore = () => {

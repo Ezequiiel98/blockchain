@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import boardCells from '../constants/boardCells';
+import BOARD_CELLS from '../constants/boardCells';
 import Block from '../Blocks/components/Block';
 
 import styles from './index.module.scss';
@@ -15,11 +15,11 @@ class BoardGame extends React.Component {
   };
 
   countFullColumns = () => {
-    const numberColumns = 16;
+    const NUMBER_COLUMNS = 16;
     const dataBoardPositions = { ...this.state.dataBoardPositions };
     const positions = Object.keys(dataBoardPositions).filter(columnId => dataBoardPositions[columnId] !== '');
 
-    if (positions.length === numberColumns) {
+    if (positions.length === NUMBER_COLUMNS) {
       this.props.onDisabledButton({ disabled: false });
     } else {
       this.props.onDisabledButton({ disabled: true });
@@ -28,11 +28,11 @@ class BoardGame extends React.Component {
 
   getBlock = (idBlock, idColumn) => {
     if (idColumn !== '') {
-      const { state } = this;
-      const dataBlocks = { ...state.dataBlocks };
-      const dataBoardPositions = { ...state.dataBoardPositions };
+      let { dataBlocks, dataBoardPositions } = this.state;
       let { transactions } = this.props;
 
+      dataBlocks = { ...dataBlocks };
+      dataBoardPositions = { ...dataBoardPositions };
       transactions = JSON.stringify(transactions);
 
       [dataBlocks[idColumn]] = JSON.parse(transactions).filter(transaction => transaction.uuid === idBlock);
@@ -130,7 +130,7 @@ class BoardGame extends React.Component {
   render() {
     return (
       <div className={styles.board}>
-        {boardCells.map(cell => (
+        {BOARD_CELLS.map(cell => (
           /* row */
           <div className={styles.rowCell} key={cell.idRow} id={cell.idRow}>
             {cell.idColumns.map(idColumn => (

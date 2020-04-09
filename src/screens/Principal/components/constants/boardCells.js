@@ -1,4 +1,4 @@
-const boardCells = [
+const BOARD_CELLS = [
   {
     idRow: 'row-0',
     idColumns: ['row-0_column-0', 'row-0_column-1', 'row-0_column-2', 'row-0_column-3']
@@ -17,4 +17,4 @@ const boardCells = [
   },
 ];
 
-export default boardCells;
+export default BOARD_CELLS;

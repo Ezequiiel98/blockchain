@@ -9,7 +9,6 @@ function Block({ uuid, number, certified, color, fee, onDragEnd, onDragStart, bi
   const MAX_POINTS = 7;
   const points = (fee / MAX_FEE) * MAX_POINTS + 1;
   const pointsClass = [];
-
   for (let i = 1; i <= points; i++) {
     pointsClass.push(`point${i}`);
   }
@@ -20,10 +19,10 @@ function Block({ uuid, number, certified, color, fee, onDragEnd, onDragStart, bi
       className={` ${bigBlock ? styles.containerBigBlock : styles.containerSmallBlock} ${
         styles[colorDark]
       } containerBlockDrag`}
+      onDragEnd={onDragEnd}
+      onDragStart={onDragStart}
       draggable
-    onDragEnd={onDragEnd}
-    onDragStart={onDragStart}
-     >
+    >
       <div className={`${styles[color]} blockDrag`}>
         <div className={styles.blockPoints}>
           {pointsClass.map(point => (

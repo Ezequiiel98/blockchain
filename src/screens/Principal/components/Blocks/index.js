@@ -39,9 +39,7 @@ function Blocks({ transactions }) {
   const handleDragEnd = e => {
     const element = e.target;
     const dragSuccess = e.dataTransfer.dropEffect;
-
     element.classList.remove(styles.blockActive);
-
     if (dragSuccess === 'move') {
       setTimeout(() => {
         element.style.display = 'none';
