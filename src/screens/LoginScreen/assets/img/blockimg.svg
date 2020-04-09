@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="480px" height="567px" viewBox="0 0 480 567" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 62 (101010) - https://sketch.com -->
+    <title>2FE370DF-A692-4D1C-BECF-7ABE472B482D</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="UI-Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="A1---LOGIN-/-BASE" transform="translate(-456.000000, -222.000000)">
+            <g id="Group" transform="translate(459.250497, 222.000000)">
+                <polyline id="Path-4" stroke="#E8E8E8" points="106.749503 266 106.749503 193 460.749503 193"></polyline>
+                <path id="Path-2" d="M464.749503,129.029585 L464.749503,130.029585 L461.249,130.029 L461.249503,319.5 L353.249,319.499 L353.249503,465.5 L98.206,465.5 L0.707,562.999 L3.18198052,565.474874 L2.47487373,566.181981 L-3.18198052,560.525126 L-2.47487373,559.818019 L0,562.293 L97.6464466,464.646447 L97.7928932,464.5 L352.249,464.5 L352.249503,318.5 L460.249,318.499 L460.249,130.029 L456.749503,130.029585 L456.749503,129.029585 L464.749503,129.029585 Z" fill="#E8E8E8" fill-rule="nonzero"></path>
+                <polyline id="Path-3" stroke="#E8E8E8" points="230.374751 465 230.374751 381 62.7495028 381 62.7495028 266 192.749503 266 192.749503 120 46.4244556 120 46.4244556 62"></polyline>
+                <rect id="Rectangle" fill="#A85135" x="98.7495028" y="80" width="64" height="64" rx="4"></rect>
+                <rect id="Rectangle" fill="#F2754C" x="106.749503" y="80" width="64" height="64" rx="4"></rect>
+                <rect id="Rectangle" fill="#81AF24" x="153.749503" y="216" width="100" height="100" rx="4"></rect>
+                <rect id="Rectangle" fill="#AED750" x="161.749503" y="216" width="100" height="100" rx="4"></rect>
+                <rect id="Rectangle" fill="#D39B1E" x="302.749503" y="174" width="48" height="48" rx="4"></rect>
+                <rect id="Rectangle" fill="#FEC34D" x="310.749503" y="174" width="48" height="48" rx="4"></rect>
+                <rect id="Rectangle" fill="#23858A" x="262.749503" y="0" width="24" height="24" rx="4"></rect>
+                <rect id="Rectangle" fill="#33BFC6" x="270.749503" y="0" width="24" height="24" rx="4"></rect>
+                <rect id="Rectangle" fill="#173040" x="436.749503" y="259" width="32" height="32" rx="4"></rect>
+                <rect id="Rectangle" fill="#22465C" x="444.749503" y="259" width="32" height="32" rx="4"></rect>
+                <rect id="Rectangle" fill="#B5B5B6" x="312.749503" y="279" width="80" height="80" rx="4"></rect>
+                <rect id="Rectangle" fill="#E8E8E8" x="320.749503" y="279" width="80" height="80" rx="4"></rect>
+                <rect id="Rectangle" fill="#A85135" x="294.749503" y="531" width="32" height="32" rx="4"></rect>
+                <rect id="Rectangle" fill="#F2754C" x="302.749503" y="531" width="32" height="32" rx="4"></rect>
+                <rect id="Rectangle" fill="#173040" x="108.749503" y="433" width="64" height="64" rx="4"></rect>
+                <rect id="Rectangle" fill="#22465C" x="116.749503" y="433" width="64" height="64" rx="4"></rect>
+                <path id="Path-5" d="M331.274629,36.8180195 L336.931483,42.4748737 L336.224377,43.1819805 L333.749,40.707 L262.249,112.207 L262.249503,193 L261.249503,193 L261.249503,111.792893 L333.042,39.999 L330.567522,37.5251263 L331.274629,36.8180195 Z" fill="#E8E8E8" fill-rule="nonzero"></path>
+                <polyline id="Path-6" stroke="#E8E8E8" points="130.749503 381 130.749503 346.264793 62.7495028 346.264793 62.7495028 381 89.836044 381 89.836044 346.264793"></polyline>
+                <polyline id="Path-7" stroke="#E8E8E8" points="89.836044 381 89.836044 410.018162 46.4244556 410.018162"></polyline>
+                <polyline id="Path-8" stroke="#E8E8E8" points="270.749503 381 270.749503 429 320.749503 429"></polyline>
+                <circle id="Oval" fill="#E8E8E8" cx="192.749503" cy="162" r="4"></circle>
+                <circle id="Oval" fill="#E8E8E8" cx="64.7495028" cy="120" r="4"></circle>
+                <circle id="Oval" fill="#E8E8E8" cx="62.7495028" cy="288" r="4"></circle>
+                <circle id="Oval" fill="#E8E8E8" cx="62.7495028" cy="306" r="4"></circle>
+                <circle id="Oval" fill="#E8E8E8" cx="89.7495028" cy="364" r="4"></circle>
+                <circle id="Oval" fill="#E8E8E8" cx="106.749503" cy="193" r="4"></circle>
+                <circle id="Oval" fill="#E8E8E8" cx="167.749503" cy="381" r="4"></circle>
+                <circle id="Oval" fill="#E8E8E8" cx="270.749503" cy="381" r="4"></circle>
+                <circle id="Oval" fill="#E8E8E8" cx="270.749503" cy="465" r="4"></circle>
+                <circle id="Oval" fill="#E8E8E8" cx="202.749503" cy="465" r="4"></circle>
+                <circle id="Oval" fill="#E8E8E8" cx="15.7495028" cy="548" r="4"></circle>
+                <circle id="Oval" fill="#E8E8E8" cx="405.749503" cy="193" r="4"></circle>
+                <circle id="Oval" fill="#E8E8E8" cx="460.749503" cy="243" r="4"></circle>
+                <circle id="Oval" fill="#E8E8E8" cx="282.749503" cy="91" r="4"></circle>
+                <circle id="Oval" fill="#E8E8E8" cx="46.4495028" cy="61" r="4"></circle>
+            </g>
+        </g>
+    </g>
+</svg>
