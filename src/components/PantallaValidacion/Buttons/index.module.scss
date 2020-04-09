@@ -1,0 +1,48 @@
+.container {
+  width: 120px;
+  height: 66px;
+  border-radius: 4px;
+  transition: background-color .1s ease, transform .2s ease;
+}
+.containerGreen {
+  @extend .container;
+  background-color:  #00942A;
+}
+.containerRed {
+  @extend .container;
+  background-color: #D12C43;
+  margin-right: 24px;
+}
+
+.button {
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 58px;
+  border-radius: 4px;
+}
+.buttonGreen {
+  @extend .button;
+  background-color:  #44B449;
+  background-image: url('../../../assets/img/Verde.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.buttonRed {
+  @extend .button;
+  background-color: #EA4453;
+  background-image: url('../../../assets/img/Rojo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container:active {
+  background-color: white;
+  transform: translateY(8px);
+}
+  
+.button:hover {
+    cursor: pointer;
+}
+  
+  

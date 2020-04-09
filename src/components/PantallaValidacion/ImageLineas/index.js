@@ -4,11 +4,11 @@ import LineasGrises from '../../../assets/img/lineasGrises.png';
 
 import styles from './index.module.scss';
 
-function ImagenSuperior() {
+function ImageLineas() {
   return (
     <div>
-      <img className={styles.lineasGrises} src={LineasGrises} />
+      <img className={styles.LineasGrises} src={LineasGrises} />
     </div>
-);
+  );
 }
-export default ImagenSuperior;
+export default ImageLineas;

@@ -1,20 +1,17 @@
 import React from 'react';
 
+import ImageLineas from './ImageLineas';
 import Board from './Board';
 import BoardResolution from './BoardResolution';
-import ImagenSuperior from './ImagenSuperior';
 import Score from './Score';
 import Text from './Text';
-import ImagenInferior from './ImagenInferior';
 import styles from './index.module.scss';
-import RedButton from './RedButton';
-import GreenButton from './GreenButton';
+import Buttons from './Buttons';
 
 function PantallaValidacion() {
   return (
     <div className={styles.pantallaValidacion}>
-      <ImagenSuperior />
-
+      <ImageLineas />
       <div className={styles.container}>
         <div className={styles.containerTextScore}>
           <Text />
@@ -24,15 +21,16 @@ function PantallaValidacion() {
           <Board />
           <div className={styles.containerButton}>
             <BoardResolution />
-            <div className={styles.button}>
-              <RedButton />
-              <GreenButton />
+            <div className={styles.buttons}>
+              <Buttons />
             </div>
           </div>
         </div>
       </div>
       <div>
-        <ImagenInferior />
+        <div className={styles.inferior}>
+          <ImageLineas />
+        </div>
       </div>
     </div>
   );
