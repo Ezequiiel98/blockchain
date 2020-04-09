@@ -5,11 +5,11 @@ import styles from './index.module.scss';
 
 function VioletButton({ text, typeButton, disabled }) {
   return (
-    <div className={disabled ? styles.containerBtnDisabled : styles.containerBtnActive}>
+    <div className={disabled ? styles.containerButtonDisabled : styles.containerButtonActive}>
       {typeButton === 'button' ? (
         <button
           type="button"
-          className={disabled ? styles.btnDisabled : styles.btnActive}
+          className={disabled ? styles.buttonDisabled : styles.buttonActive}
           disable={disabled.toString()}
         >
           {text}
@@ -17,7 +17,7 @@ function VioletButton({ text, typeButton, disabled }) {
       ) : (
         <button
           type="submit"
-          className={disabled ? styles.btnDisabled : styles.btnActive}
+          className={disabled ? styles.buttonDisabled : styles.buttonActive}
           disable={disabled.toString()}
         >
           {text}

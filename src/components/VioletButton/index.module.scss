@@ -1,12 +1,12 @@
-.containerBtn {
+.containerButton {
   width: 240px;
   height: 66px;
   border-radius: 5px;
   margin: 20px auto 0 auto;
 }
 
-.containerBtnActive {
-  @extend .containerBtn;
+.containerButtonActive {
+  @extend .containerButton;
   background-color: #533D71;
   transition: background-color .1s ease, transform .2s ease;
 
@@ -16,12 +16,12 @@
   }
 }
 
-.containerBtnDisabled {
-  @extend .containerBtn;
+.containerButtonDisabled {
+  @extend .containerButton;
   background-color: #B5B5B6;
 }
 
-.btn {
+.button {
   outline: none;
   border: none;
   width: 100%;
@@ -31,8 +31,8 @@
   border-radius: 5px;
 }
 
-.btnActive {
-  @extend .btn;
+.buttonActive {
+  @extend .button;
   background-color: #7758A2;
   color: white;
 
@@ -41,8 +41,8 @@
   }
 }
 
-.btnDisabled {
-  @extend .btn;
+.buttonDisabled {
+  @extend .button;
   color: #B5B5B6;
   background-color: #E8E8E8;
 }
