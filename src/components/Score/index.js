@@ -41,7 +41,7 @@ class Score extends React.Component {
         <div className={styles.iconContainer}>
           <img
             src={score >= 0 ? iconScorePositive : iconScoreNegative}
-            alt="icono que indica puntaje positivo o negativo"
+            alt={`icono que indica puntaje ${score >= 0 ? 'positivo' : 'negativo'}`}
           />
         </div>
         <span className={styles.score}>{myScore}</span>

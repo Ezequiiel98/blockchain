@@ -10,7 +10,7 @@ function VioletButton({ text, typeButton, disabled }) {
         <button
           type="button"
           className={disabled ? styles.buttonDisabled : styles.buttonActive}
-          disable={disabled.toString()}
+          disabled={disabled}
         >
           {text}
         </button>
@@ -18,7 +18,7 @@ function VioletButton({ text, typeButton, disabled }) {
         <button
           type="submit"
           className={disabled ? styles.buttonDisabled : styles.buttonActive}
-          disable={disabled.toString()}
+          disabled={disabled}
         >
           {text}
         </button>
