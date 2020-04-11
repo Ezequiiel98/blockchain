@@ -1,0 +1,111 @@
+.formLogin {
+	display: flex;
+	flex-direction: column;
+}
+
+.containerbutton {
+	padding-top: 50px;
+	flex-direction: column;
+	align-self: flex-start;
+}
+
+.title {
+	height: 44px;
+	width: 212px;
+	color: #7758A2;
+	font-size: 36px;
+	font-weight: bold;
+	letter-spacing: 0;
+	line-height: 44px;
+}
+
+.label {
+	flex-direction: column;
+	color: #525256;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.containerInput {
+	display: flex;
+	flex-direction: column;
+	border-color: #E8E8E8;
+	height: 33px;
+	width: 311px;
+	margin: 10px 5px 40px 0;
+	position: relative;
+}
+
+.errorIcon {
+	position: absolute;
+	top: 33.5px;
+	right: 2px;
+	left: 283px;
+	width: 17px;
+	height: 17px;
+}
+
+.input {
+	flex-direction: column;
+	padding: 8.5px 9.5px;
+	border-radius: 2px;
+	margin: 10px 5px 5px 0;
+	font-size: 12px;
+	border: 1px solid #BBBBBB;
+	outline-color: #EA4453;
+
+	&:disabled {
+		flex-direction: column;
+		padding: 8.5px 9.5px;
+		border-radius: 2px;
+		margin: 10px 5px 5px 0;
+		font-size: 12px;
+		outline-color: #B5B5B6;
+		background-color: #E8E8E8;
+	}
+
+	&:hover {
+		flex-direction: column;
+		padding: 8.5px 9.5px;
+		border-radius: 2px;
+		margin: 10px 5px 5px 0;
+		font-size: 12px;
+		outline-color: #525256;
+	}
+
+	&:focus {
+		flex-direction: column;
+		padding: 8.5px 9.5px;
+		border-radius: 2px;
+		margin: 10px 5px 5px 0;
+		font-size: 12px;
+		outline-color: #7758A2;
+	}
+}
+
+.error {
+	@extend .input;
+
+	&:focus {
+		outline-color: #EA4453;
+		border-color: #EA4453;
+	}
+}
+
+.msgCode {
+	color: #EA4453;
+	font-size: 10px;
+	line-height: 0.5px;
+}
+
+.msgName {
+	color: #EA4453;
+	font-size: 10px;
+	line-height: 0.5px;
+}
+
+.msgServer {
+	color: #EA4453;
+	font-size: 10px;
+	line-height: 0.5px;
+}
