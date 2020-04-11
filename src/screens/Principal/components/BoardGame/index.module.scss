@@ -1,0 +1,42 @@
+.board {
+  background-color: rgba(#E8E8E8, 0.7);
+  height: 478px;
+  width: 478px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5.57px;
+}
+
+.rowCell {
+  height: 25%;
+  display: flex;
+  border-left: 2px dashed rgba(#a1a1a1, 0.4);
+}
+
+.rowCell:first-child {
+  border-top: 2px dashed rgba(#a1a1a1, 0.4);
+  border-radius: 3.66px;
+}
+
+.columnCell {
+  min-width: 25%;
+  min-height: 25%;
+  border-right: 2px dashed rgba(#a1a1a1, 0.4);
+  border-bottom: 2px dashed rgba(#a1a1a1, 0.4);
+}
+
+.columnCell:nth-child(13) {
+  border-bottom-left-radius: 3.66px;
+}
+
+.rowCell:last-child .columnCell:nth-child(1) {
+  border-bottom-left-radius: 3.66px;
+}
+
+.rowCell:last-child .columnCell:nth-child(4) {
+  border-bottom-right-radius: 3.66px;
+}
+
+.cellDragHover {
+  background-color: #B5B5B6;
+}

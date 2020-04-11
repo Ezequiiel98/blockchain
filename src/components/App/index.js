@@ -1,9 +1,9 @@
 import React from 'react';
 
-import styles from './index.module.scss';
+import Principal from '../../screens/Principal';
 
 function App() {
-  return <h1> Proyecto blockchain </h1>;
+  return <Principal />;
 }
 
 export default App;

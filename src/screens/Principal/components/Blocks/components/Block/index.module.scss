@@ -1,0 +1,208 @@
+@import '../../../../../../assets/scss/colors.scss';
+
+.containerBlock {
+  border-radius: 5px;
+  transition: background-color .2s ease, transform .2s ease;
+  flex-shrink: 0;
+  z-index: 2;
+  overflow: hidden;
+  position: relative;
+}
+
+.containerSmallBlock {
+  @extend .containerBlock;
+  margin: 0 7.8px;
+  height: 68px;
+  width: 70px;
+  
+  &:hover {
+    transform: translateY(6px);
+  }
+
+  &:hover .noCertified {
+    opacity: 1;
+  }
+}
+
+.containerBigBlock {
+  @extend .containerBlock;
+  border-radius: 0;
+  border: 3px solid $white;
+  height: 114px;
+  width: 114px;
+  transform: translate(-2px, -2px);
+}
+
+.noCertified {
+  content: '';
+  position: absolute;
+  top: -15px;
+  background-color: inherit;
+  right: 29px;
+  width: 12px;
+  height: 95px;
+  transform: rotateZ(49deg);
+  opacity: 0;
+  transition: opacity .1s ease;
+  z-index: 2;
+}
+
+/* Block */
+.block {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+  cursor: pointer;
+  }
+
+  &:active {
+  cursor: move;
+  }
+}
+
+.containerBigBlock .block {
+  @extend .block;
+  height: 112px;
+  width: 114px;
+}
+
+.containerSmallBlock .block {
+  @extend .block;
+  width: 70px;
+  height: 62px;
+  border-radius: 5px;
+
+  &:hover {
+  cursor: pointer;
+  border-radius: 0;
+  height: 64px;
+  }
+}
+
+/* Blocks  Background colors  */
+.yellow {
+  @extend .block;
+  background-color: $yellow;
+}
+
+.yellowDark {
+  background-color: $yellowDark;
+}
+
+.green {
+  @extend .block;
+  background-color: $green;
+}
+
+.greenDark {
+  background-color: $greenDark;
+}
+
+.lightblue {
+  @extend .block;
+  background-color: $lightblue;
+}
+
+.lightblueDark {
+  background-color: $lightblueDark;
+}
+
+.red {
+  @extend .block;
+  background-color: $red;
+}
+
+.redDark {
+  background-color: $redDark;
+}
+
+.blue {
+  @extend .block;
+  background-color: $blue;
+}
+
+.blueDark {
+  background-color: $blueDark;
+}
+
+/* block points */
+.blockPoints {
+  max-width: 52%;
+  min-height: 30%;
+  position: relative;
+  left: 10%;
+  pointer-events: none;
+}
+
+.point {
+  content: '';
+  background-color: $white;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.containerBigBlock .point {
+  @extend .point;
+  width: 8px;
+  height: 8px;
+}
+
+.containerSmallBlock .point {
+  @extend .point;
+  width: 5px;
+  height: 5px;
+}
+
+.point:nth-child(odd) {
+  top: 30%;
+}
+
+.point:nth-child(even) {
+  top: 67%;
+}
+
+//* posiciona los spans con 12% de diferencia entre ellos */
+$left: 10%;
+
+@for $i from 1 through 7 {
+  .point#{$i} {
+  @extend .point;
+  left: $left;
+  }
+
+  $left: $left+12%;
+}
+
+.blockNumber {
+  align-self: flex-end;
+  color: $white;
+  padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-weight: bold;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.blockNumber>* {
+  pointer-events: none;
+}
+
+.containerBigBlock .blockNumber {
+  @extend .blockNumber;
+  margin-top: 12px;
+  margin-right: 12px;
+  font-size: 40px;
+}
+
+.containerSmallBlock .blockNumber {
+  @extend .blockNumber;
+  margin-top: 0px;
+  margin-right: 5px;
+  font-size: 32px;
+}
