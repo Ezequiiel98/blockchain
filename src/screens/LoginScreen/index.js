@@ -14,5 +14,3 @@ function LoginScreen() {
 }
 
 export default LoginScreen;
-
-/* Esto es un comentario */
