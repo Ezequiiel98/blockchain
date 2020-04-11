@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PantallaValidacion from '../PantallaValidacion';
+import PantallaValidacion from '../../screens/PantallaValidacion';
 
 function App() {
   return <PantallaValidacion />;

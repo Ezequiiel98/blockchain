@@ -4,7 +4,7 @@ import styles from './index.module.scss';
 
 function BoardResolution() {
   const CELL_NUMBERS = 16;
-  const renderCells = () => [...Array(CELL_NUMBERS)].map(() => <div className={styles.cell} />);
+  const renderCells = () => [...Array(CELL_NUMBERS)].map(key => <div key={key} className={styles.cell} />);
 
   return (
     <div className={styles.containerBoard}>
