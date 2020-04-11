@@ -1,4 +1,4 @@
-import React from 'react';
+import React from './node_modules/react';
 
 import img from '../../assets/img/blockimg.svg';
 
@@ -12,3 +12,5 @@ function BlockImg() {
   );
 }
 export default BlockImg;
+
+/*comment*/
