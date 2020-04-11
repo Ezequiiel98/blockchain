@@ -1,9 +1,10 @@
 import React from 'react';
 
+import BoardResolution from '../../../BoardResolution';
+import Score from '../../../Score';
+
 import ImageLineas from './ImageLineas';
 import Board from './Board';
-import BoardResolution from './BoardResolution';
-import Score from './Score';
 import Text from './Text';
 import styles from './index.module.scss';
 import Buttons from './Buttons';

@@ -24,14 +24,14 @@
 .buttonGreen {
   @extend .button;
   background-color:  #44B449;
-  background-image: url('../../../assets/img/Verde.png');
+  background-image: url('../../assets/img/Verde.png');
   background-repeat: no-repeat;
   background-position: center;
 }
 .buttonRed {
   @extend .button;
   background-color: #EA4453;
-  background-image: url('../../../assets/img/Rojo.png');
+  background-image: url('../../assets/img/Rojo.png');
   background-repeat: no-repeat;
   background-position: center;
 }
