@@ -15,4 +15,4 @@ function LoginScreen() {
 
 export default LoginScreen;
 
-/*Esto es un comentario */
+/* Esto es un comentario */
