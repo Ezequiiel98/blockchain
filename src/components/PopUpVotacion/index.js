@@ -1,15 +1,15 @@
 import React from 'react';
 
 import AzulyOro from './Image';
-import Styles from './index.module.scss';
+import styles from './index.module.scss';
 import MainText from './MainText';
 import SecondaryText from './SecondaryText';
 import VioletButton from './VioletteButton';
 
 function PopUpVotacion() {
   return (
-    <div className={Styles.Container}>
-      <div className={Styles.WhiteBox}>
+    <div className={styles.container}>
+      <div className={styles.whiteBox}>
         <MainText />
         <AzulyOro />
         <SecondaryText />

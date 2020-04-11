@@ -2,7 +2,7 @@ import React from 'react';
 
 import PopUpVotacion from '../PopUpVotacion';
 
-import Styles from './index.module.scss';
+import styles from './index.module.scss';
 
 function App() {
   return <PopUpVotacion />;

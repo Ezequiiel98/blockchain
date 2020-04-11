@@ -2,12 +2,12 @@ import React from 'react';
 
 import AzulyOro from '../../../assets/AzulyOro.png';
 
-import Styles from './index.module.scss';
+import styles from './index.module.scss';
 
 function Image() {
   return (
-    <div className={Styles.Container}>
-      <img className={Styles.AzulyOro} src={AzulyOro} />
+    <div className={styles.Container}>
+      <img className={styles.AzulyOro} src={AzulyOro} />
     </div>
   );
 }
