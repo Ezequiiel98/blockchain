@@ -15,7 +15,7 @@ class BoardGame extends React.Component {
   };
 
   countFullColumns = () => {
-    const NUMBER_COLUMNS = 2;
+    const NUMBER_COLUMNS = 16;
     const dataBoardPositions = { ...this.state.dataBoardPositions };
     const boardFullPositions = Object.keys(dataBoardPositions)
       .map(columnId => {
@@ -49,7 +49,7 @@ class BoardGame extends React.Component {
       )
     );
     return positions;
-  }
+  };
 
   getBlock = (idBlock, idColumn) => {
     if (idColumn !== '') {

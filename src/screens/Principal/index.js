@@ -13,7 +13,8 @@ class Principal extends React.Component {
   state = {
     transactions: {},
     miner: {},
-    disabled: true
+    disabled: true,
+    score: 0
   };
 
   getGame = async () => {
@@ -22,17 +23,36 @@ class Principal extends React.Component {
     this.setState({ transactions, miner });
   };
 
-  componentDidMount() {
-    this.getGame();
-  }
+  setScore = () => {
+    const TIME_INTERVAL = 100;
+    this.score = setInterval(() => {
+      this.setState(prevState => ({
+        score: prevState.score - parseFloat('0.001')
+      }));
+    }, TIME_INTERVAL);
+  };
+
+  resetScore = () => {
+    clearInterval(this.score);
+    this.setState({ score: 0 });
+  };
 
   handleDisabledButton = ({ disabled }) => this.setState({ disabled });
 
+  componentDidMount() {
+    this.getGame();
+    this.setScore();
+  }
+
+  componentWillUnmount() {
+    this.resetScore();
+  }
+
   render() {
-    const { miner, transactions, disabled } = this.state;
+    const { miner, transactions, disabled, score } = this.state;
     return (
       <div className={styles.mainContainer}>
-        <Header name={miner.name} />
+        <Header name={miner.name} score={score} />
         <Blocks transactions={transactions} />
         <div className={styles.boards}>
           <BoardGame transactions={transactions} onDisabledButton={this.handleDisabledButton} />
