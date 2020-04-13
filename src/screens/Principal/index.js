@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { fetchGame } from '../../services/gameService';
+import { fetchGame, setNews } from '../../services/gameService';
 import { sendBlocks } from '../../services/blockService';
 
 import Header from './components/Header';
@@ -17,7 +17,8 @@ class Principal extends React.Component {
     blockchain: {},
     disabled: true,
     score: 0,
-    positions: {}
+    positions: {},
+    votation: false
   };
 
   /* newsUpdate = () => {
@@ -33,7 +34,7 @@ class Principal extends React.Component {
 
   setVotation = () => {
     const INTERVAL_API = 2000;
-    this.votation = setInterval(() => {
+    this.votation = setInterval(async () => {
       const miner = {
         uuid: this.state.miner.uuid
       };
@@ -41,7 +42,8 @@ class Principal extends React.Component {
         id: this.state.blockchain.id
       };
       const data = { blockchain, miner };
-      console.log(data);
+      const res = await setNews(data);
+      this.setState({votation: res.data.open_votation});
     }, INTERVAL_API);
   };
 
