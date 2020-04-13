@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import iconScorePositive from './assets/img/iconScorePositive.png';
 import iconScoreNegative from './assets/img/iconScoreNegative.png';
@@ -19,5 +20,13 @@ function Score({ score }) {
     </div>
   );
 }
+
+Score.propTypes = {
+  score: PropTypes.number
+};
+
+Score.defaultProps = {
+  score: 1
+};
 
 export default Score;

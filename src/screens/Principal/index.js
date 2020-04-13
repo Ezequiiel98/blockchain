@@ -20,6 +20,36 @@ class Principal extends React.Component {
     positions: {}
   };
 
+  /* newsUpdate = () => {
+    const miner = {
+      uuid: this.state.miner.uuid
+    };
+    const blockchain = {
+     id: this.state.blockchain.id
+    };
+    const data = { blockchain, miner };s
+    console.log(data);
+  }; */
+
+  setVotation = () => {
+    const INTERVAL_API = 2000;
+    this.votation = setInterval(() => {
+      const miner = {
+        uuid: this.state.miner.uuid
+      };
+      const blockchain = {
+        id: this.state.blockchain.id
+      };
+      const data = { blockchain, miner };
+      console.log(data);
+    }, INTERVAL_API);
+  };
+
+  resetVotation = () => {
+    clearInterval(this.votation);
+    this.setState({});
+  };
+
   getGame = async () => {
     const res = await fetchGame();
     const { transactions, miner, blockchain } = res.data;
@@ -28,9 +58,10 @@ class Principal extends React.Component {
 
   setScore = () => {
     const TIME_INTERVAL = 100;
+    const FIXED = 3;
     this.score = setInterval(() => {
       this.setState(prevState => ({
-        score: (prevState.score - parseFloat('0.001')).toFixed(3)
+        score: (prevState.score - parseFloat('0.001')).toFixed(FIXED)
       }));
     }, TIME_INTERVAL);
   };
@@ -45,6 +76,7 @@ class Principal extends React.Component {
   componentDidMount() {
     this.getGame();
     this.setScore();
+    this.setVotation();
   }
 
   componentWillUnmount() {
@@ -60,7 +92,7 @@ class Principal extends React.Component {
 
     const data = { blockchain, miner, ...positions };
     const res = await sendBlocks(data);
-    console.log(res)
+    console.log(res);
   };
 
   handleDisabledButton = ({ disabled }) => this.setState({ disabled });
