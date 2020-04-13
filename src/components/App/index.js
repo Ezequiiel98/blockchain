@@ -1,17 +1,9 @@
 import React from 'react';
 
-import LoginScreen from '../../screens/LoginScreen';
-import Principal from '../../screens/Principal';
-import PantallaValidacion from '../../screens/PantallaValidacion';
+import Main from './components/Main';
 
 function App() {
-  return (
-    <>
-      <LoginScreen />
-      <Principal />
-      <PantallaValidacion />
-    </>
-  );
+  return <Main />;
 }
 
 export default App;
