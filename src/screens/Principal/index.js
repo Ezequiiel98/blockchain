@@ -16,14 +16,45 @@ class Principal extends React.Component {
     disabled: true
   };
 
+  /* newsUpdate = () => {
+    const miner = {
+      uuid: this.state.miner.uuid
+    };
+    const blockchain = {
+     id: this.state.blockchain.id
+    };
+    const data = { blockchain, miner };
+    console.log(data);
+  }; */
+
+  setVotation = () => {
+    const INTERVAL_API = 2000;
+    this.votation = setInterval(() => {
+      const miner = {
+        uuid: this.state.miner.uuid
+      };
+      const blockchain = {
+        id: this.state.blockchain.id
+      };
+      const data = { blockchain, miner };
+      console.log(data);
+    }, INTERVAL_API);
+  };
+
+  resetVotation = () => {
+    clearInterval(this.votation);
+    this.setState({});
+  };
+
   getGame = async () => {
     const res = await fetchGame();
-    const { transactions, miner } = res.data;
-    this.setState({ transactions, miner });
+    const { transactions, miner, blockchain } = res.data;
+    this.setState({ transactions, miner, blockchain });
   };
 
   componentDidMount() {
     this.getGame();
+    this.setVotation();
   }
 
   handleDisabledButton = ({ disabled }) => this.setState({ disabled });
