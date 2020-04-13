@@ -15,7 +15,7 @@ class Principal extends React.Component {
     transactions: {},
     miner: {},
     blockchain: {},
-    disabled: false,
+    disabled: true,
     score: 0,
     positions: {}
   };
@@ -24,7 +24,6 @@ class Principal extends React.Component {
     const res = await fetchGame();
     const { transactions, miner, blockchain } = res.data;
     this.setState({ transactions, miner, blockchain });
-    console.log(res.data);
   };
 
   setScore = () => {
@@ -60,7 +59,6 @@ class Principal extends React.Component {
     miner = { uuid: miner.uuid, score };
 
     const data = { blockchain, miner, ...positions };
-    console.log(data);
     const res = await sendBlocks(data);
     console.log(res)
   };
