@@ -1,10 +1,10 @@
-.container{
+.container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 36px;  
 }
 
-.containerScore{
+.containerScore {
   background-color: #E8E8E8;
   display: flex;
   align-items: center;
@@ -14,12 +14,12 @@
   border-radius: 5px;
 }
 
-.textScore{
+.textScore {
   margin: 0 5px;
   font-weight: lighter;
 }
 
-.iconContainer{
+.iconContainer {
   margin: 0 8px;
   background-color: #44B449;
   width: 18px;
@@ -32,8 +32,9 @@
   padding-bottom: 1px;
 }
 
-.score{
+.score {
   font-size: 29px;
  font-weight: bold;
  color: #525256;
 }
+

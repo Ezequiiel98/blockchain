@@ -4,10 +4,12 @@
   border-radius: 4px;
   transition: background-color .1s ease, transform .2s ease;
 }
+
 .containerGreen {
   @extend .container;
   background-color:  #00942A;
 }
+
 .containerRed {
   @extend .container;
   background-color: #D12C43;
@@ -21,6 +23,7 @@
   height: 58px;
   border-radius: 4px;
 }
+
 .buttonGreen {
   @extend .button;
   background-color:  #44B449;
@@ -28,6 +31,7 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
 .buttonRed {
   @extend .button;
   background-color: #EA4453;

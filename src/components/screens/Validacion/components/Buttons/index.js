@@ -6,14 +6,10 @@ function Buttons() {
   return (
     <Fragment>
       <div className={styles.containerRed}>
-        <Fragment>
-          <button type="button" className={styles.buttonRed} />
-        </Fragment>
+        <button type="button" className={styles.buttonRed} />
       </div>
       <div className={styles.containerGreen}>
-        <Fragment>
-          <button type="button" className={styles.buttonGreen} />
-        </Fragment>
+        <button type="button" className={styles.buttonGreen} />
       </div>
     </Fragment>
   );
