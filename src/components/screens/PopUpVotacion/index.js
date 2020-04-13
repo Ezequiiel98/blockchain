@@ -1,10 +1,10 @@
 import React from 'react';
 
-import AzulyOro from './Image';
+import AzulyOro from './components/Image';
 import styles from './index.module.scss';
-import MainText from './MainText';
-import SecondaryText from './SecondaryText';
-import VioletButton from './VioletteButton';
+import MainText from './components/MainText';
+import SecondaryText from './components/SecondaryText';
+import CheckButton from './components/CheckButton';
 
 function PopUpVotacion() {
   return (
@@ -13,7 +13,7 @@ function PopUpVotacion() {
         <MainText />
         <AzulyOro />
         <SecondaryText />
-        <VioletButton text="REVISAR" />
+        <CheckButton text="REVISAR" />
       </div>
     </div>
   );
