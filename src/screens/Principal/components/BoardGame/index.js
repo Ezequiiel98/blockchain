@@ -15,16 +15,41 @@ class BoardGame extends React.Component {
   };
 
   countFullColumns = () => {
-    const NUMBER_COLUMNS = 16;
+    const NUMBER_COLUMNS = 2;
     const dataBoardPositions = { ...this.state.dataBoardPositions };
-    const positions = Object.keys(dataBoardPositions).filter(columnId => dataBoardPositions[columnId] !== '');
+    const boardFullPositions = Object.keys(dataBoardPositions)
+      .map(columnId => {
+        const [row, column] = columnId.split('_');
+        return dataBoardPositions[columnId] !== '' && { [row]: { [column]: dataBoardPositions[columnId] } };
+      })
+      .filter(position => position !== false);
 
-    if (positions.length === NUMBER_COLUMNS) {
+    if (boardFullPositions.length === NUMBER_COLUMNS) {
+      const positions = this.orderPositions(boardFullPositions);
+
       this.props.onDisabledButton({ disabled: false });
     } else {
       this.props.onDisabledButton({ disabled: true });
     }
   };
+
+  orderPositions = boardFullPositions => {
+    const positions = {
+      'row-0': {},
+      'row-1': {},
+      'row-2': {},
+      'row-3': {}
+    };
+
+    boardFullPositions.forEach(position =>
+      Object.keys(position).forEach(rowPosition =>
+        Object.keys(position[rowPosition]).forEach(columnPosition => {
+          positions[rowPosition][columnPosition] = position[rowPosition][columnPosition];
+        })
+      )
+    );
+    return positions;
+  }
 
   getBlock = (idBlock, idColumn) => {
     if (idColumn !== '') {
