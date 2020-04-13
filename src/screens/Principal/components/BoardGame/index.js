@@ -26,8 +26,8 @@ class BoardGame extends React.Component {
 
     if (boardFullPositions.length === NUMBER_COLUMNS) {
       const positions = this.orderPositions(boardFullPositions);
-
       this.props.onDisabledButton({ disabled: false });
+      this.props.onPositions(positions)
     } else {
       this.props.onDisabledButton({ disabled: true });
     }

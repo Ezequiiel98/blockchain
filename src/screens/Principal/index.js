@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { fetchGame } from '../../services/gameService';
+import { sendBlocks } from '../../services/blockService';
 
 import Header from './components/Header';
 import Blocks from './components/Blocks';
@@ -13,31 +14,34 @@ class Principal extends React.Component {
   state = {
     transactions: {},
     miner: {},
-    disabled: true,
-    score: 0
+    blockchain: {},
+    disabled: false,
+    score: 0,
+    positions: {}
   };
 
   getGame = async () => {
     const res = await fetchGame();
-    const { transactions, miner } = res.data;
-    this.setState({ transactions, miner });
+    const { transactions, miner, blockchain } = res.data;
+    this.setState({ transactions, miner, blockchain });
+    console.log(res.data);
   };
 
   setScore = () => {
     const TIME_INTERVAL = 100;
     this.score = setInterval(() => {
       this.setState(prevState => ({
-        score: prevState.score - parseFloat('0.001')
+        score: (prevState.score - parseFloat('0.001')).toFixed(3)
       }));
     }, TIME_INTERVAL);
   };
 
-  resetScore = () => {
+  stopScore = ({ reset }) => {
     clearInterval(this.score);
-    this.setState({ score: 0 });
+    if (reset) {
+      this.setState({ score: 0 });
+    }
   };
-
-  handleDisabledButton = ({ disabled }) => this.setState({ disabled });
 
   componentDidMount() {
     this.getGame();
@@ -45,8 +49,30 @@ class Principal extends React.Component {
   }
 
   componentWillUnmount() {
-    this.resetScore();
+    this.stopScore({ reset: true });
   }
+
+  addBlock = async () => {
+    const { score, positions } = this.state;
+    let { blockchain, miner } = this.state;
+
+    blockchain = { id: blockchain.id };
+    miner = { uuid: miner.uuid, score };
+
+    const data = { blockchain, miner, ...positions };
+    console.log(data);
+    const res = await sendBlocks(data);
+    console.log(res)
+  };
+
+  handleDisabledButton = ({ disabled }) => this.setState({ disabled });
+
+  handlePositions = positions => this.setState({ positions });
+
+  handleClick = () => {
+    this.stopScore({ reset: false });
+    this.addBlock();
+  };
 
   render() {
     const { miner, transactions, disabled, score } = this.state;
@@ -55,8 +81,12 @@ class Principal extends React.Component {
         <Header name={miner.name} score={score} />
         <Blocks transactions={transactions} />
         <div className={styles.boards}>
-          <BoardGame transactions={transactions} onDisabledButton={this.handleDisabledButton} />
-          <Resolution disabled={disabled} />
+          <BoardGame
+            transactions={transactions}
+            onDisabledButton={this.handleDisabledButton}
+            onPositions={this.handlePositions}
+          />
+          <Resolution disabled={disabled} onClick={this.handleClick} />
         </div>
         <ImgBackground />
       </div>

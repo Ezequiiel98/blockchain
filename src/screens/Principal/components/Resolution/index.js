@@ -10,13 +10,14 @@ function Resolution({ disabled, onClick }) {
   return (
     <div className={styles.containerResolution}>
       <BoardResolution />
-      <VioletButton text="MINAR" typeButton="button" disabled={disabled} />
+      <VioletButton text="MINAR" typeButton="button" disabled={disabled} onClick={onClick} />
     </div>
   );
 }
 
 Resolution.propTypes = {
-  disabled: PropTypes.bool.isRequired
+  disabled: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 export default Resolution;

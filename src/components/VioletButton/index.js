@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 
 import styles from './index.module.scss';
 
-function VioletButton({ text, typeButton, disabled }) {
+function VioletButton({ text, typeButton, disabled, onClick }) {
   return (
     <div className={disabled ? styles.containerButtonDisabled : styles.containerButtonActive}>
       {typeButton === 'button' ? (
         <button
           type="button"
           className={disabled ? styles.buttonDisabled : styles.buttonActive}
+          onClick={onClick}
           disabled={disabled}
         >
           {text}
