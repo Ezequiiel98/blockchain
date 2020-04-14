@@ -41,7 +41,6 @@ class Principal extends React.Component {
         id: this.state.blockchain.id
       };
       const data = { blockchain, miner };
-      console.log(data);
     }, INTERVAL_API);
   };
 
@@ -50,8 +49,8 @@ class Principal extends React.Component {
     this.setState({});
   };
 
-  getGame = async () => {
-    const res = await fetchGame();
+  getGame = async (dataMiner) => {
+    const res = await fetchGame(dataMiner);
     const { transactions, miner, blockchain } = res.data;
     this.setState({ transactions, miner, blockchain });
   };
@@ -74,7 +73,8 @@ class Principal extends React.Component {
   };
 
   componentDidMount() {
-    this.getGame();
+    const { dataMiner } = this.props.location.state;
+    this.getGame(dataMiner);
     this.setScore();
     this.setVotation();
   }
@@ -105,6 +105,7 @@ class Principal extends React.Component {
   };
 
   render() {
+    console.log(this.props);
     const { miner, transactions, disabled, score } = this.state;
     return (
       <div className={styles.mainContainer}>
