@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PopUpVotacion from '../PopUpVotacion';
+import PopUpVotacion from '../screens/PopUpVotacion';
 
 import styles from './index.module.scss';
 
