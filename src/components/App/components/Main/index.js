@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import LoginScreen from '../../../../screens/LoginScreen';
 import Principal from '../../../../screens/Principal';
@@ -11,9 +11,8 @@ function Main() {
   return (
     <Switch>
       <Route exact path="/" component={LoginScreen} />
-
-      <PrivateRouter path="/game" component={Principal} />
-      <PrivateRouter path="/validation" component={PantallaValidacion} />
+      <PrivateRouter exact path="/game" component={Principal} />
+      <Route exact path="/validation" component={PantallaValidacion} />
     </Switch>
   );
 }

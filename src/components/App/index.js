@@ -6,7 +6,9 @@ import Main from './components/Main';
 
 class App extends React.Component {
   state = {
+    // eslint-disable-next-line react/no-unused-state
     successLogin: false,
+    // eslint-disable-next-line react/no-unused-state
     setData: ({ successLogin }) => this.setState({ successLogin })
   };
 
