@@ -19,7 +19,7 @@ class Principal extends React.Component {
     disabled: true,
     score: 0,
     positions: {},
-    votation: true
+    votation: false
   };
 
   newsUpdate = async () => {
@@ -73,12 +73,12 @@ class Principal extends React.Component {
     this.setState({ transactions, miner, blockchain });
   };
 
-  /*componentDidMount() {
+  componentDidMount() {
     const { dataMiner } = this.props.location.state;
     this.getGame(dataMiner);
     this.setScore();
     this.setVotation();
-  }*/
+  }
 
   componentWillUnmount() {
     this.stopScore({ reset: true });
