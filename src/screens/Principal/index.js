@@ -21,35 +21,26 @@ class Principal extends React.Component {
     votation: false
   };
 
-  /* newsUpdate = () => {
-    const miner = {
-      uuid: this.state.miner.uuid
-    };
-    const blockchain = {
-     id: this.state.blockchain.id
-    };
-    const data = { blockchain, miner };s
-    console.log(data);
-  }; */
+  newsUpdate = async () => {
+    const miner = { uuid: this.state.miner.uuid };
+    const blockchain = { id: this.state.blockchain.id };
+    const data = { blockchain, miner };
+    const res = await setNews(data);
+    this.setState({ votation: res.data.open_voting });
+    console.log(this.state.votation);
+  };
 
   setVotation = () => {
     const INTERVAL_API = 2000;
-    this.votation = setInterval(async () => {
-      const miner = {
-        uuid: this.state.miner.uuid
-      };
-      const blockchain = {
-        id: this.state.blockchain.id
-      };
-      const data = { blockchain, miner };
-      const res = await setNews(data);
-      this.setState({votation: res.data.open_votation});
+
+    this.votation = setInterval(() => {
+      this.newsUpdate();
     }, INTERVAL_API);
   };
 
   resetVotation = () => {
     clearInterval(this.votation);
-    this.setState({});
+    this.setState({ votation: false });
   };
 
   getGame = async () => {
