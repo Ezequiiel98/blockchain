@@ -43,6 +43,12 @@ class Principal extends React.Component {
     this.setState({ votation: false });
   };
 
+  getGame = async dataMiner => {
+    const res = await fetchGame(dataMiner);
+    const { transactions, miner, blockchain } = res.data;
+    this.setState({ transactions, miner, blockchain });
+  };
+
   setScore = () => {
     const TIME_INTERVAL = 100;
     const FIXED = 3;
@@ -60,14 +66,15 @@ class Principal extends React.Component {
     }
   };
 
-  getGame = async () => {
-    const res = await fetchGame();
+  getGame = async dataMiner => {
+    const res = await fetchGame(dataMiner);
     const { transactions, miner, blockchain } = res.data;
     this.setState({ transactions, miner, blockchain });
   };
 
   componentDidMount() {
-    this.getGame();
+    const { dataMiner } = this.props.location.state;
+    this.getGame(dataMiner);
     this.setScore();
     this.setVotation();
   }

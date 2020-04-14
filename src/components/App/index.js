@@ -1,17 +1,22 @@
 import React from 'react';
 
-import LoginScreen from '../../screens/LoginScreen';
-import Principal from '../../screens/Principal';
-import PantallaValidacion from '../../screens/PantallaValidacion';
+import { Provider as ProviderLogin } from '../../contexts/ContextLogin/ContextLogin';
 
-function App() {
-  return (
-    <>
-      <LoginScreen />
-      <Principal />
-      <PantallaValidacion />
-    </>
-  );
+import Main from './components/Main';
+
+class App extends React.Component {
+  state = {
+    successLogin: false,
+    setData: ({ successLogin }) => this.setState({ successLogin })
+  };
+
+  render() {
+    return (
+      <ProviderLogin value={this.state}>
+        <Main />
+      </ProviderLogin>
+    );
+  }
 }
 
 export default App;
