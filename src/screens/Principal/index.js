@@ -2,6 +2,7 @@ import React from 'react';
 
 import { fetchGame, setNews } from '../../services/gameService';
 import { sendBlocks } from '../../services/blockService';
+import PopUpVotacion from '../PopUpVotacion';
 
 import Header from './components/Header';
 import Blocks from './components/Blocks';
@@ -93,7 +94,7 @@ class Principal extends React.Component {
 
     const data = { blockchain, miner, ...positions };
     const res = await sendBlocks(data);
-    console.log(res.status, data)
+    console.log(res.status, data);
   };
 
   handleDisabledButton = ({ disabled }) => this.setState({ disabled });
@@ -109,6 +110,7 @@ class Principal extends React.Component {
     const { miner, transactions, disabled, score } = this.state;
     return (
       <div className={styles.mainContainer}>
+        {this.state.votation && < PopUpVotacion />}
         <Header name={miner.name} score={score} />
         <Blocks transactions={transactions} />
         <div className={styles.boards}>
