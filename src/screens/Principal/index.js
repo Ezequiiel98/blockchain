@@ -121,7 +121,6 @@ class Principal extends React.Component {
           />
           <Resolution disabled={disabled} onClick={this.handleClick} />
         </div>
-        <ImgBackground />
       </div>
     );
   }
