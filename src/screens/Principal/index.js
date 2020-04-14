@@ -27,7 +27,7 @@ class Principal extends React.Component {
     const data = { blockchain, miner };
     const res = await setNews(data);
     this.setState({ votation: res.data.open_voting });
-    console.log(this.state.votation);
+    console.log(res.data);
   };
 
   setVotation = () => {
@@ -92,7 +92,8 @@ class Principal extends React.Component {
     miner = { uuid: miner.uuid, score };
 
     const data = { blockchain, miner, ...positions };
-    await sendBlocks(data);
+    const res = await sendBlocks(data);
+    console.log(res.status, data)
   };
 
   handleDisabledButton = ({ disabled }) => this.setState({ disabled });
