@@ -43,12 +43,6 @@ class Principal extends React.Component {
     this.setState({ votation: false });
   };
 
-  getGame = async () => {
-    const res = await fetchGame();
-    const { transactions, miner, blockchain } = res.data;
-    this.setState({ transactions, miner, blockchain });
-  };
-
   setScore = () => {
     const TIME_INTERVAL = 100;
     const FIXED = 3;
@@ -66,6 +60,12 @@ class Principal extends React.Component {
     }
   };
 
+  getGame = async () => {
+    const res = await fetchGame();
+    const { transactions, miner, blockchain } = res.data;
+    this.setState({ transactions, miner, blockchain });
+  };
+
   componentDidMount() {
     this.getGame();
     this.setScore();
@@ -74,6 +74,7 @@ class Principal extends React.Component {
 
   componentWillUnmount() {
     this.stopScore({ reset: true });
+    this.resetVotation();
   }
 
   addBlock = async () => {
@@ -84,8 +85,7 @@ class Principal extends React.Component {
     miner = { uuid: miner.uuid, score };
 
     const data = { blockchain, miner, ...positions };
-    const res = await sendBlocks(data);
-    console.log(res);
+    await sendBlocks(data);
   };
 
   handleDisabledButton = ({ disabled }) => this.setState({ disabled });
