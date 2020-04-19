@@ -6,10 +6,11 @@ import VioletButton from '../../../../components/VioletButton';
 
 import styles from './index.module.scss';
 
-function Resolution({ disabled, onClick }) {
+function Resolution({ disabled, onClick, puzzle, blocksNumbers }) {
+  console.log('llegue', blocksNumbers)
   return (
     <div className={styles.containerResolution}>
-      <BoardResolution />
+      <BoardResolution puzzle={puzzle} blocksNumbers={blocksNumbers} />
       <VioletButton text="MINAR" typeButton="button" disabled={disabled} onClick={onClick} />
     </div>
   );
