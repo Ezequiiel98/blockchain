@@ -31,7 +31,7 @@ function Block({ uuid, number, certified, color, fee, onDragEnd, onDragStart, bi
         </div>
         <h4 className={styles.blockNumber}>{number}</h4>
       </div>
-      {!certified && <span className={styles.noCertified} />}
+      {!certified && <span className={`${styles.noCertified} blockDragNoCertified`} />}
     </div>
   );
 }
