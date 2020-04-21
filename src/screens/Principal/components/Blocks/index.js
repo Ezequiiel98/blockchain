@@ -47,11 +47,40 @@ function Blocks({ transactions }) {
     }
   };
 
+  const handleMouseOver = e => {
+    document.getElementById('root').onwheel = function() {
+      return false;
+    };
+  };
+
+  const handleMouseLeave = e => {
+    document.getElementById('root').onwheel = function() {
+      return true;
+    };
+  };
+
+  const handleWheel = e => {
+    const element = e.target;
+    const isBlock = element.classList.contains('blockDrag') || element.classList[0].includes('noCertified');
+    const containerBlocks = isBlock ? element.parentNode.parentNode : element;
+    const { deltaY } = e;
+    e.persist();
+    if (deltaY > 0) {
+      containerBlocks.scrollLeft += 50;
+    } else {
+      containerBlocks.scrollLeft -= 50;
+    }
+  };
   return (
     <div className={styles.container}>
       <button type="button" onClick={handleScrollNext} className={styles.next} />
       <button type="button" onClick={handleScrollBack} className={styles.back} />
-      <div className={styles.containerBlocks}>
+      <div
+        className={styles.containerBlocks}
+        onMouseOver={handleMouseOver}
+        onMouseLeave={handleMouseLeave}
+        onWheel={handleWheel}
+      >
         {Object.keys(transactions).map(transaction => (
           <Block
             key={transactions[transaction].uuid}
