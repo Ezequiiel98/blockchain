@@ -16,21 +16,22 @@ function Blocks({ transactions }) {
     containerBlocks.scrollLeft -= 50;
   };
 
-  const handleMouseOver = e => {
+  const handleMouseOver = () => {
     document.getElementById('root').onwheel = () => false;
   };
 
-  const handleMouseLeave = e => {
+  const handleMouseLeave = () => {
     document.getElementById('root').onwheel = () => true;
   };
 
   const handleWheel = e => {
     const element = e.target;
-    const isBlock = element.classList.contains('blockDrag') || element.classList[0].includes('noCertified');
+    const isBlock =
+      element.classList.contains('blockDrag') || element.classList.contains('blockDragNoCertified');
     const containerBlocks = isBlock ? element.parentNode.parentNode : element;
     const { deltaY } = e;
-
     e.persist();
+
     if (deltaY > 0) {
       containerBlocks.scrollLeft -= 50;
     } else {
