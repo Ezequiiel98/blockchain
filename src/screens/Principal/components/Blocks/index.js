@@ -5,7 +5,7 @@ import Block from './components/Block';
 import styles from './index.module.scss';
 
 function Blocks({ transactions }) {
-  /* scrolls  */
+  /* scrolls buttons */
   const handleScrollNext = e => {
     const containerBlocks = e.target.parentNode.childNodes[2];
     containerBlocks.scrollLeft += 50;
@@ -16,6 +16,7 @@ function Blocks({ transactions }) {
     containerBlocks.scrollLeft -= 50;
   };
 
+  /* scroll wheel mouse */
   const handleMouseOver = () => {
     document.getElementById('root').onwheel = () => false;
   };
