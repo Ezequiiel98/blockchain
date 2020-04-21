@@ -16,6 +16,28 @@ function Blocks({ transactions }) {
     containerBlocks.scrollLeft -= 50;
   };
 
+  const handleMouseOver = e => {
+    document.getElementById('root').onwheel = () => false;
+  };
+
+  const handleMouseLeave = e => {
+    document.getElementById('root').onwheel = () => true;
+  };
+
+  const handleWheel = e => {
+    const element = e.target;
+    const isBlock = element.classList.contains('blockDrag') || element.classList[0].includes('noCertified');
+    const containerBlocks = isBlock ? element.parentNode.parentNode : element;
+    const { deltaY } = e;
+
+    e.persist();
+    if (deltaY > 0) {
+      containerBlocks.scrollLeft -= 50;
+    } else {
+      containerBlocks.scrollLeft += 50;
+    }
+  };
+
   /* Drags Functions */
   const handleDragStart = e => {
     const element = e.target;
@@ -47,30 +69,6 @@ function Blocks({ transactions }) {
     }
   };
 
-  const handleMouseOver = e => {
-    document.getElementById('root').onwheel = function() {
-      return false;
-    };
-  };
-
-  const handleMouseLeave = e => {
-    document.getElementById('root').onwheel = function() {
-      return true;
-    };
-  };
-
-  const handleWheel = e => {
-    const element = e.target;
-    const isBlock = element.classList.contains('blockDrag') || element.classList[0].includes('noCertified');
-    const containerBlocks = isBlock ? element.parentNode.parentNode : element;
-    const { deltaY } = e;
-    e.persist();
-    if (deltaY > 0) {
-      containerBlocks.scrollLeft += 50;
-    } else {
-      containerBlocks.scrollLeft -= 50;
-    }
-  };
   return (
     <div className={styles.container}>
       <button type="button" onClick={handleScrollNext} className={styles.next} />
