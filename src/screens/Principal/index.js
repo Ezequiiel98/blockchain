@@ -2,7 +2,6 @@ import React from 'react';
 
 import { fetchGame, setNews } from '../../services/gameService';
 import { sendBlocks } from '../../services/blockService';
-import PopUpVotacion from '../PopUpVotacion';
 
 import Header from './components/Header';
 import Blocks from './components/Blocks';
@@ -16,9 +15,11 @@ class Principal extends React.Component {
     transactions: {},
     miner: {},
     blockchain: {},
-    disabled: true,
+    currentPuzzle: {},
+    blocksNumbers: {},
+    orderedPositions: {},
     score: 0,
-    positions: {},
+    disabled: true,
     votation: false
   };
 
@@ -46,8 +47,9 @@ class Principal extends React.Component {
 
   getGame = async dataMiner => {
     const res = await fetchGame(dataMiner);
-    const { transactions, miner, blockchain } = res.data;
-    this.setState({ transactions, miner, blockchain });
+    const { transactions, miner, blockchain, current_puzle } = res.data;
+    this.setState({ transactions, miner, blockchain, currentPuzle: current_puzle });
+    console.log(res.data);
   };
 
   setScore = () => {
@@ -69,15 +71,16 @@ class Principal extends React.Component {
 
   getGame = async dataMiner => {
     const res = await fetchGame(dataMiner);
-    const { transactions, miner, blockchain } = res.data;
-    this.setState({ transactions, miner, blockchain });
+    const { transactions, miner, blockchain, current_puzzle } = res.data;
+    this.setState({ transactions, miner, blockchain, currentPuzzle: current_puzzle });
+    console.log(res.data);
   };
 
   componentDidMount() {
     const { dataMiner } = this.props.location.state;
     this.getGame(dataMiner);
-    this.setScore();
-    this.setVotation();
+    /*   this.setScore();
+    this.setVotation(); */
   }
 
   componentWillUnmount() {
@@ -86,20 +89,23 @@ class Principal extends React.Component {
   }
 
   addBlock = async () => {
-    const { score, positions } = this.state;
+    const { score, orderedPositions } = this.state;
     let { blockchain, miner } = this.state;
 
     blockchain = { id: blockchain.id };
     miner = { uuid: miner.uuid, score };
 
-    const data = { blockchain, miner, ...positions };
-    const res = await sendBlocks(data);
-    console.log(res.status, data);
+    const data = { blockchain, miner, ...orderedPositions };
+    //    const res = await sendBlocks(data);
+    //   console.log(res.status, data)
+    console.log(data);
   };
 
   handleDisabledButton = ({ disabled }) => this.setState({ disabled });
 
-  handlePositions = positions => this.setState({ positions });
+  handlePositions = orderedPositions => this.setState({ orderedPositions });
+
+  handleBlocksNumbers = blocksNumbers => this.setState({ blocksNumbers });
 
   handleClick = () => {
     this.stopScore({ reset: false });
@@ -107,10 +113,9 @@ class Principal extends React.Component {
   };
 
   render() {
-    const { miner, transactions, disabled, score } = this.state;
+    const { miner, transactions, disabled, score, currentPuzzle, blocksNumbers } = this.state;
     return (
       <div className={styles.mainContainer}>
-        {this.state.votation && < PopUpVotacion />}
         <Header name={miner.name} score={score} />
         <Blocks transactions={transactions} />
         <div className={styles.boards}>
@@ -118,9 +123,11 @@ class Principal extends React.Component {
             transactions={transactions}
             onDisabledButton={this.handleDisabledButton}
             onPositions={this.handlePositions}
+            onBlocksNumbers={this.handleBlocksNumbers}
           />
-          <Resolution disabled={disabled} onClick={this.handleClick} />
+          <Resolution disabled={disabled} onClick={this.handleClick} puzzle={currentPuzzle} blocksNumbers={blocksNumbers} />
         </div>
+        <ImgBackground />
       </div>
     );
   }

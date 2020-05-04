@@ -10,6 +10,7 @@ class BoardGame extends React.Component {
   state = {
     dataBlocks: {},
     dataBoardPositions: {},
+    blocksNumbers: {},
     lastColumnTemp: '',
     updateCount: false
   };
@@ -25,48 +26,56 @@ class BoardGame extends React.Component {
       .filter(position => position !== false);
 
     if (boardFullPositions.length === NUMBER_COLUMNS) {
-      const positions = this.orderPositions(boardFullPositions);
+      const orderedPositions = this.orderPositions(boardFullPositions);
       this.props.onDisabledButton({ disabled: false });
-      this.props.onPositions(positions)
+      this.props.onPositions(orderedPositions);
     } else {
       this.props.onDisabledButton({ disabled: true });
     }
+
+    this.props.onBlocksNumbers(this.state.blocksNumbers)
   };
 
   orderPositions = boardFullPositions => {
-    const positions = {
+    const orderedPositions = {
       'row-0': {},
       'row-1': {},
       'row-2': {},
       'row-3': {}
     };
 
-    boardFullPositions.forEach(position =>
-      Object.keys(position).forEach(rowPosition =>
-        Object.keys(position[rowPosition]).forEach(columnPosition => {
-          positions[rowPosition][columnPosition] = position[rowPosition][columnPosition];
+    boardFullPositions.forEach(boardPosition =>
+      Object.keys(boardPosition).forEach(rowPosition =>
+        Object.keys(boardPosition[rowPosition]).forEach(columnPosition => {
+          orderedPositions[rowPosition][columnPosition] = boardPosition[rowPosition][columnPosition];
         })
       )
     );
-    return positions;
+    return orderedPositions;
   };
 
   getBlock = (idBlock, idColumn) => {
     if (idColumn !== '') {
-      let { dataBlocks, dataBoardPositions } = this.state;
+      let { dataBlocks, dataBoardPositions, blocksNumbers } = this.state;
       let { transactions } = this.props;
 
       dataBlocks = { ...dataBlocks };
       dataBoardPositions = { ...dataBoardPositions };
-      transactions = JSON.stringify(transactions);
+      blocksNumbers = { ...blocksNumbers };
 
+      transactions = JSON.stringify(transactions);
       [dataBlocks[idColumn]] = JSON.parse(transactions).filter(transaction => transaction.uuid === idBlock);
       dataBoardPositions[idColumn] = idBlock;
+
+      if (idColumn.includes('column-0') || idColumn.includes('column-1')) {
+        blocksNumbers[idColumn] = dataBlocks[idColumn].puzzle_number;
+      }
 
       this.setState({
         ...this.prevState,
         dataBoardPositions,
-        dataBlocks
+        dataBlocks,
+        blocksNumbers
       });
     }
   };
@@ -85,21 +94,23 @@ class BoardGame extends React.Component {
   /* DragBlock */
   handleDragStart = e => {
     const { id } = e.target;
+    const lastColumnTemp = e.target.parentNode.id;
     const dataBlocks = { ...this.state.dataBlocks };
     const dataBoardPositions = { ...this.state.dataBoardPositions };
+    const blocksNumbers = { ...this.state.blocksNumbers };
     const [lastColumn] = Object.keys(dataBoardPositions).filter(
       columnId => dataBoardPositions[columnId] === id
     );
+
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/plain', id);
-
-    const lastColumnTemp = e.target.parentNode.id;
 
     /* Borra los datos del state de la celda donde estaba posicionado el block antes de moverlo*/
     dataBlocks[lastColumn] = '';
     dataBoardPositions[lastColumn] = '';
+    blocksNumbers[lastColumn] = '';
     setTimeout(() => {
-      this.setState({ dataBoardPositions, dataBlocks, lastColumnTemp });
+      this.setState({ dataBoardPositions, dataBlocks, blocksNumbers, lastColumnTemp });
     }, 0);
   };
 
@@ -140,7 +151,7 @@ class BoardGame extends React.Component {
     if (effectAllowed === 'move') {
       const idBlock = e.dataTransfer.getData('text');
       this.getBlock(idBlock, idColumn);
-      this.setState({ lastColumnTemp: '', updateCount: TextTrackCue });
+      this.setState({ lastColumnTemp: '', updateCount: true });
     }
 
     element.classList.remove(styles.cellDragHover);
@@ -190,7 +201,8 @@ class BoardGame extends React.Component {
 
 BoardGame.propTypes = {
   transactions: PropTypes.instanceOf(Object).isRequired,
-  onDisabledButton: PropTypes.func.isRequired
+  onDisabledButton: PropTypes.func.isRequired,
+  onPositions: PropTypes.func.isRequired
 };
 
 export default BoardGame;
