@@ -68,8 +68,8 @@ $colors: ("red": $red, "yellow": $yellow, "blue": $blue, "lightblue": $lightblue
   }
 }
 
-/*
+
 .gray{
 @extend .cell;
-visibility: hidden;
-} */
+background-image: url('../BoardResolution/assets/img/textura.png');
+} 

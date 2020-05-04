@@ -11,7 +11,7 @@ function BoardResolution({ puzzle, blocksNumbers }) {
   Object.keys(puzzle).forEach(columnColors =>
     puzzle[columnColors].forEach(rowColor => puzzleColors.push(rowColor))
   );
-  console.log(puzzleColors);
+
   return (
     <div className={styles.containerBoard}>
       <h2 className={styles.legend}>Resolución</h2>
