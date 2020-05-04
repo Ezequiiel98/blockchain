@@ -16,7 +16,8 @@ class Principal extends React.Component {
     miner: {},
     blockchain: {},
     currentPuzzle: {},
-    blocksNumbers: {},
+    allBlocksNumbers: {},
+    firstBlocksNumbers: {},
     orderedPositions: {},
     score: 0,
     disabled: true,
@@ -105,7 +106,8 @@ class Principal extends React.Component {
 
   handlePositions = orderedPositions => this.setState({ orderedPositions });
 
-  handleBlocksNumbers = blocksNumbers => this.setState({ blocksNumbers });
+  handleBlocksNumbers = ({ firstBlocksNumbers, allBlocksNumbers }) =>
+    this.setState({ firstBlocksNumbers, allBlocksNumbers });
 
   handleClick = () => {
     this.stopScore({ reset: false });
@@ -113,7 +115,16 @@ class Principal extends React.Component {
   };
 
   render() {
-    const { miner, transactions, disabled, score, currentPuzzle, blocksNumbers } = this.state;
+    const {
+      miner,
+      transactions,
+      disabled,
+      score,
+      currentPuzzle,
+      firstBlocksNumbers,
+      allBlocksNumbers
+    } = this.state;
+    console.log(allBlocksNumbers);
     return (
       <div className={styles.mainContainer}>
         <Header name={miner.name} score={score} />
@@ -125,7 +136,12 @@ class Principal extends React.Component {
             onPositions={this.handlePositions}
             onBlocksNumbers={this.handleBlocksNumbers}
           />
-          <Resolution disabled={disabled} onClick={this.handleClick} puzzle={currentPuzzle} blocksNumbers={blocksNumbers} />
+          <Resolution
+            disabled={disabled}
+            onClick={this.handleClick}
+            puzzle={currentPuzzle}
+            blocksNumbers={firstBlocksNumbers}
+          />
         </div>
         <ImgBackground />
       </div>

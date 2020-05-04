@@ -10,7 +10,8 @@ class BoardGame extends React.Component {
   state = {
     dataBlocks: {},
     dataBoardPositions: {},
-    blocksNumbers: {},
+    firstBlocksNumbers: {},
+    allBlocksNumbers: {},
     lastColumnTemp: '',
     updateCount: false
   };
@@ -18,6 +19,7 @@ class BoardGame extends React.Component {
   countFullColumns = () => {
     const NUMBER_COLUMNS = 16;
     const dataBoardPositions = { ...this.state.dataBoardPositions };
+    const { firstBlocksNumbers, allBlocksNumbers } = this.state;
     const boardFullPositions = Object.keys(dataBoardPositions)
       .map(columnId => {
         const [row, column] = columnId.split('_');
@@ -33,7 +35,7 @@ class BoardGame extends React.Component {
       this.props.onDisabledButton({ disabled: true });
     }
 
-    this.props.onBlocksNumbers(this.state.blocksNumbers)
+    this.props.onBlocksNumbers({ firstBlocksNumbers, allBlocksNumbers });
   };
 
   orderPositions = boardFullPositions => {
@@ -56,26 +58,29 @@ class BoardGame extends React.Component {
 
   getBlock = (idBlock, idColumn) => {
     if (idColumn !== '') {
-      let { dataBlocks, dataBoardPositions, blocksNumbers } = this.state;
+      let { dataBlocks, dataBoardPositions, firstBlocksNumbers, allBlocksNumbers } = this.state;
       let { transactions } = this.props;
 
       dataBlocks = { ...dataBlocks };
       dataBoardPositions = { ...dataBoardPositions };
-      blocksNumbers = { ...blocksNumbers };
+      firstBlocksNumbers = { ...firstBlocksNumbers };
 
       transactions = JSON.stringify(transactions);
       [dataBlocks[idColumn]] = JSON.parse(transactions).filter(transaction => transaction.uuid === idBlock);
       dataBoardPositions[idColumn] = idBlock;
 
       if (idColumn.includes('column-0') || idColumn.includes('column-1')) {
-        blocksNumbers[idColumn] = dataBlocks[idColumn].puzzle_number;
+        firstBlocksNumbers[idColumn] = dataBlocks[idColumn].puzzle_number;
       }
+
+      allBlocksNumbers[idColumn] = dataBlocks[idColumn].puzzle_number;
 
       this.setState({
         ...this.prevState,
         dataBoardPositions,
         dataBlocks,
-        blocksNumbers
+        firstBlocksNumbers,
+        allBlocksNumbers
       });
     }
   };
@@ -97,7 +102,7 @@ class BoardGame extends React.Component {
     const lastColumnTemp = e.target.parentNode.id;
     const dataBlocks = { ...this.state.dataBlocks };
     const dataBoardPositions = { ...this.state.dataBoardPositions };
-    const blocksNumbers = { ...this.state.blocksNumbers };
+    const firstBlocksNumbers = { ...this.state.firstBlocksNumbers };
     const [lastColumn] = Object.keys(dataBoardPositions).filter(
       columnId => dataBoardPositions[columnId] === id
     );
@@ -108,9 +113,9 @@ class BoardGame extends React.Component {
     /* Borra los datos del state de la celda donde estaba posicionado el block antes de moverlo*/
     dataBlocks[lastColumn] = '';
     dataBoardPositions[lastColumn] = '';
-    blocksNumbers[lastColumn] = '';
+    firstBlocksNumbers[lastColumn] = '';
     setTimeout(() => {
-      this.setState({ dataBoardPositions, dataBlocks, blocksNumbers, lastColumnTemp });
+      this.setState({ dataBoardPositions, dataBlocks, firstBlocksNumbers, lastColumnTemp });
     }, 0);
   };
 
