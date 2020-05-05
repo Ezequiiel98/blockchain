@@ -2,6 +2,7 @@ import React from 'react';
 
 import { fetchGame, setNews } from '../../services/gameService';
 import { sendBlocks } from '../../services/blockService';
+import PopUpVotacion from '../PopUpVotacion';
 
 import Header from './components/Header';
 import Blocks from './components/Blocks';
@@ -116,6 +117,8 @@ class Principal extends React.Component {
     const { miner, transactions, disabled, score, currentPuzzle, blocksNumbers } = this.state;
     return (
       <div className={styles.mainContainer}>
+        {this.state.votation && <PopUpVotacion />}
+
         <Header name={miner.name} score={score} />
         <Blocks transactions={transactions} />
         <div className={styles.boards}>
@@ -125,7 +128,12 @@ class Principal extends React.Component {
             onPositions={this.handlePositions}
             onBlocksNumbers={this.handleBlocksNumbers}
           />
-          <Resolution disabled={disabled} onClick={this.handleClick} puzzle={currentPuzzle} blocksNumbers={blocksNumbers} />
+          <Resolution
+            disabled={disabled}
+            onClick={this.handleClick}
+            puzzle={currentPuzzle}
+            blocksNumbers={blocksNumbers}
+          />
         </div>
         <ImgBackground />
       </div>
