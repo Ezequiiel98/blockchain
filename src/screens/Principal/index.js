@@ -1,13 +1,14 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 import { fetchGame, setNews } from '../../services/gameService';
 import { sendBlocks } from '../../services/blockService';
+import PopUpVotation from '../PopUpVotacion';
 
 import Header from './components/Header';
 import Blocks from './components/Blocks';
 import BoardGame from './components/BoardGame';
 import Resolution from './components/Resolution';
-import ImgBackground from './components/ImgBackground';
 import styles from './index.module.scss';
 
 class Principal extends React.Component {
@@ -104,7 +105,7 @@ class Principal extends React.Component {
   handleClick = () => {
     this.stopScore({ reset: false });
     this.addBlock();
-    this.setState({redirection: true})
+    this.setState({ redirection: true });
   };
 
   render() {
@@ -114,30 +115,35 @@ class Principal extends React.Component {
       disabled,
       score,
       currentPuzzle,
+      votation,
       firstBlocksNumbers,
-      allBlocksNumbers
+      allBlocksNumbers,
+      redirection
     } = this.state;
 
     return (
-      <div className={styles.mainContainer}>
-        <Header name={miner.name} score={score} />
-        <Blocks transactions={transactions} />
-        <div className={styles.boards}>
-          <BoardGame
-            transactions={transactions}
-            onDisabledButton={this.handleDisabledButton}
-            onPositions={this.handlePositions}
-            onBlocksNumbers={this.handleBlocksNumbers}
-          />
-          <Resolution
-            disabled={disabled}
-            onClick={this.handleClick}
-            puzzle={currentPuzzle}
-            blocksNumbers={firstBlocksNumbers}
-          />
+      <>
+        {votation && <PopUpVotation />}
+        <div className={styles.mainContainer}>
+          <Header name={miner.name} score={score} />
+          <Blocks transactions={transactions} />
+          <div className={styles.boards}>
+            <BoardGame
+              transactions={transactions}
+              onDisabledButton={this.handleDisabledButton}
+              onPositions={this.handlePositions}
+              onBlocksNumbers={this.handleBlocksNumbers}
+            />
+            <Resolution
+              disabled={disabled}
+              onClick={this.handleClick}
+              puzzle={currentPuzzle}
+              blocksNumbers={firstBlocksNumbers}
+            />
+          </div>
         </div>
-        <ImgBackground />
-      </div>
+        {redirection && <Redirect to="/validation" />}
+      </>
     );
   }
 }
