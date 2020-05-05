@@ -118,7 +118,6 @@ class Principal extends React.Component {
     return (
       <div className={styles.mainContainer}>
         {this.state.votation && <PopUpVotacion />}
-
         <Header name={miner.name} score={score} />
         <Blocks transactions={transactions} />
         <div className={styles.boards}>
@@ -135,7 +134,6 @@ class Principal extends React.Component {
             blocksNumbers={blocksNumbers}
           />
         </div>
-        <ImgBackground />
       </div>
     )
   }
