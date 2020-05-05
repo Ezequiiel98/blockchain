@@ -137,7 +137,7 @@ class Principal extends React.Component {
         </div>
         <ImgBackground />
       </div>
-    );
+    )
   }
 }
 
