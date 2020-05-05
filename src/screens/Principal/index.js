@@ -21,7 +21,8 @@ class Principal extends React.Component {
     orderedPositions: {},
     score: 0,
     disabled: true,
-    votation: false
+    votation: false,
+    redirection: false;
   };
 
   newsUpdate = async () => {
@@ -48,9 +49,8 @@ class Principal extends React.Component {
 
   getGame = async dataMiner => {
     const res = await fetchGame(dataMiner);
-    const { transactions, miner, blockchain, current_puzle } = res.data;
-    this.setState({ transactions, miner, blockchain, currentPuzle: current_puzle });
-    console.log(res.data);
+    const { transactions, miner, blockchain, current_puzzle } = res.data;
+    this.setState({ transactions, miner, blockchain, currentPuzzle: current_puzzle });
   };
 
   setScore = () => {
@@ -70,18 +70,11 @@ class Principal extends React.Component {
     }
   };
 
-  getGame = async dataMiner => {
-    const res = await fetchGame(dataMiner);
-    const { transactions, miner, blockchain, current_puzzle } = res.data;
-    this.setState({ transactions, miner, blockchain, currentPuzzle: current_puzzle });
-    console.log(res.data);
-  };
-
   componentDidMount() {
     const { dataMiner } = this.props.location.state;
     this.getGame(dataMiner);
-    /*   this.setScore();
-    this.setVotation(); */
+    this.setScore();
+    this.setVotation();
   }
 
   componentWillUnmount() {
@@ -97,9 +90,8 @@ class Principal extends React.Component {
     miner = { uuid: miner.uuid, score };
 
     const data = { blockchain, miner, ...orderedPositions };
-    //    const res = await sendBlocks(data);
-    //   console.log(res.status, data)
-    console.log(data);
+    const res = await sendBlocks(data);
+    console.log(res.status, data);
   };
 
   handleDisabledButton = ({ disabled }) => this.setState({ disabled });
@@ -112,6 +104,7 @@ class Principal extends React.Component {
   handleClick = () => {
     this.stopScore({ reset: false });
     this.addBlock();
+    this.setState(redirection: true)
   };
 
   render() {
@@ -124,7 +117,7 @@ class Principal extends React.Component {
       firstBlocksNumbers,
       allBlocksNumbers
     } = this.state;
-    console.log(allBlocksNumbers);
+
     return (
       <div className={styles.mainContainer}>
         <Header name={miner.name} score={score} />

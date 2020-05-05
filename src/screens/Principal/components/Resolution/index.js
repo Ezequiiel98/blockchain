@@ -7,7 +7,6 @@ import VioletButton from '../../../../components/VioletButton';
 import styles from './index.module.scss';
 
 function Resolution({ disabled, onClick, puzzle, blocksNumbers }) {
-  console.log('llegue', blocksNumbers)
   return (
     <div className={styles.containerResolution}>
       <BoardResolution puzzle={puzzle} blocksNumbers={blocksNumbers} />
