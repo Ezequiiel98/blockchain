@@ -22,7 +22,7 @@ class Principal extends React.Component {
     score: 0,
     disabled: true,
     votation: false,
-    redirection: false;
+    redirection: false
   };
 
   newsUpdate = async () => {
@@ -104,7 +104,7 @@ class Principal extends React.Component {
   handleClick = () => {
     this.stopScore({ reset: false });
     this.addBlock();
-    this.setState(redirection: true)
+    this.setState({redirection: true})
   };
 
   render() {
