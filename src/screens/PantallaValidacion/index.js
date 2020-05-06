@@ -14,14 +14,14 @@ function PantallaValidacion({
     state: { allBlocksNumbers, puzzle, firstBlocksNumbers, score }
   }
 }) {
-  console.log(allBlocksNumbers, puzzle, firstBlocksNumbers, score);
+
   return (
     <div className={styles.pantallaValidacion}>
       <ImageLineas />
       <div className={styles.container}>
         <div className={styles.containerTextScore}>
           <Text />
-          <Score />
+          <Score score={score} />
         </div>
         <div className={styles.containerBoard}>
           <Board allBlocksNumbers={allBlocksNumbers} />
