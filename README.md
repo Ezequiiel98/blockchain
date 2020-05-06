@@ -21,8 +21,8 @@ Para el desarrollo de este proyecto se usaron las siguientes tecnologías: React
 * Dos tableros: Uno es el tablero para completar y el otro, la resolución que hay que lograr.
 
 <p>Las últimas columnas del tablero de resolución se van coloreando dependiendo de los bloques que se usen para completar las primeras filas del tablero de juego.</p>
-<p>Cada bloque consta de un numero, estos tienen que estar ordenados de mayor a menor de arriba hacia abajo y de izquierda a derecha, en el tablero de juego</p>
-<p>Cuando el tablero se completa, se activa el botón <strong>minar</strong> y al pulsarlo termina el juego de todos los jugadores y redirige a la pantalla de validación</p>
+<p>Cada bloque consta de un numero, estos tienen que estar ordenados de mayor a menor de arriba hacia abajo y de izquierda a derecha, en el tablero de juego.</p>
+<p>Cuando el tablero se completa, se activa el botón <strong>minar</strong> y al pulsarlo termina el juego de todos los jugadores y redirige a la pantalla de validación.</p>
 
 ![pantalla de juego](https://github.com/Ezequiiel98/blockchain/blob/development/assets-readme/scren-game.png)
 
