@@ -9,7 +9,7 @@ Para el desarrollo de este proyecto se usaron las siguientes tecnologías: React
 
 ### Explicación del juego
 
-### Login
+### Pantalla de Login
 <p>En esta pantalla los usuarios se podrán loguear para ingresar al juego.</p>
 
 #### Pantalla de juego
@@ -35,5 +35,5 @@ Para el desarrollo de este proyecto se usaron las siguientes tecnologías: React
 ### Desarrolladores
 
 * Ezequiel Aragón. [GitHub](https://github.com/Ezequiiel98) y [Linkedin](https://www.linkedin.com/in/ezequielaragon)
-* Vivíana Choque. [GitHub](https://github.com/vivianachoque) y [Linkedin](https://www.linkedin.com/in/vivianachoque) 
+* Viviana Choque. [GitHub](https://github.com/vivianachoque) y [Linkedin](https://www.linkedin.com/in/vivianachoque) 
 * Branko Cruz. [GitHub](https://github.com/Brankitocruz) y [Linkedin](https://www.linkedin.com/in/brankocruz)
