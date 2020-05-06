@@ -6,12 +6,12 @@ import styles from './index.module.scss';
 function BoardResolution({ puzzle, firstBlocksNumbers }) {
   const puzzleColors = [];
   const allPuzzleColors = ['red', 'yellow', 'blue', 'lightblue', 'green'];
-  const lengthColors = allPuzzleColors.length;
+  const LENGTH_COLORS = allPuzzleColors.length;
 
   Object.keys(puzzle).forEach(columnColors =>
     puzzle[columnColors].forEach(rowColor => puzzleColors.push(rowColor))
   );
-    console.log(firstBlocksNumbers)
+
   return (
     <div className={styles.containerBoard}>
       <h2 className={styles.legend}>Resolución</h2>
@@ -27,7 +27,7 @@ function BoardResolution({ puzzle, firstBlocksNumbers }) {
               key={keyCell}
               className={
                 firstBlocksNumbers[keyCell]
-                  ? styles[allPuzzleColors[firstBlocksNumbers[keyCell] % lengthColors]]
+                  ? styles[allPuzzleColors[firstBlocksNumbers[keyCell] % LENGTH_COLORS]]
                   : styles.gray
               }
             />
