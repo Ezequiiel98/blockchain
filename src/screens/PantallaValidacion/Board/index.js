@@ -7,8 +7,8 @@ function Board({ allBlocksNumbers }) {
     <div className={styles.containerBoard}>
       <div className={styles.board}>
         {Object.keys(allBlocksNumbers).map(keyNumber => (
-          <div key={keyNumber} className={styles.cell}>
-            <span className={styles.number}>{allBlocksNumbers[keyNumber]}</span>
+          <div key={keyNumber} className={styles[allBlocksNumbers[keyNumber].colorBlock]}>
+            <span className={styles.number}>{allBlocksNumbers[keyNumber].numberBlock}</span>
           </div>
         ))}
       </div>

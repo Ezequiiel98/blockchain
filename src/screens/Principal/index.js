@@ -32,8 +32,8 @@ class Principal extends React.Component {
     const data = { blockchain, miner };
     const res = await setNews(data);
     this.setState({ votation: res.data.open_voting });
-    console.log(res.data);
-  };
+/*     console.log(res.data);
+ */  };
 
   setVotation = () => {
     const INTERVAL_API = 2000;
@@ -92,8 +92,8 @@ class Principal extends React.Component {
 
     const data = { blockchain, miner, ...orderedPositions };
     const res = await sendBlocks(data);
-    console.log(res.status, data);
-  };
+/*     console.log(res.status, data);
+ */  };
 
   handleDisabledButton = ({ disabled }) => this.setState({ disabled });
 
@@ -120,11 +120,12 @@ class Principal extends React.Component {
       allBlocksNumbers,
       redirection
     } = this.state;
-
+     console.log(allBlocksNumbers)
     return (
       <>
-{/*         {votation && <PopUpVotation />}
- */}        <div className={styles.mainContainer}>
+        {/*         {votation && <PopUpVotation />}
+         */}{' '}
+        <div className={styles.mainContainer}>
           <Header name={miner.name} score={score} />
           <Blocks transactions={transactions} />
           <div className={styles.boards}>

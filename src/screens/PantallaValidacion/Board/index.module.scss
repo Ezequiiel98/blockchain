@@ -1,3 +1,5 @@
+@import '../../../assets/scss/colors.scss';
+
 .containerBoard {
   box-sizing: border-box;
   height: 481px;
@@ -38,88 +40,13 @@
   align-items: center;
 }
 
-.cell:nth-child(odd) {
-  background-color: #FEC34D;
-}
+$colors: ("red": $red, "yellow": $yellow, "blue": $blue, "lightblue": $lightblue, "green": $green, "gray": $moon);
 
-.cell:nth-child(9) {
-  background-color: #F2754C;
-}
-
-.cell:nth-child(7) {
-  background-color: #F2754C;
-}
-
-.cell:nth-child(10) {
-  background-color: #22465C;
-}
-
-.cell:nth-child(16) {
-  background-color: #33BFC6;
-}
-
-.cell:nth-child(1) {
-  background-color: #AED750;
-}
-
-.cell:nth-child(2) {
-  background-color: #33BFC6;
-}
-
-.cell:nth-child(3) {
-  background-color: #AED750;
-}
-
-.cell:nth-child(4) {
-  background-color: #F2754C;
-}
-
-.cell:nth-child(5) {
-  background-color: #F2754C;
-}
-
-.cell:nth-child(6) {
-  background-color: #AED750;
-}
-
-.cell:nth-child(7) {
-  background-color: #22465C;
-}
-
-.cell:nth-child(8) {
-  background-color: #22465C;
-}
-
-.cell:nth-child(9) {
-  background-color: #FEC34D;
-}
-
-.cell:nth-child(10) {
-  background-color: #22465C;
-}
-
-.cell:nth-child(11) {
-  background-color: #F2754C;
-}
-
-.cell:nth-child(12) {
-  background-color: #22465C;
-}
-
-.cell:nth-child(13) {
-  background-color: #22465C;
-}
-
-.cell:nth-child(14) {
-  background-color: #FEC34D;
-}
-
-.cell:nth-child(15) {
-  background-color: #22465C;
-}
-
-.cell:nth-child(16) {
-  background-color: #FEC34D;
+@each $name, $bc-color in $colors{
+  .#{$name} {
+    @extend .cell;
+    background-color: #{$bc-color};
+  }
 }
 
 .cell{

@@ -73,7 +73,10 @@ class BoardGame extends React.Component {
         firstBlocksNumbers[idColumn] = dataBlocks[idColumn].puzzle_number;
       }
 
-      allBlocksNumbers[idColumn] = dataBlocks[idColumn].puzzle_number;
+      allBlocksNumbers[idColumn] = {
+        numberBlock: dataBlocks[idColumn].puzzle_number,
+        colorBlock: dataBlocks[idColumn].color
+      };
 
       this.setState({
         ...this.prevState,
