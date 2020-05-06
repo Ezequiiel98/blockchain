@@ -7,7 +7,7 @@
 ### Tecnologías usadas
 Para el desarrollo de este proyecto se usaron las siguientes tecnologías: React.Js, JavaScript, .Sass, .CSS modules, apisauce y react-router.
 
-###  Explicación del juego
+### Explicación del juego
 #### Pantalla de juego
 <p>Esta pantalla esta conformada por:</p>
 
