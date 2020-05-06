@@ -123,8 +123,8 @@ class Principal extends React.Component {
 
     return (
       <>
-        {votation && <PopUpVotation />}
-        <div className={styles.mainContainer}>
+{/*         {votation && <PopUpVotation />}
+ */}        <div className={styles.mainContainer}>
           <Header name={miner.name} score={score} />
           <Blocks transactions={transactions} />
           <div className={styles.boards}>
@@ -138,11 +138,23 @@ class Principal extends React.Component {
               disabled={disabled}
               onClick={this.handleClick}
               puzzle={currentPuzzle}
-              blocksNumbers={firstBlocksNumbers}
+              firstBlocksNumbers={firstBlocksNumbers}
             />
           </div>
         </div>
-        {redirection && <Redirect to="/validation" />}
+        {redirection && (
+          <Redirect
+            to={{
+              pathname: '/validation',
+              state: {
+                puzzle: currentPuzzle,
+                allBlocksNumbers,
+                firstBlocksNumbers,
+                score
+              }
+            }}
+          />
+        )}
       </>
     );
   }

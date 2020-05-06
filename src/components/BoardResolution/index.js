@@ -3,7 +3,7 @@ import React from 'react';
 import { FIRST_COLUMNS, LAST_COLUMNS } from './constants/cells';
 import styles from './index.module.scss';
 
-function BoardResolution({ puzzle, blocksNumbers }) {
+function BoardResolution({ puzzle, firstBlocksNumbers }) {
   const puzzleColors = [];
   const allPuzzleColors = ['red', 'yellow', 'blue', 'lightblue', 'green'];
   const lengthColors = allPuzzleColors.length;
@@ -11,7 +11,7 @@ function BoardResolution({ puzzle, blocksNumbers }) {
   Object.keys(puzzle).forEach(columnColors =>
     puzzle[columnColors].forEach(rowColor => puzzleColors.push(rowColor))
   );
-
+    console.log(firstBlocksNumbers)
   return (
     <div className={styles.containerBoard}>
       <h2 className={styles.legend}>Resolución</h2>
@@ -26,8 +26,8 @@ function BoardResolution({ puzzle, blocksNumbers }) {
             <div
               key={keyCell}
               className={
-                blocksNumbers[keyCell]
-                  ? styles[allPuzzleColors[blocksNumbers[keyCell] % lengthColors]]
+                firstBlocksNumbers[keyCell]
+                  ? styles[allPuzzleColors[firstBlocksNumbers[keyCell] % lengthColors]]
                   : styles.gray
               }
             />
