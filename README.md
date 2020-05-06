@@ -2,8 +2,8 @@
 
 ### Descripción del proyecto
 <p>Este proyecto es un juego que simula la manera en la que se mina una blockchain.</p>
-<p>Cada jugador cumple el rol de un minero, este debe encargarse de minar su bloque antes que todos los demas mineros. Cuando alguno de todos los mineros logre terminar el bloque, se le notificara todos los demas mineros y estos deben verificar si ese bloque es correcto.</p>
-<p>Consta de 3 pantallas: un login, un tablero del juego y la parte de verificación del bloque.</p>
+<p>Cada jugador cumple el rol de un minero, este debe encargarse de minar su bloque antes que todos los demas mineros para obtener puntos y en el caso de no terminar primero, este debe verificar que el bloque minado sea correcto.</p>
+<p>El juego consta de 3 pantallas: un login, un tablero del juego y la parte de verificación del bloque.</p>
 
 ### Tecnologías usadas
 Para el desarrollo de este proyecto se usaron las siguientes tecnologías: ReactJS, Js, Sass, CSS modules, apisauce y react-router.
@@ -13,7 +13,7 @@ Para el desarrollo de este proyecto se usaron las siguientes tecnologías: React
 <p>Esta pantalla esta conformada por el nombre del minero, el puntaje, una sección con bloques para completar el tablero y dos tableros unos el tablero para completar y el otro el tablero con la resolución que hay que lograr.</p> 
 <p>Cada bloque consta de un numero, estos tienen que estar ordenados de mayor a menor de arriba hacia abajo y de izquierda a derecha en el tablero de juego. Tambien deben respetar los colores que se indica en el tablero de resolución</p>
 <p>Las primeras columnas del tablero de resolucion simulan ser los apuntadores hash estos se encargan de unir el bloque actual con el anterior para formar la cadena. Y las ultimas columnas se van coloreando dependiendo de los bloques que se usen para completar las primeras filas del tablero de juego.</p>
-<p>Cuando el tablero se completa, se activa el botón <strong>minar</strong> y al pulsarlo termina el juego de todos los mineros y redirige a la pantalla de validación</p>
+<p>Cuando el tablero se completa, se activa el botón <strong>minar</strong> y al pulsarlo se le notificara todos los demas mineros y estos deben verificar si ese bloque es correcto o no.</p>
 
 ![pantalla de juego](https://github.com/Ezequiiel98/blockchain/blob/development/assets-readme/scren-game.png)
 
