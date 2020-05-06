@@ -8,6 +8,10 @@
 Para el desarrollo de este proyecto se usaron las siguientes tecnologías: React.Js, JavaScript, .Sass, .CSS modules, apisauce y react-router.
 
 ### Explicación del juego
+
+### Login
+<p>En esta pantalla los usuarios se podrán loguear para ingresar al juego.</p>
+
 #### Pantalla de juego
 <p>Esta pantalla esta conformada por:</p>
 
@@ -23,8 +27,8 @@ Para el desarrollo de este proyecto se usaron las siguientes tecnologías: React
 ![pantalla de juego](https://github.com/Ezequiiel98/blockchain/blob/development/assets-readme/scren-game.png)
 
 #### Pantalla de validación
-<p>En esta pantalla  todos lo jugadores van a verificar y votar si el bloque se se mino corresponde con la resolución y si respetan el orden de mayor a menor de arriba hacia abajo y de izquierda a derecha. </p>
-<p>Si todos votan que el bloque se mino correctamente se le dan los puntos al jugador que mino el bloque y vuelve a comenzar el juego. En el caso de no estar minado correctamente se le descuentan puntos al jugador y se sigue jugando.</p>
+<p>En esta pantalla  todos lo jugadores van a verificar y votar si el bloque que se minó corresponde con la resolución, y si respetan el orden de mayor a menor, de arriba hacia abajo y de izquierda a derecha. </p>
+<p>Si todos votan que el bloque se mino correctamente, se le dan los puntos al jugador que minó el bloque y vuelve a comenzar el juego. En el caso de no estar minado correctamente se le descuentan puntos al jugador y se sigue jugando.</p>
 
 ![pantalla de validacion](https://github.com/Ezequiiel98/blockchain/blob/development/assets-readme/screen-validacion)
 
@@ -33,4 +37,3 @@ Para el desarrollo de este proyecto se usaron las siguientes tecnologías: React
 * Ezequiel Aragón. [GitHub](https://github.com/Ezequiiel98) y [Linkedin](https://www.linkedin.com/in/ezequielaragon)
 * Vivíana Choque. [GitHub](https://github.com/vivianachoque) y [Linkedin](https://www.linkedin.com/in/vivianachoque) 
 * Branko Cruz. [GitHub](https://github.com/Brankitocruz) y [Linkedin](https://www.linkedin.com/in/brankocruz)
-
