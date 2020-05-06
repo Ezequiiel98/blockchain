@@ -33,11 +33,6 @@ function PantallaValidacion({
           </div>
         </div>
       </div>
-      <div>
-        <div className={styles.inferior}>
-          <ImageLineas />
-        </div>
-      </div>
     </div>
   );
 }
