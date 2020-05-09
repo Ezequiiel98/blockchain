@@ -16,4 +16,11 @@ function Devs() {
   );
 }
 
+var linksId = [
+{linkedin:'ezequielaragon', github:'Ezequiiel98'},
+{linkedin:'vivianachoque', github:'vivianachoque'},
+{linkedin:'brankocruz', github:'Brankitocruz'}
+];
+
+
 export default Devs;
