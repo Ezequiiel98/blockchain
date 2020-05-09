@@ -8,8 +8,8 @@ function Devs() {
   return (
     <div>
       <div className={styles.containerIcons}>
-        <img className={styles.githubIcon} src={githubIcon} />
-        <img className={styles.linkedinIcon} src={linkedinIcon} />
+        <a 'https://linkendn.com/in/${props.dev.linkedin}' <img className={styles.linkedinIcon} src={linkedinIcon} /></a>
+        <a  'https://github.com/${props.dev.github}'<img className={styles.githubIcon} src={githubIcon} /></a>
       </div>
       <span>Ezequiel Aragón Viviana Choque Branko Cruz</span>
     </div>
