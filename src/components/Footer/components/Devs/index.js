@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './index.module.scss';
-import devs from '../constants/devs';
+import dev from '../constants/dev';
 import githubIcon from './assets/img/githubIcon.png';
 import linkedinIcon from './assets/img/linkedinIcon.jpg';
 
