@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { dev } from '../constants/dev';
-
 import styles from './index.module.scss';
 import githubIcon from './assets/img/githubIcon.png';
 import linkedinIcon from './assets/img/linkedinIcon.jpg';

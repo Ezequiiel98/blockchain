@@ -2,15 +2,15 @@ import React from 'react';
 
 import Devs from './components/Devs';
 import styles from './index.module.scss';
-import { dev } from './components/constants/dev';
+import dev from './components/constants/dev';
 import violetLines from './assets/img/violetLines.png';
 
-function Footer(props) {
+function Footer({ id, name, linkedin, github }) {
   return (
     <footer className={styles.containerFooter}>
       <img className={styles.violetLines} src={violetLines} />
-      {dev.map(dev => (
-        <Devs key={dev.id} {dev.name} {dev.linkedin} {dev.github} />
+      {dev.map(devz => (
+        <Devs key={dev.id} name={dev.name} linkedin={dev.linkedin} github={dev.github} />
       ))}
     </footer>
   );
