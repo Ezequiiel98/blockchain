@@ -6,11 +6,11 @@ import styles from './index.module.scss';
 import githubIcon from './assets/img/githubIcon.png';
 import linkedinIcon from './assets/img/linkedinIcon.jpg';
 
-function Devs() {
+function Devs(props) {
   return (
     <div>
       <div className={styles.containerIcons}>
-        <a href="https://linkendn.com/in/${props.linkedin}"> 
+        <a href="https://linkendn.com/in/${props.linkedin}">
           <img className={styles.linkedinIcon} src={linkedinIcon} />
         </a>
         <a href="https://github.com/${props.github}">

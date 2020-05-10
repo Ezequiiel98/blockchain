@@ -6,4 +6,4 @@ const dev = [
   { id: '2', name: 'Branko Cruz', linkedin: 'brankocruz', github: 'Brankitocruz' }
 ];
 
-export default dev;
+export default { dev };
