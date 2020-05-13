@@ -23,6 +23,7 @@ class Principal extends React.Component {
     score: 0,
     disabled: true,
     votation: false,
+    blockToValidate: {},
     redirection: false
   };
 
@@ -32,8 +33,11 @@ class Principal extends React.Component {
     const data = { blockchain, miner };
     const res = await setNews(data);
     this.setState({ votation: res.data.open_voting });
+    if (this.state.votation) {
+      this.setState({ blockToValidate: res.data.block_to_validate });
+    }
     console.log(res.data);
-   };
+  };
 
   setVotation = () => {
     const INTERVAL_API = 2000;
@@ -92,8 +96,8 @@ class Principal extends React.Component {
 
     const data = { blockchain, miner, ...orderedPositions };
     const res = await sendBlocks(data);
-/*     console.log(res.status, data);
- */  };
+    console.log(res, data);
+  };
 
   handleDisabledButton = ({ disabled }) => this.setState({ disabled });
 
@@ -118,13 +122,14 @@ class Principal extends React.Component {
       votation,
       firstBlocksNumbers,
       allBlocksNumbers,
-      redirection
+      redirection,
+      blockToValidate
     } = this.state;
- 
+
     return (
       <>
-        {/*         {votation && <PopUpVotation />}
-         */}{' '}
+        {votation && <PopUpVotation blockToValidate={blockToValidate} />}
+
         <div className={styles.mainContainer}>
           <Header name={miner.name} score={score} />
           <Blocks transactions={transactions} />
@@ -148,10 +153,11 @@ class Principal extends React.Component {
             to={{
               pathname: '/validation',
               state: {
+                /*
                 puzzle: currentPuzzle,
                 allBlocksNumbers,
-                firstBlocksNumbers,
-                score
+                firstBlocksNumbers, */
+                blockToValidate: { puzzle: allBlocksNumbers, user: true }
               }
             }}
           />

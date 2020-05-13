@@ -6,14 +6,14 @@ import SecondaryText from './components/SecondaryText';
 import CheckButton from './components/CheckButton';
 import Blocks from './components/Blocks';
 
-function PopUpVotacion() {
+function PopUpVotacion({ blockToValidate }) {
   return (
     <div className={styles.container}>
       <div className={styles.whiteBox}>
         <MainText />
         <Blocks />
         <SecondaryText />
-        <CheckButton text="REVISAR" />
+        <CheckButton text="REVISAR" blockToValidate={blockToValidate} />
       </div>
     </div>
   );

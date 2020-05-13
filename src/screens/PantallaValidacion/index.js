@@ -9,24 +9,33 @@ import Text from './Text';
 import styles from './index.module.scss';
 import Buttons from './Buttons';
 
-function PantallaValidacion({
+function PantallaValidacion(
+  /* {
   location: {
     state: { allBlocksNumbers, puzzle, firstBlocksNumbers, score }
   }
-}) {
-
+}) */ {
+    location: {
+      state: {
+        blockToValidate: { puzzle, signature, voting_id, user }
+      }
+    }
+  }
+) {
+  console.log(puzzle);
   return (
     <div className={styles.pantallaValidacion}>
       <ImageLineas />
       <div className={styles.container}>
         <div className={styles.containerTextScore}>
           <Text />
-          <Score score={score} />
+          <Score /* score={score}*/ />
         </div>
         <div className={styles.containerBoard}>
-          <Board allBlocksNumbers={allBlocksNumbers} />
+          <Board allBlocksNumbers={puzzle} user={user} />
           <div className={styles.containerButton}>
-            <BoardResolution puzzle={puzzle} firstBlocksNumbers={firstBlocksNumbers} />
+            {/*             <BoardResolution puzzle={puzzle} firstBlocksNumbers={firstBlocksNumbers} />
+             */}{' '}
             <div className={styles.buttons}>
               <Buttons />
             </div>

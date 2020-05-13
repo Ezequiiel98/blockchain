@@ -15,7 +15,7 @@ class BoardGame extends React.Component {
     lastColumnTemp: '',
     updateCount: false
   };
-
+  
   countFullColumns = () => {
     const NUMBER_COLUMNS = 16;
     const dataBoardPositions = { ...this.state.dataBoardPositions };
