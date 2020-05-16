@@ -15,7 +15,7 @@ class BoardGame extends React.Component {
     lastColumnTemp: '',
     updateCount: false
   };
-  
+
   countFullColumns = () => {
     const NUMBER_COLUMNS = 16;
     const dataBoardPositions = { ...this.state.dataBoardPositions };
@@ -31,6 +31,7 @@ class BoardGame extends React.Component {
       const orderedPositions = this.orderPositions(boardFullPositions);
       this.props.onDisabledButton({ disabled: false });
       this.props.onPositions(orderedPositions);
+      console.log(boardFullPositions)
     } else {
       this.props.onDisabledButton({ disabled: true });
     }
@@ -40,10 +41,30 @@ class BoardGame extends React.Component {
 
   orderPositions = boardFullPositions => {
     const orderedPositions = {
-      'row-0': {},
-      'row-1': {},
-      'row-2': {},
-      'row-3': {}
+      'row-0': {
+        'column-0': '',
+        'column-1': '',
+        'column-2': '',
+        'column-3': ''
+      },
+      'row-1': {
+        'column-0': '',
+        'column-1': '',
+        'column-2': '',
+        'column-3': ''
+      },
+      'row-2': {
+        'column-0': '',
+        'column-1': '',
+        'column-2': '',
+        'column-3': ''
+      },
+      'row-3': {
+        'column-0': '',
+        'column-1': '',
+        'column-2': '',
+        'column-3': ''
+      }
     };
 
     boardFullPositions.forEach(boardPosition =>
@@ -60,10 +81,12 @@ class BoardGame extends React.Component {
     if (idColumn !== '') {
       let { dataBlocks, dataBoardPositions, firstBlocksNumbers, allBlocksNumbers } = this.state;
       let { transactions } = this.props;
-
+      console.log(allBlocksNumbers);
       dataBlocks = { ...dataBlocks };
       dataBoardPositions = { ...dataBoardPositions };
       firstBlocksNumbers = { ...firstBlocksNumbers };
+      allBlocksNumbers = { ...allBlocksNumbers };
+      console.log(allBlocksNumbers);
 
       transactions = JSON.stringify(transactions);
       [dataBlocks[idColumn]] = JSON.parse(transactions).filter(transaction => transaction.uuid === idBlock);
@@ -210,7 +233,8 @@ class BoardGame extends React.Component {
 BoardGame.propTypes = {
   transactions: PropTypes.instanceOf(Object).isRequired,
   onDisabledButton: PropTypes.func.isRequired,
-  onPositions: PropTypes.func.isRequired
+  onPositions: PropTypes.func.isRequired,
+  onBlocksNumbers: PropTypes.func.isRequired
 };
 
 export default BoardGame;

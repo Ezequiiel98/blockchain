@@ -30,10 +30,4 @@ function Board({ allBlocksNumbers, user }) {
 }
 
 export default Board;
-{
-  /* <div className={styles.containerBoard}>
-      <div className={styles.board}>
 
-      </div>
-    </div> */
-}
