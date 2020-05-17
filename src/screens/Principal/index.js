@@ -157,7 +157,7 @@ class Principal extends React.Component {
                 puzzle: currentPuzzle,
                 allBlocksNumbers,
                 firstBlocksNumbers, */
-                blockToValidate: { puzzle: allBlocksNumbers, user: true }
+                blockToValidate: { puzzle: allBlocksNumbers, user: true, firstBlocksNumbers }
               }
             }}
           />

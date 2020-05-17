@@ -17,12 +17,12 @@ function PantallaValidacion(
 }) */ {
     location: {
       state: {
-        blockToValidate: { puzzle, signature, voting_id, user }
+        blockToValidate: { puzzle, signature, voting_id, user, firstBlocksNumbers }
       }
     }
   }
 ) {
-  console.log(puzzle);
+  console.log(voting_id);
   return (
     <div className={styles.pantallaValidacion}>
       <ImageLineas />
@@ -34,8 +34,8 @@ function PantallaValidacion(
         <div className={styles.containerBoard}>
           <Board allBlocksNumbers={puzzle} user={user} />
           <div className={styles.containerButton}>
-            {/*             <BoardResolution puzzle={puzzle} firstBlocksNumbers={firstBlocksNumbers} />
-             */}{' '}
+            <BoardResolution puzzle={signature} firstBlocksNumbers={firstBlocksNumbers || []} />
+
             <div className={styles.buttons}>
               <Buttons />
             </div>
