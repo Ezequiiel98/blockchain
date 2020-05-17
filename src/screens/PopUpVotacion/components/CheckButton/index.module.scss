@@ -6,16 +6,26 @@
   transition: background-color .1s ease, transform .2s ease;
 }
 
+$heightButton: 57px;
+$fontSize: 18px;
+
 .button {
-  outline: none;
-  border: none;
+  display: inline-block;
   width: 100%;
-  height: 57px;
-  font-size: 18px;
+  height: $heightButton;
+  font-size: $fontSize;
   font-weight: bold;
   color: white;
-  border-radius: 4px;
   background-color: #7758A2;
+  text-align: center;
+  text-decoration: none;
+  /* centra verticalmente el texto que contiene el button */
+  padding-top: calc(( #{$heightButton} - #{$fontSize} - 5px) / 2);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
 }
 
 .containerButton:active {
@@ -26,4 +36,3 @@
 .button:hover {
   cursor: pointer;
 }
-

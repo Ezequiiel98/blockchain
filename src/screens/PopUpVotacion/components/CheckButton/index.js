@@ -7,13 +7,13 @@ function CheckButton({ text, blockToValidate }) {
   return (
     <div className={styles.containerButton}>
       <Link
+        className={styles.button}
         to={{
           pathname: '/validation',
           state: {
             blockToValidate
           }
         }}
-        className={styles.button}
       >
         {text}
       </Link>
