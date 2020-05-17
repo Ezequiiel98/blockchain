@@ -9,20 +9,25 @@ import Text from './Text';
 import styles from './index.module.scss';
 import Buttons from './Buttons';
 
-function PantallaValidacion(
-  /* {
+function PantallaValidacion({
   location: {
-    state: { allBlocksNumbers, puzzle, firstBlocksNumbers, score }
-  }
-}) */ {
-    location: {
-      state: {
-        blockToValidate: { puzzle, signature, voting_id, user, firstBlocksNumbers }
-      }
+    state: {
+      blockToValidate: { puzzle, signature, voting_id, user, firstBlocksNumbers }
     }
   }
-) {
-  console.log(voting_id);
+}) {
+  const firstBlocksNumbersApi = {};
+  /* Si este no es el usuario que mino el bloque, creo el objeto con los primeros numeros para colorear las ultimas columnas del tablero de resolucion*/
+  if (!firstBlocksNumbers) {
+    puzzle.forEach((row, indexRow) =>
+      row.forEach((column, indexColumn) => {
+        if (indexColumn === 0 || indexColumn === 1) {
+          firstBlocksNumbersApi[`row-${indexRow}_column-${indexColumn}`] = column[0];
+        }
+      })
+    );
+  }
+
   return (
     <div className={styles.pantallaValidacion}>
       <ImageLineas />
@@ -34,7 +39,10 @@ function PantallaValidacion(
         <div className={styles.containerBoard}>
           <Board allBlocksNumbers={puzzle} user={user} />
           <div className={styles.containerButton}>
-            <BoardResolution puzzle={signature} firstBlocksNumbers={firstBlocksNumbers || []} />
+            <BoardResolution
+              puzzle={signature}
+              firstBlocksNumbers={firstBlocksNumbers || firstBlocksNumbersApi}
+            />
 
             <div className={styles.buttons}>
               <Buttons />

@@ -153,11 +153,12 @@ class Principal extends React.Component {
             to={{
               pathname: '/validation',
               state: {
-                /*
-                puzzle: currentPuzzle,
-                allBlocksNumbers,
-                firstBlocksNumbers, */
-                blockToValidate: { puzzle: allBlocksNumbers, user: true, firstBlocksNumbers }
+                blockToValidate: {
+                  puzzle: allBlocksNumbers,
+                  signature: currentPuzzle,
+                  user: true,
+                  firstBlocksNumbers
+                }
               }
             }}
           />
