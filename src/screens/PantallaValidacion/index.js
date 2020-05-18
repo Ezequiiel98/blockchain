@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import BoardResolution from '../../components/BoardResolution';
 import Score from '../../components/Score';
@@ -62,4 +63,9 @@ function PantallaValidacion({
     </div>
   );
 }
+
+PantallaValidacion.propTypes = {
+  location: PropTypes.instanceOf(Object).isRequired
+};
+
 export default PantallaValidacion;

@@ -22,7 +22,7 @@ function Score({ score }) {
 }
 
 Score.propTypes = {
-  score: PropTypes.number
+  score: PropTypes.string
 };
 
 Score.defaultProps = {

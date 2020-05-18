@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { fetchGame, setNews } from '../../services/gameService';
 import { sendBlocks } from '../../services/blockService';
@@ -54,8 +55,9 @@ class Principal extends React.Component {
 
   getGame = async dataMiner => {
     const res = await fetchGame(dataMiner);
-    const { transactions, miner, blockchain, current_puzzle } = res.data;
-    this.setState({ transactions, miner, blockchain, currentPuzzle: current_puzzle });
+    const { transactions, miner, blockchain } = res.data;
+    const currentPuzzle = res.data.current_puzzle;
+    this.setState({ transactions, miner, blockchain, currentPuzzle });
   };
 
   setScore = () => {
@@ -177,5 +179,9 @@ class Principal extends React.Component {
     );
   }
 }
+
+Principal.propTypes = {
+  location: PropTypes.instanceOf(Object).isRequired
+};
 
 export default Principal;
