@@ -2,11 +2,11 @@
   width: 295px;
   height: 65px;
   background-color: #520D71;
-transition: background-color  .2s ease , transform .1s ease ;
-  -webkit-transition: background-color .2s ease , transform .1s ease ;
-  -moz-transition: background-color .2s ease , transform .1s ease; 
-  -ms-transition: background-color .2s ease , transform .1s ease; 
-  -o-transition: background-color .2s ease , transform .1s ease;
+  transition: background-color .2s ease, transform .1s ease .4s;
+  -webkit-transition: background-color .2s ease, transform .1s ease .4s;
+  -moz-transition: background-color .2s ease, transform .1s ease .4s;
+  -ms-transition: background-color .2s ease, transform .1s ease .4s;
+  -o-transition: background-color .2s ease, transform .1s ease .4s;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
