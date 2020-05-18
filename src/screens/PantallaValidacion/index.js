@@ -39,28 +39,31 @@ function PantallaValidacion({
   }
 
   return (
-    <div className={styles.pantallaValidacion}>
-      <ImageLineas />
-      <div className={styles.container}>
-        <div className={styles.containerTextScore}>
-          <Text name={miner.name} />
-          <Score score={score} />
-        </div>
-        <div className={styles.containerBoard}>
-          <Board allBlocksNumbers={puzzle} userMined={userMined} />
-          <div className={styles.containerButton}>
-            <BoardResolution
-              puzzle={signature}
-              firstBlocksNumbers={firstBlocksNumbers || firstBlocksNumbersApi}
-            />
+    <>
+      <div className={styles.coversScreen} />
+      <div className={styles.pantallaValidacion}>
+        <ImageLineas />
+        <div className={styles.container}>
+          <div className={styles.containerTextScore}>
+            <Text name={userMined ? 'Tus compañeros estan verificando tu bloque' : miner.name} />
+            <Score score={score} />
+          </div>
+          <div className={styles.containerBoard}>
+            <Board allBlocksNumbers={puzzle} userMined={userMined} />
+            <div className={styles.containerButton}>
+              <BoardResolution
+                puzzle={signature}
+                firstBlocksNumbers={firstBlocksNumbers || firstBlocksNumbersApi}
+              />
 
-            <div className={styles.buttons}>
-              <Buttons />
+              <div className={styles.buttons}>
+                <Buttons />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

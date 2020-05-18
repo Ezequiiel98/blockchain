@@ -1,31 +1,46 @@
-.pantallaValidacion{
-    width: 1024px;
-    margin: 0 auto;
+.pantallaValidacion {
+	width: 1024px;
+	margin: 0 auto;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
+.container {
+	display: flex;
+	flex-direction: column;
 }
 
-.containerBoard{
-    display: flex;
+.containerBoard {
+	display: flex;
 }
 
-.containerTextScore{
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-15px);
+.containerTextScore {
+	display: flex;
+	justify-content: space-between;
+	transform: translateY(-15px);
 
 }
 
-.buttons{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 30px;
+.buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 30px;
 }
 
 .inferior {
-    transform: scaleY(-1);
+	transform: scaleY(-1);
+}
+
+.coversScreen {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(128, 128, 128, 0.452);
+	z-index: 3;
+}
+
+.coversScreen ~ .pantallaValidacion {
+	max-height: 100vh!important;
+	overflow: hidden;
 }
