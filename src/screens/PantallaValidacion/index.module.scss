@@ -34,13 +34,13 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	height: 100%;
+	height: 130vh;
 	width: 100%;
 	background-color: rgba(128, 128, 128, 0.452);
 	z-index: 3;
 }
 
 .coversScreen ~ .pantallaValidacion {
-	max-height: 100vh!important;
+	max-height: 130vh;
 	overflow: hidden;
 }
