@@ -1,9 +1,17 @@
 .containerButton {
   width: 295px;
   height: 65px;
-  background-color: #533D71;
+  background-color: #520D71;
+transition: background-color  .2s ease , transform .1s ease ;
+  -webkit-transition: background-color .2s ease , transform .1s ease ;
+  -moz-transition: background-color .2s ease , transform .1s ease; 
+  -ms-transition: background-color .2s ease , transform .1s ease; 
+  -o-transition: background-color .2s ease , transform .1s ease;
   border-radius: 4px;
-  transition: background-color .1s ease, transform .2s ease;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
 }
 
 $heightButton: 57px;
@@ -28,11 +36,13 @@ $fontSize: 18px;
   -o-border-radius: 4px;
 }
 
-.containerButton:active {
-  background-color: white;
-  transform: translateY(8px);
+.containerButton:hover {
+  background-color: transparent;
+  transform: translateY(7px);
+  -webkit-transform: translateY(7px);
+  -moz-transform: translateY(7px);
+  -ms-transform: translateY(7px);
+  -o-transform: translateY(7px);
 }
 
-.button:hover {
-  cursor: pointer;
-}
+
