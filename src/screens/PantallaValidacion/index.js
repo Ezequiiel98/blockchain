@@ -12,13 +12,22 @@ import Buttons from './Buttons';
 function PantallaValidacion({
   location: {
     state: {
-      blockToValidate: { puzzle, signature, voting_id, user, firstBlocksNumbers }
+      blockToValidate: {
+        puzzle,
+        signature,
+        voting_id,
+        userMined,
+        firstBlocksNumbers,
+        score,
+        miner,
+        blockchain
+      }
     }
   }
 }) {
   const firstBlocksNumbersApi = {};
   /* Si este no es el usuario que mino el bloque, creo el objeto con los primeros numeros para colorear las ultimas columnas del tablero de resolucion*/
-  if (!firstBlocksNumbers) {
+  if (!userMined) {
     puzzle.forEach((row, indexRow) =>
       row.forEach((column, indexColumn) => {
         if (indexColumn === 0 || indexColumn === 1) {
@@ -33,11 +42,11 @@ function PantallaValidacion({
       <ImageLineas />
       <div className={styles.container}>
         <div className={styles.containerTextScore}>
-          <Text />
-          <Score /* score={score}*/ />
+          <Text name={miner.name} />
+          <Score score={score} />
         </div>
         <div className={styles.containerBoard}>
-          <Board allBlocksNumbers={puzzle} user={user} />
+          <Board allBlocksNumbers={puzzle} userMined={userMined} />
           <div className={styles.containerButton}>
             <BoardResolution
               puzzle={signature}

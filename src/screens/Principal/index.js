@@ -82,6 +82,12 @@ class Principal extends React.Component {
     this.setVotation();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.votation !== this.state.votation && this.state.votation) {
+      this.stopScore({ reset: false });
+    }
+  }
+
   componentWillUnmount() {
     this.stopScore({ reset: true });
     this.resetVotation();
@@ -123,12 +129,13 @@ class Principal extends React.Component {
       firstBlocksNumbers,
       allBlocksNumbers,
       redirection,
-      blockToValidate
+      blockToValidate,
+      blockchain
     } = this.state;
 
     return (
       <>
-        {votation && <PopUpVotation blockToValidate={blockToValidate} />}
+        {votation && <PopUpVotation blockToValidate={{ ...blockToValidate, score, miner, blockchain }} />}
 
         <div className={styles.mainContainer}>
           <Header name={miner.name} score={score} />
@@ -156,8 +163,11 @@ class Principal extends React.Component {
                 blockToValidate: {
                   puzzle: allBlocksNumbers,
                   signature: currentPuzzle,
-                  user: true,
-                  firstBlocksNumbers
+                  userMined: true,
+                  firstBlocksNumbers,
+                  score,
+                  miner,
+                  blockchain
                 }
               }
             }}
