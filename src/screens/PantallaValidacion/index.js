@@ -40,7 +40,7 @@ function PantallaValidacion({
 
   return (
     <>
-      <div className={styles.coversScreen} />
+      {userMined && <div className={styles.coversScreen} />}
       <div className={styles.pantallaValidacion}>
         <ImageLineas />
         <div className={styles.container}>

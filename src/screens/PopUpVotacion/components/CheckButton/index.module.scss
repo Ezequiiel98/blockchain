@@ -2,11 +2,11 @@
   width: 295px;
   height: 65px;
   background-color: #520D71;
-  transition: background-color .2s ease, transform .1s ease .4s;
-  -webkit-transition: background-color .2s ease, transform .1s ease .4s;
-  -moz-transition: background-color .2s ease, transform .1s ease .4s;
-  -ms-transition: background-color .2s ease, transform .1s ease .4s;
-  -o-transition: background-color .2s ease, transform .1s ease .4s;
+  transition: background-color .2s ease, transform .1s ease ;
+  -webkit-transition: background-color .2s ease, transform .1s ease ;
+  -moz-transition: background-color .2s ease, transform .1s ease ;
+  -ms-transition: background-color .2s ease, transform .1s ease ;
+  -o-transition: background-color .2s ease, transform .1s ease ;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -15,20 +15,20 @@
 }
 
 $heightButton: 57px;
-$fontSize: 18px;
+$fontSizeButton: 18px;
 
 .button {
   display: inline-block;
   width: 100%;
   height: $heightButton;
-  font-size: $fontSize;
+  font-size: $fontSizeButton;
   font-weight: bold;
   color: white;
   background-color: #7758A2;
   text-align: center;
   text-decoration: none;
   /* centra verticalmente el texto que contiene el button */
-  padding-top: calc(( #{$heightButton} - #{$fontSize} - 5px) / 2);
+  padding-top: calc(( #{$heightButton} - #{$fontSizeButton} - 5px) / 2);
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
