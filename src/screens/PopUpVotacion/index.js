@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './index.module.scss';
 import MainText from './components/MainText';
@@ -19,4 +20,8 @@ function PopUpVotacion({ blockToValidate }) {
   );
 }
 
+PopUpVotacion.propTypes = {
+  blockToValidate: PropTypes.instanceOf(Object).isRequired
+
+}
 export default PopUpVotacion;

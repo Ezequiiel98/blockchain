@@ -22,7 +22,7 @@ function Score({ score }) {
 }
 
 Score.propTypes = {
-  score: PropTypes.string
+  score: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 Score.defaultProps = {
