@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { sendVote } from '../../services/votingService';
 import BoardResolution from '../../components/BoardResolution';
 import Score from '../../components/Score';
 
@@ -10,22 +11,18 @@ import Text from './Text';
 import styles from './index.module.scss';
 import Buttons from './Buttons';
 
-function PantallaValidacion({
-  location: {
-    state: {
-      blockToValidate: {
-        puzzle,
-        signature,
-        voting_id,
-        userMined,
-        firstBlocksNumbers,
-        score,
-        miner,
-        blockchain
-      }
-    }
-  }
-}) {
+function PantallaValidacion(props) {
+  const {
+    puzzle,
+    signature,
+    voting_id,
+    userMined,
+    firstBlocksNumbers,
+    score,
+    miner,
+    blockchain
+  } = props.location.state.blockToValidate;
+console.log(props)
   const firstBlocksNumbersApi = {};
   /* Si este no es el usuario que mino el bloque, creo el objeto con los primeros numeros para colorear las ultimas columnas del tablero de resolucion*/
   if (!userMined) {
@@ -37,6 +34,18 @@ function PantallaValidacion({
       })
     );
   }
+
+  const handleClick = async commit => {
+    const data = {
+      blockchain: { id: blockchain.id },
+      commit,
+      miner: { score, uuid: miner.uuid },
+      voting: { voting_id }
+    };
+    const res = await sendVote(data);
+    console.log(res, res.data, res.status, data);
+    props.history.goBack()
+  };
 
   return (
     <>
@@ -57,7 +66,7 @@ function PantallaValidacion({
               />
 
               <div className={styles.buttons}>
-                <Buttons />
+                <Buttons onClick={handleClick} />
               </div>
             </div>
           </div>
