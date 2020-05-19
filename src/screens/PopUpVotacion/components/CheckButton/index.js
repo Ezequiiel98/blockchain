@@ -1,13 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './index.module.scss';
 
-function CheckButton({ text }) {
+function CheckButton({ text, blockToValidate }) {
   return (
     <div className={styles.containerButton}>
-      <button type="button" className={styles.button}>
+      <Link
+        className={styles.button}
+        to={{
+          pathname: '/validation',
+          state: {
+            blockToValidate
+          }
+        }}
+      >
         {text}
-      </button>
+      </Link>
     </div>
   );
 }

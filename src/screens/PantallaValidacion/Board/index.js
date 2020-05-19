@@ -1,19 +1,14 @@
 import React from 'react';
 
+import Blocks from './components/Blocks'
 import styles from './index.module.scss';
 
-function Board() {
-  const CELL_NUMBERS = 16;
-  const renderCells = () =>
-    [...Array(CELL_NUMBERS)].map(() => (
-      <div className={styles.cell}>
-        <span className={styles.number}>24</span>
-      </div>
-    ));
-
+function Board(props) {
   return (
     <div className={styles.containerBoard}>
-      <div className={styles.board}>{renderCells()}</div>
+      <div className={styles.board}>
+        <Blocks {...props} />
+      </div>
     </div>
   );
 }

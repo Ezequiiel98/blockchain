@@ -1,0 +1,33 @@
+@import '../../../../../assets/scss/colors.scss';
+
+.number {
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 58px;
+}
+
+.cell {
+  min-width: 25%;
+  min-height: 25%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell{
+  border: 4px solid white;
+}
+
+$colors: ("red": $red, "yellow": $yellow, "blue": $blue, "lightblue": $lightblue, "green": $green, "gray": $moon);
+
+@each $name, $bc-color in $colors{
+  .#{$name} {
+    @extend .cell;
+    background-color: #{$bc-color};
+  }
+}
+

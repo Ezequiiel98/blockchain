@@ -1,14 +1,15 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { fetchGame, setNews } from '../../services/gameService';
 import { sendBlocks } from '../../services/blockService';
-import PopUpVotacion from '../PopUpVotacion';
+import PopUpVotation from '../PopUpVotacion';
 
 import Header from './components/Header';
 import Blocks from './components/Blocks';
 import BoardGame from './components/BoardGame';
 import Resolution from './components/Resolution';
-import ImgBackground from './components/ImgBackground';
 import styles from './index.module.scss';
 
 class Principal extends React.Component {
@@ -17,11 +18,14 @@ class Principal extends React.Component {
     miner: {},
     blockchain: {},
     currentPuzzle: {},
-    blocksNumbers: {},
+    allBlocksNumbers: {},
+    firstBlocksNumbers: {},
     orderedPositions: {},
     score: 0,
     disabled: true,
-    votation: false
+    votation: false,
+    blockToValidate: {},
+    redirection: false
   };
 
   newsUpdate = async () => {
@@ -30,6 +34,9 @@ class Principal extends React.Component {
     const data = { blockchain, miner };
     const res = await setNews(data);
     this.setState({ votation: res.data.open_voting });
+    if (this.state.votation) {
+      this.setState({ blockToValidate: res.data.block_to_validate });
+    }
     console.log(res.data);
   };
 
@@ -48,9 +55,9 @@ class Principal extends React.Component {
 
   getGame = async dataMiner => {
     const res = await fetchGame(dataMiner);
-    const { transactions, miner, blockchain, current_puzle } = res.data;
-    this.setState({ transactions, miner, blockchain, currentPuzle: current_puzle });
-    console.log(res.data);
+    const { transactions, miner, blockchain } = res.data;
+    const currentPuzzle = res.data.current_puzzle;
+    this.setState({ transactions, miner, blockchain, currentPuzzle });
   };
 
   setScore = () => {
@@ -70,18 +77,17 @@ class Principal extends React.Component {
     }
   };
 
-  getGame = async dataMiner => {
-    const res = await fetchGame(dataMiner);
-    const { transactions, miner, blockchain, current_puzzle } = res.data;
-    this.setState({ transactions, miner, blockchain, currentPuzzle: current_puzzle });
-    console.log(res.data);
-  };
-
   componentDidMount() {
     const { dataMiner } = this.props.location.state;
     this.getGame(dataMiner);
-    /*   this.setScore();
-    this.setVotation(); */
+    this.setScore();
+    this.setVotation();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.votation !== this.state.votation && this.state.votation) {
+      this.stopScore({ reset: false });
+    }
   }
 
   componentWillUnmount() {
@@ -97,46 +103,85 @@ class Principal extends React.Component {
     miner = { uuid: miner.uuid, score };
 
     const data = { blockchain, miner, ...orderedPositions };
-    //    const res = await sendBlocks(data);
-    //   console.log(res.status, data)
-    console.log(data);
+    const res = await sendBlocks(data);
+    console.log(res, data);
   };
 
   handleDisabledButton = ({ disabled }) => this.setState({ disabled });
 
   handlePositions = orderedPositions => this.setState({ orderedPositions });
 
-  handleBlocksNumbers = blocksNumbers => this.setState({ blocksNumbers });
+  handleBlocksNumbers = ({ firstBlocksNumbers, allBlocksNumbers }) =>
+    this.setState({ firstBlocksNumbers, allBlocksNumbers });
 
   handleClick = () => {
     this.stopScore({ reset: false });
     this.addBlock();
+    this.setState({ redirection: true });
   };
 
   render() {
-    const { miner, transactions, disabled, score, currentPuzzle, blocksNumbers } = this.state;
+    const {
+      miner,
+      transactions,
+      disabled,
+      score,
+      currentPuzzle,
+      votation,
+      firstBlocksNumbers,
+      allBlocksNumbers,
+      redirection,
+      blockToValidate,
+      blockchain
+    } = this.state;
+
     return (
-      <div className={styles.mainContainer}>
-        {this.state.votation && <PopUpVotacion />}
-        <Header name={miner.name} score={score} />
-        <Blocks transactions={transactions} />
-        <div className={styles.boards}>
-          <BoardGame
-            transactions={transactions}
-            onDisabledButton={this.handleDisabledButton}
-            onPositions={this.handlePositions}
-            onBlocksNumbers={this.handleBlocksNumbers}
-          />
-          <Resolution
-            disabled={disabled}
-            onClick={this.handleClick}
-            puzzle={currentPuzzle}
-            blocksNumbers={blocksNumbers}
-          />
+      <>
+        {votation && <PopUpVotation blockToValidate={{ ...blockToValidate, score, miner, blockchain }} />}
+        
+        <div className={styles.mainContainer}>
+          <Header name={miner.name} score={score} />
+          <Blocks transactions={transactions} />
+          <div className={styles.boards}>
+            <BoardGame
+              transactions={transactions}
+              onDisabledButton={this.handleDisabledButton}
+              onPositions={this.handlePositions}
+              onBlocksNumbers={this.handleBlocksNumbers}
+            />
+            <Resolution
+              disabled={disabled}
+              onClick={this.handleClick}
+              puzzle={currentPuzzle}
+              firstBlocksNumbers={firstBlocksNumbers}
+            />
+          </div>
         </div>
-      </div>
-    )
+        {redirection && (
+          <Redirect
+            to={{
+              pathname: '/validation',
+              state: {
+                blockToValidate: {
+                  puzzle: allBlocksNumbers,
+                  signature: currentPuzzle,
+                  userMined: true,
+                  firstBlocksNumbers,
+                  score,
+                  miner,
+                  blockchain
+                }
+              }
+            }}
+          />
+        )}
+      </>
+    );
   }
 }
+
+Principal.propTypes = {
+  location: PropTypes.instanceOf(Object).isRequired
+};
 
 export default Principal;
