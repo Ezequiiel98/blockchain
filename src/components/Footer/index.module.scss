@@ -1,3 +1,9 @@
-.containterFooter {
+.containerFooter {
     background-color: #533D71;
+    display: flex;
+    background-image: url('assets/img/violetLines.png');
+    overflow: hidden;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 5px 5px 0 5px
 }
