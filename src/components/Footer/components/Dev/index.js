@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './index.module.scss';
 import githubIcon from './assets/img/githubIcon.png';
-import linkedinIcon from './assets/img/linkedinIcon.jpg';
+import linkedinIcon from './assets/img/linkedinIcon.png';
 
 function Dev({ name, linkedin, github }) {
   return (

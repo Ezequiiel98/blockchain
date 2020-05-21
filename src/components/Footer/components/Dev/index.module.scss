@@ -1,13 +1,13 @@
 .containerDev {
   display: flex;
   max-width: 30%;
-  align-items: center;
   margin: 0; 
-  padding: 0; 
+  padding-top: 5px;
+  align-items: center; 
 }
 
 .nameDev{
-  margin-right: 10px;
+  margin-right: 2px;
   font-size: 18px;
   font-weight: bold;
   color: white;
@@ -15,9 +15,8 @@
 
 .containerIcons {
   display: flex;
-  max-width: 60px;
+  max-width: 68px;
   justify-content: space-between;
-  align-items: center;
 }
 
 .linkedinIcon>img,
@@ -27,10 +26,14 @@
 }
 
 .githubIcon{
-  max-width: 45%;
+  min-width: 24px;
+  align-self: center;
+  margin-top: 2px;
 }
-.linkedinIcon {
-  max-width: 50%;
+
+.linkedinIcon{
+  margin-top: 4px;
+  min-width: 44px;
 }
 
 
