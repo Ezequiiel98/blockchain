@@ -199,11 +199,11 @@ class BoardGame extends React.Component {
   render() {
     return (
       <div className={styles.board}>
-        {BOARD_CELLS.map(cell => (
-          /* row */
-          <div className={styles.rowCell} key={cell.idRow} id={cell.idRow}>
-            {cell.idColumns.map(idColumn => (
-              /* columns  */
+        {/*  row */}
+        {BOARD_CELLS.map(row => (
+          <div className={styles.rowCell} key={row.idRow} id={row.idRow}>
+            {/* columns */}
+            {row.idColumns.map(idColumn => (
               <div
                 className={`${styles.columnCell} columnDrag`}
                 key={idColumn}

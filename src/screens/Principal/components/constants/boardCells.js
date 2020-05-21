@@ -14,7 +14,7 @@ const BOARD_CELLS = [
   {
     idRow: 'row-3',
     idColumns: ['row-3_column-0', 'row-3_column-1', 'row-3_column-2', 'row-3_column-3']
-  },
+  }
 ];
 
 export default BOARD_CELLS;

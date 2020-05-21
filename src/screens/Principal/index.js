@@ -21,10 +21,10 @@ class Principal extends React.Component {
     allBlocksNumbers: {},
     firstBlocksNumbers: {},
     orderedPositions: {},
+    blockToValidate: {},
     score: 0,
     disabled: true,
     votation: false,
-    blockToValidate: {},
     redirection: false
   };
 
@@ -37,7 +37,6 @@ class Principal extends React.Component {
     if (this.state.votation) {
       this.setState({ blockToValidate: res.data.block_to_validate });
     }
-    console.log(res.data);
   };
 
   setVotation = () => {
@@ -103,8 +102,9 @@ class Principal extends React.Component {
     miner = { uuid: miner.uuid, score };
 
     const data = { blockchain, miner, ...orderedPositions };
-    const res = await sendBlocks(data);
-    console.log(res, data);
+    /*  const res = await sendBlocks(data);
+    console.log(res, data); */
+    await sendBlocks(data);
   };
 
   handleDisabledButton = ({ disabled }) => this.setState({ disabled });
@@ -138,7 +138,7 @@ class Principal extends React.Component {
     return (
       <>
         {votation && <PopUpVotation blockToValidate={{ ...blockToValidate, score, miner, blockchain }} />}
-        
+
         <div className={styles.mainContainer}>
           <Header name={miner.name} score={score} />
           <Blocks transactions={transactions} />
