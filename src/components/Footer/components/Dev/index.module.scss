@@ -17,6 +17,7 @@
   display: flex;
   max-width: 68px;
   justify-content: space-between;
+  margin-top: 2.5px;
 }
 
 .linkedinIcon>img,
@@ -28,11 +29,10 @@
 .githubIcon{
   min-width: 24px;
   align-self: center;
-  margin-top: 2px;
 }
 
 .linkedinIcon{
-  margin-top: 4px;
+  align-self: center;
   min-width: 44px;
 }
 
