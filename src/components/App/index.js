@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Provider as ProviderLogin } from '../../contexts/ContextLogin/ContextLogin';
+import Footer from '../Footer';
 
 import Main from './components/Main';
 
@@ -14,9 +15,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <ProviderLogin value={this.state}>
-        <Main />
-      </ProviderLogin>
+      <>
+        <ProviderLogin value={this.state}>
+          <Main />
+        </ProviderLogin>
+        <Footer />
+      </>
     );
   }
 }
