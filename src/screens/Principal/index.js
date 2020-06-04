@@ -54,8 +54,7 @@ class Principal extends React.Component {
 
   getGame = async dataMiner => {
     const res = await fetchGame(dataMiner);
-    const { transactions, miner, blockchain } = res.data;
-    const currentPuzzle = res.data.current_puzzle;
+    const { transactions, miner, blockchain, current_puzzle: currentPuzzle } = res.data;
     this.setState({ transactions, miner, blockchain, currentPuzzle });
   };
 

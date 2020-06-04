@@ -7,6 +7,29 @@
   z-index: 2;
   overflow: hidden;
   position: relative;
+
+  &:hover .noCertified {
+    opacity: 1;
+  }
+}
+
+
+.noCertified {
+  content: '';
+  position: absolute;
+  background-color: inherit;
+  opacity: 0;
+  z-index: 2;
+  transform: rotateZ(49deg);
+  -webkit-transform: rotateZ(49deg);
+  -moz-transform: rotateZ(49deg);
+  -ms-transform: rotateZ(49deg);
+  -o-transform: rotateZ(49deg);
+  transition: opacity .1s ease;
+  -webkit-transition: opacity .1s ease;
+  -moz-transition: opacity .1s ease;
+  -ms-transition: opacity .1s ease;
+  -o-transition: opacity .1s ease;
 }
 
 .containerSmallBlock {
@@ -19,8 +42,11 @@
     transform: translateY(6px);
   }
 
-  &:hover .noCertified {
-    opacity: 1;
+  & .noCertified{
+    width: 12px;
+    height: 95px;
+    right: 29px;
+    top: -15px;
   }
 }
 
@@ -31,20 +57,18 @@
   height: 114px;
   width: 114px;
   transform: translate(-2px, -2px);
-}
 
-.noCertified {
-  content: '';
-  position: absolute;
-  top: -15px;
-  background-color: inherit;
-  right: 29px;
-  width: 12px;
-  height: 95px;
-  transform: rotateZ(49deg);
-  opacity: 0;
-  transition: opacity .1s ease;
-  z-index: 2;
+  & .noCertified{
+    width: 12px;
+    height: calc(100% + 60px);
+    right: 46%;
+    top: -28px;
+    transform: rotateZ(45deg)  ;
+    -webkit-transform: rotateZ(45deg)  ;
+    -moz-transform: rotateZ(45deg)  ;
+    -ms-transform: rotateZ(45deg)  ;
+    -o-transform: rotateZ(45deg)  ;
+  }
 }
 
 /* Block */
@@ -55,11 +79,11 @@
   overflow: hidden;
 
   &:hover {
-  cursor: pointer;
+    cursor: pointer;
   }
 
   &:active {
-  cursor: move;
+    cursor: move;
   }
 }
 
@@ -83,50 +107,22 @@
 }
 
 /* Blocks  Background colors  */
-.yellow {
-  @extend .block;
-  background-color: $yellow;
+$lightColors: ("red": $red, "yellow": $yellow, "blue": $blue, "lightblue": $lightblue, "green": $green);
+
+$darkColors: ("redDark": $redDark, "yellowDark": $yellowDark, "blueDark": $blueDark, "lightblueDark": $lightblueDark, "greenDark": $greenDark);
+
+@mixin bc-color-block($list) {
+  @each $name, $bc-color in $list{
+    .#{$name} {
+      @extend .block;
+      background-color: #{$bc-color};
+    }
+  }
 }
 
-.yellowDark {
-  background-color: $yellowDark;
-}
+@include bc-color-block($lightColors);
+@include bc-color-block($darkColors);
 
-.green {
-  @extend .block;
-  background-color: $green;
-}
-
-.greenDark {
-  background-color: $greenDark;
-}
-
-.lightblue {
-  @extend .block;
-  background-color: $lightblue;
-}
-
-.lightblueDark {
-  background-color: $lightblueDark;
-}
-
-.red {
-  @extend .block;
-  background-color: $red;
-}
-
-.redDark {
-  background-color: $redDark;
-}
-
-.blue {
-  @extend .block;
-  background-color: $blue;
-}
-
-.blueDark {
-  background-color: $blueDark;
-}
 
 /* block points */
 .blockPoints {
