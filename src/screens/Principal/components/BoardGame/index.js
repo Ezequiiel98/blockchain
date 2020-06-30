@@ -7,14 +7,18 @@ import Block from '../Blocks/components/Block';
 import styles from './index.module.scss';
 
 class BoardGame extends React.Component {
-  state = {
-    dataBlocks: {},
-    dataBoardPositions: {},
-    firstBlocksNumbers: {},
-    allBlocksNumbers: {},
-    lastColumnTemp: '',
-    updateCount: false
+ constructor(props){
+   super(props);
+   
+  this.state = {
+     dataBlocks: {},
+     dataBoardPositions: {},
+     firstBlocksNumbers: {},
+     allBlocksNumbers: {},
+     lastColumnTemp: '',
+     updateCount: false
   };
+ } 
 
   splitPositions = dataBoardPositions =>
     Object.keys(dataBoardPositions)
@@ -189,10 +193,21 @@ class BoardGame extends React.Component {
 
     element.classList.remove(styles.cellDragHover);
   };
-
+  
   componentDidUpdate(prevProps, prevState) {
     if (prevState.dataBoardPositions !== this.state.dataBoardPositions && this.state.updateCount) {
       this.countFullColumns();
+    }
+
+    if(prevProps.clearBoard !== this.props.clearBoard && this.props.clearBoard){
+      this.setState({
+        dataBlocks: {},
+        dataBoardPositions: {},
+        firstBlocksNumbers: {},
+        allBlocksNumbers: {},
+        lastColumnTemp: '',
+        updateCount: false
+      })
     }
   }
 

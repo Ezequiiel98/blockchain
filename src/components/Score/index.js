@@ -6,7 +6,6 @@ import iconScoreNegative from './assets/img/iconScoreNegative.png';
 import styles from './index.module.scss';
 
 function Score({ score }) {
-  const myScore = Math.abs(score).toFixed(2);
   return (
     <div className={styles.containerScore}>
       <span className={styles.textScore}>Tu Puntaje</span>
@@ -16,7 +15,7 @@ function Score({ score }) {
           alt={`icono que indica puntaje ${score >= 0 ? 'positivo' : 'negativo'}`}
         />
       </div>
-      <span className={styles.score}>{myScore}</span>
+      <span className={styles.score}>{score}</span>
     </div>
   );
 }
@@ -26,7 +25,7 @@ Score.propTypes = {
 };
 
 Score.defaultProps = {
-  score: 1
+  score: 1 
 };
 
 export default Score;

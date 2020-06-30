@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { fetchGame, setNews } from '../../services/gameService';
@@ -13,26 +12,31 @@ import Resolution from './components/Resolution';
 import styles from './index.module.scss';
 
 class Principal extends React.Component {
-  state = {
-    transactions: {},
-    miner: {},
-    blockchain: {},
-    currentPuzzle: {},
-    allBlocksNumbers: {},
-    firstBlocksNumbers: {},
-    orderedPositions: {},
-    blockToValidate: {},
-    score: 0,
-    disabled: true,
-    votation: false,
-    redirection: false
-  };
+  constructor(props){
+    super(props);
 
+    this.state = {
+      transactions: {},
+      miner: {},
+      blockchain: {},
+      currentPuzzle: {},
+      allBlocksNumbers: {},
+      firstBlocksNumbers: {},
+      orderedPositions: {},
+      blockToValidate: {},
+      score: 0,
+      disabled: true,
+      votation: false,
+      clearBoard: false
+    };
+  }
+ 
   newsUpdate = async () => {
     const miner = { uuid: this.state.miner.uuid };
     const blockchain = { id: this.state.blockchain.id };
     const data = { blockchain, miner };
     const res = await setNews(data);
+    
     this.setState({ votation: res.data.open_voting });
     if (this.state.votation) {
       this.setState({ blockToValidate: res.data.block_to_validate });
@@ -55,7 +59,7 @@ class Principal extends React.Component {
   getGame = async dataMiner => {
     const res = await fetchGame(dataMiner);
     const { transactions, miner, blockchain, current_puzzle: currentPuzzle } = res.data;
-    this.setState({ transactions, miner, blockchain, currentPuzzle });
+    this.setState({ transactions, miner, blockchain, currentPuzzle, score: miner.score });
   };
 
   setScore = () => {
@@ -96,14 +100,15 @@ class Principal extends React.Component {
   addBlock = async () => {
     const { score, orderedPositions } = this.state;
     let { blockchain, miner } = this.state;
-
+    
     blockchain = { id: blockchain.id };
     miner = { uuid: miner.uuid, score };
-
+   
     const data = { blockchain, miner, ...orderedPositions };
-    /*  const res = await sendBlocks(data);
-    console.log(res, data); */
-    await sendBlocks(data);
+    const res = await sendBlocks(data);
+    const dataMiner = { ...res.data }; 
+  
+    this.getGame(dataMiner);
   };
 
   handleDisabledButton = ({ disabled }) => this.setState({ disabled });
@@ -113,10 +118,13 @@ class Principal extends React.Component {
   handleBlocksNumbers = ({ firstBlocksNumbers, allBlocksNumbers }) =>
     this.setState({ firstBlocksNumbers, allBlocksNumbers });
 
-  handleClick = () => {
-    this.stopScore({ reset: false });
-    this.addBlock();
-    this.setState({ redirection: true });
+  handleClick = async () => {
+   // this.stopScore({ reset: false });
+    this.setState({ clearBoard: true, disabled: true, transactions: {} });
+    await this.addBlock();
+    
+    this.setState({ clearBoard: false })
+
   };
 
   render() {
@@ -128,10 +136,9 @@ class Principal extends React.Component {
       currentPuzzle,
       votation,
       firstBlocksNumbers,
-      allBlocksNumbers,
-      redirection,
       blockToValidate,
-      blockchain
+      blockchain,
+      clearBoard
     } = this.state;
 
     return (
@@ -147,34 +154,17 @@ class Principal extends React.Component {
               onDisabledButton={this.handleDisabledButton}
               onPositions={this.handlePositions}
               onBlocksNumbers={this.handleBlocksNumbers}
-            />
+              clearBoard={clearBoard}
+	    />
             <Resolution
               disabled={disabled}
               onClick={this.handleClick}
               puzzle={currentPuzzle}
               firstBlocksNumbers={firstBlocksNumbers}
-            />
+	    />
           </div>
         </div>
-        {redirection && (
-          <Redirect
-            to={{
-              pathname: '/validation',
-              state: {
-                blockToValidate: {
-                  puzzle: allBlocksNumbers,
-                  signature: currentPuzzle,
-                  userMined: true,
-                  firstBlocksNumbers,
-                  score,
-                  miner,
-                  blockchain
-                }
-              }
-            }}
-          />
-        )}
-      </>
+       </>
     );
   }
 }

@@ -16,25 +16,21 @@ function PantallaValidacion(props) {
     puzzle,
     signature,
     voting_id,
-    userMined,
-    firstBlocksNumbers,
     score,
     miner,
     blockchain
   } = props.location.state.blockToValidate;
-console.log(props)
+ 
   const firstBlocksNumbersApi = {};
-  /* Si este no es el usuario que mino el bloque, creo el objeto con los primeros numeros para colorear las ultimas columnas del tablero de resolucion*/
-  if (!userMined) {
-    puzzle.forEach((row, indexRow) =>
-      row.forEach((column, indexColumn) => {
-        if (indexColumn === 0 || indexColumn === 1) {
-          firstBlocksNumbersApi[`row-${indexRow}_column-${indexColumn}`] = column[0];
-        }
-      })
-    );
-  }
-
+  
+  puzzle.forEach((row, indexRow) =>
+    row.forEach((column, indexColumn) => {
+    if (indexColumn === 0 || indexColumn === 1) {
+      firstBlocksNumbersApi[`row-${indexRow}_column-${indexColumn}`] = column[0];
+     }
+    })
+  );
+  
   const handleClick = async commit => {
     const data = {
       blockchain: { id: blockchain.id },
@@ -42,27 +38,27 @@ console.log(props)
       miner: { score, uuid: miner.uuid },
       voting: { voting_id }
     };
-    const res = await sendVote(data);
-    console.log(res, res.data, res.status, data);
+
+    await sendVote(data);
+    
     props.history.goBack()
   };
 
   return (
     <>
-      {userMined && <div className={styles.coversScreen} />}
       <div className={styles.pantallaValidacion}>
         <ImageLineas />
         <div className={styles.container}>
           <div className={styles.containerTextScore}>
-            <Text name={userMined ? 'Tus compañeros estan verificando tu bloque' : miner.name} />
+            <Text name={miner.name} />
             <Score score={score} />
           </div>
           <div className={styles.containerBoard}>
-            <Board allBlocksNumbers={puzzle} userMined={userMined} />
+            <Board allBlocksNumbers={puzzle} />
             <div className={styles.containerButton}>
               <BoardResolution
                 puzzle={signature}
-                firstBlocksNumbers={firstBlocksNumbers || firstBlocksNumbersApi}
+                firstBlocksNumbers={firstBlocksNumbersApi}
               />
 
               <div className={styles.buttons}>
