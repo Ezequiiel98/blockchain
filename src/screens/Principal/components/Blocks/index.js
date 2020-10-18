@@ -8,12 +8,12 @@ function Blocks({ transactions }) {
   /* scrolls buttons */
   const handleScrollNext = e => {
     const containerBlocks = e.target.parentNode.childNodes[2];
-    containerBlocks.scrollLeft += 50;
+    containerBlocks.scrollLeft += 200;
   };
 
   const handleScrollBack = e => {
     const containerBlocks = e.target.parentNode.childNodes[2];
-    containerBlocks.scrollLeft -= 50;
+    containerBlocks.scrollLeft -= 200;
   };
 
   /* scroll wheel mouse */

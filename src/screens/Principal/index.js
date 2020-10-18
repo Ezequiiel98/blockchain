@@ -122,7 +122,7 @@ class Principal extends React.Component {
     // this.stopScore({ reset: false });
     this.setState({ clearBoard: true, disabled: true, transactions: {} });
     await this.addBlock();
-
+    this.setState({ firstBlocksNumbers: {}, currentPuzzle: {} });
     this.setState({ clearBoard: false });
   };
 
