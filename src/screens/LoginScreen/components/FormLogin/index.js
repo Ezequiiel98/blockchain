@@ -11,11 +11,11 @@ import styles from './index.module.scss';
 /* This is a login screen form*/
 
 class FormLogin extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       name: '',
-      code: '',
+      code: '1',
       submittingForm: false,
       errorCode: false,
       errorName: false,
@@ -24,14 +24,14 @@ class FormLogin extends React.Component {
       dataMiner: {}
     };
   }
-  
+
   handleSendGame = async (data, setData) => {
-    this.setState({ submittingForm: true })
-    
+    this.setState({ submittingForm: true });
+
     const res = await sendGame(data);
-    
-    this.setState({ submittingForm: false })
-    
+
+    this.setState({ submittingForm: false });
+
     if (res.status === 500) {
       this.setState({ errorCode: true });
     } else if (res.status === 404) {
@@ -86,6 +86,7 @@ class FormLogin extends React.Component {
                 name="name"
                 id="name"
                 type="text"
+                value={this.state.name}
               />
               {this.state.errorName && <p className={styles.msgName}>El nombre es obligatorio</p>}
             </div>
@@ -99,6 +100,7 @@ class FormLogin extends React.Component {
                 name="code"
                 id="code"
                 type="text"
+                value={this.state.code}
               />
               {this.state.errorCode && (
                 <p className={styles.msgCode}>Código incorrecto. Verifica nuevamente</p>
@@ -108,7 +110,7 @@ class FormLogin extends React.Component {
               )}
             </div>
             <div className={styles.containerbutton}>
-              <VioletButton text="ENTRAR" typeButton="submit" disabled={this.state.submittingForm}/>
+              <VioletButton text="ENTRAR" typeButton="submit" disabled={this.state.submittingForm} />
               <WhiteButton text="ESPECTAR" />
             </div>
           </form>

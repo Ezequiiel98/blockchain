@@ -12,7 +12,7 @@ import Resolution from './components/Resolution';
 import styles from './index.module.scss';
 
 class Principal extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -30,13 +30,13 @@ class Principal extends React.Component {
       clearBoard: false
     };
   }
- 
+
   newsUpdate = async () => {
     const miner = { uuid: this.state.miner.uuid };
     const blockchain = { id: this.state.blockchain.id };
     const data = { blockchain, miner };
     const res = await setNews(data);
-    
+
     this.setState({ votation: res.data.open_voting });
     if (this.state.votation) {
       this.setState({ blockToValidate: res.data.block_to_validate });
@@ -56,12 +56,6 @@ class Principal extends React.Component {
     this.setState({ votation: false });
   };
 
-  getGame = async dataMiner => {
-    const res = await fetchGame(dataMiner);
-    const { transactions, miner, blockchain, current_puzzle: currentPuzzle } = res.data;
-    this.setState({ transactions, miner, blockchain, currentPuzzle, score: miner.score });
-  };
-
   setScore = () => {
     const TIME_INTERVAL = 100;
     const FIXED = 3;
@@ -77,6 +71,12 @@ class Principal extends React.Component {
     if (reset) {
       this.setState({ score: 0 });
     }
+  };
+
+  getGame = async dataMiner => {
+    const res = await fetchGame(dataMiner);
+    const { transactions, miner, blockchain, current_puzzle: currentPuzzle } = res.data;
+    this.setState({ transactions, miner, blockchain, currentPuzzle, score: miner?.score || 0 });
   };
 
   componentDidMount() {
@@ -100,14 +100,14 @@ class Principal extends React.Component {
   addBlock = async () => {
     const { score, orderedPositions } = this.state;
     let { blockchain, miner } = this.state;
-    
+
     blockchain = { id: blockchain.id };
     miner = { uuid: miner.uuid, score };
-   
+
     const data = { blockchain, miner, ...orderedPositions };
     const res = await sendBlocks(data);
-    const dataMiner = { ...res.data }; 
-  
+    const dataMiner = { ...res.data };
+
     this.getGame(dataMiner);
   };
 
@@ -119,12 +119,11 @@ class Principal extends React.Component {
     this.setState({ firstBlocksNumbers, allBlocksNumbers });
 
   handleClick = async () => {
-   // this.stopScore({ reset: false });
+    // this.stopScore({ reset: false });
     this.setState({ clearBoard: true, disabled: true, transactions: {} });
     await this.addBlock();
-    
-    this.setState({ clearBoard: false })
 
+    this.setState({ clearBoard: false });
   };
 
   render() {
@@ -146,7 +145,7 @@ class Principal extends React.Component {
         {votation && <PopUpVotation blockToValidate={{ ...blockToValidate, score, miner, blockchain }} />}
 
         <div className={styles.mainContainer}>
-          <Header name={miner.name} score={score} />
+          <Header name={miner?.name || 'miner'} score={score} />
           <Blocks transactions={transactions} />
           <div className={styles.boards}>
             <BoardGame
@@ -155,16 +154,16 @@ class Principal extends React.Component {
               onPositions={this.handlePositions}
               onBlocksNumbers={this.handleBlocksNumbers}
               clearBoard={clearBoard}
-	    />
+            />
             <Resolution
               disabled={disabled}
               onClick={this.handleClick}
               puzzle={currentPuzzle}
               firstBlocksNumbers={firstBlocksNumbers}
-	    />
+            />
           </div>
         </div>
-       </>
+      </>
     );
   }
 }
